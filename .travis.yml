@@ -2,7 +2,6 @@ language: elm
 
 node_js: '12'
 
-sudo: required
 dist: trusty
 
 elm:
@@ -20,8 +19,8 @@ cache:
 env:
   - NODE_ENV=production GAME=ElmMath GAME_URL="https://math.z0.lv/"
 
-#os:
-#  - linux
+os:
+  - linux
 #  - osx
 
 before_install:
@@ -47,10 +46,11 @@ script:
   - posthtml ./gh-pages/index.html -o ./gh-pages/index.html -c posthtml.config.js
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  provider: pages:git
+  cleanup: false
+  token: $GITHUB_TOKEN
   keep_history: true
   local_dir: benchmark/gh-pages
   on:
     branch: master
+  edge: true # opt in to dpl v2
