@@ -25,7 +25,7 @@ env:
 #  - osx
 
 before_install:
-  - if [[ $TRAVIS_BRANCH == master && $TRAVIS_EVENT_TYPE == push && ! "$GITHUB_TOKEN" ]]; then false fi
+  - if [[ $TRAVIS_BRANCH == master && $TRAVIS_EVENT_TYPE == push && ! "$GITHUB_TOKEN" ]]; then false; fi
   #Elm cache folders for each OS
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export ELM_HOME=./elm_cache_linux; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export ELM_HOME=./elm_cache_osx; fi
