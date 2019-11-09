@@ -2,7 +2,6 @@
  * npm i -g jscodeshift
  * jscodeshift -t transform.js elm.js
  */
-const glslx = require('glslx').compile;
 
 module.exports = function (file, api, options) {
     const j = api.jscodeshift;
