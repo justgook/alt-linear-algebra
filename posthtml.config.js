@@ -15,20 +15,15 @@ const socialTags_ = ({ facebook, twitter }) =>
     ({
         "meta": [
             // facebook
-            { "property": "fb:app_id", "content": facebook.facebookId },
             { "property": "og:type", "content": facebook.type },
             { "property": "og:url", "content": facebook.url },
             { "property": "og:title", "content": facebook.title },
             { "property": "og:description", "content": facebook.description },
-            { "property": "og:image", "content": facebook.image },
-            { "property": "og:image:width", "content": facebook.image_width },
-            { "property": "og:image:height", "content": facebook.image_height },
             // twitter
             { "name": "twitter:card", "content": twitter.card },
             { "name": "twitter:domain", "content": twitter.domain },
             { "name": "twitter:title", "content": twitter.title },
             { "name": "twitter:description", "content": twitter.description },
-            { "name": "twitter:image", "content": twitter.image },
             { "name": "twitter:url", "content": twitter.url },
             { "name": "twitter:label1", "content": twitter.label1 },
             { "name": "twitter:data1", "content": twitter.data1 },
@@ -95,7 +90,7 @@ module.exports = {
                             "name": "viewport",
                             "content": "width=device-width, initial-scale=1"
                         }
-                    ]/*.concat(buildSocialTags(info).meta)*/,
+                    ].concat(buildSocialTags(info).meta),
                     "title": `${process.env.GAME} (${info.title})`,
 
                     "base": [
