@@ -2,18 +2,11 @@
   "name": "web-tiled",
   "version": "1.0.0",
   "main": "electron.js",
-  "repository": "https://github.com/justgook/web-tiled",
+  "repository": "https://github.com/justgook/elm-math",
   "author": "Romans Potasovs",
   "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "electron": "6.0.6"
-  },
-  "scripts": {
-    "start": "electron ."
-  },
   "dependencies": {
-    "glslx": "0.1.26",
     "htmlnano": "0.2.4",
     "jscodeshift": "0.6.4",
     "node-server-screenshot": "0.2.2",

@@ -18,17 +18,13 @@ cache:
     - elm_cache_osx
 
 env:
-  - GAME_SOUNDS="" NODE_ENV=production GAME=Tiled GAME_URL="https://tiled.z0.lv/" GAME_FILE="top-down-adventure/demo.json" GAME_FAVICON="top-down-adventure/favicon.png"
+  - GAME_SOUNDS="" NODE_ENV=production GAME=Tiled GAME_URL="https://math.z0.lv/"
 
 #os:
 #  - linux
 #  - osx
 
 before_install:
-  #  for Electron application
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
   #Elm cache folders for each OS
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export ELM_HOME=./elm_cache_linux; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export ELM_HOME=./elm_cache_osx; fi
@@ -38,22 +34,21 @@ before_install:
 #  - elm-format --validate . && elm-test #&& elm-test lib/elm-tiled && elm-test lib/elm-image
 
 script:
-  #  - elm make src/Main.elm --optimize --output=./gh-pages/${GAME}_bundle.js
-  - elm make src/Main.elm --output=./gh-pages/${GAME}_bundle.js
-  - jscodeshift -t transform.js ./gh-pages/${GAME}_bundle.js
-  - uglifyjs ./gh-pages/${GAME}_bundle.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters" --output=./gh-pages/${GAME}_bundle.js
-  - prepack ./gh-pages/${GAME}_bundle.js --inlineExpressions --out ./gh-pages/${GAME}_bundle.js
-  - terser ./gh-pages/${GAME}_bundle.js ./gh-pages/script.js --compress 'keep_fargs=false,unsafe_comps,unsafe' --mangle --output=./gh-pages/${GAME}_bundle.js
+  - cd benchmark
+  - elm make src/Main.elm --output=./gh-pages/bundle.js
+  - elm make src/Main.elm --optimize --output=./gh-pages/bundle.optimize.js
+  - elm make src/Main.elm --optimize --output=./gh-pages/bundle.min.js
+  - jscodeshift -t transform.js ./gh-pages/bundle.min.js
+  - uglifyjs ./gh-pages/bundle.min.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters" --output=./gh-pages/bundle.min.js
+  - prepack ./gh-pages/bundle.min.js --inlineExpressions --out ./gh-pages/bundle.min.js
+  - terser ./gh-pages/bundle.min.js ./gh-pages/script.js --compress 'keep_fargs=false,unsafe_comps,unsafe' --mangle --output=./gh-pages/bundle.min.js
   - posthtml ./gh-pages/index.html -o ./gh-pages/index.html -c posthtml.config.js
-  - if [ "$GAME_SOUNDS" != "" ]; then audiosprite --format howler2 --loop Background --output ./gh-pages/${GAME} "${GAME_SOUNDS}/*.+(mp3|wav)" -u /; fi
-  - node build-assets.js
-  - if [ "$GAME_SOUNDS" != "" ]; then rm ./gh-pages/${GAME}.json; fi
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  local-dir: gh-pages
+  local-dir: benchmark/gh-pages
   on:
     branch: master
