@@ -92,22 +92,22 @@ getZ =
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec3 -> Vec3
-setX x v3 =
-    { v3 | x = x }
+setX x { y, z } =
+    { x = x, y = y, z = z }
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec3 -> Vec3
-setY y v3 =
-    { v3 | y = y }
+setY y { x, z } =
+    { x = x, y = y, z = z }
 
 
 {-| Update the z component of a vector, returning a new vector.
 -}
 setZ : Float -> Vec3 -> Vec3
-setZ z v3 =
-    { v3 | z = z }
+setZ z { x, y } =
+    { x = x, y = y, z = z }
 
 
 {-| Convert a vector to a record.

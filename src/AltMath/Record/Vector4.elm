@@ -78,29 +78,29 @@ getW =
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec4 -> Vec4
-setX x v4 =
-    { v4 | x = x }
+setX x { y, z, w } =
+    { x = x, y = y, z = z, w = w }
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec4 -> Vec4
-setY y v4 =
-    { v4 | y = y }
+setY y { x, y, z, w } =
+    { x = x, y = y, z = z, w = w }
 
 
 {-| Update the z component of a vector, returning a new vector.
 -}
 setZ : Float -> Vec4 -> Vec4
-setZ z v4 =
-    { v4 | z = z }
+setZ z { x, y, w } =
+    { x = x, y = y, z = z, w = w }
 
 
 {-| Update the w component of a vector, returning a new vector.
 -}
 setW : Float -> Vec4 -> Vec4
-setW w v4 =
-    { v4 | w = w }
+setW w { x, y, z } =
+    { x = x, y = y, z = z, w = w }
 
 
 {-| Convert a vector to a record.

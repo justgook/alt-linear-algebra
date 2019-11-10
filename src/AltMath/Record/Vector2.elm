@@ -64,15 +64,15 @@ getY =
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec2 -> Vec2
-setX x v2 =
-    { v2 | x = x }
+setX x { y } =
+    { x = x, y = y }
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec2 -> Vec2
-setY y v2 =
-    { v2 | y = y }
+setY y { x } =
+    { x = x, y = y }
 
 
 {-| Convert a vector to a record.
