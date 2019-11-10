@@ -85,7 +85,7 @@ setX x { y, z, w } =
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec4 -> Vec4
-setY y { x, y, z, w } =
+setY y { x, z, w } =
     { x = x, y = y, z = z, w = w }
 
 
