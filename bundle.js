@@ -6355,10 +6355,9 @@ var $author$project$Vector2$scale = function (_v0) {
 			]));
 };
 var $author$project$AltMath$Record$Vector2$setX = F2(
-	function (x, v2) {
-		return _Utils_update(
-			v2,
-			{x: x});
+	function (x, _v0) {
+		var y = _v0.y;
+		return {x: x, y: y};
 	});
 var $author$project$AltMath$Tuple$Vector2$setX = F2(
 	function (x, _v0) {
@@ -6409,10 +6408,9 @@ var $author$project$Vector2$setX = F2(
 				]));
 	});
 var $author$project$AltMath$Record$Vector2$setY = F2(
-	function (y, v2) {
-		return _Utils_update(
-			v2,
-			{y: y});
+	function (y, _v0) {
+		var x = _v0.x;
+		return {x: x, y: y};
 	});
 var $author$project$AltMath$Tuple$Vector2$setY = F2(
 	function (y, _v0) {
@@ -7542,10 +7540,10 @@ var $author$project$Vector3$scale = function (_v0) {
 			]));
 };
 var $author$project$AltMath$Record$Vector3$setX = F2(
-	function (x, v3) {
-		return _Utils_update(
-			v3,
-			{x: x});
+	function (x, _v0) {
+		var y = _v0.y;
+		var z = _v0.z;
+		return {x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector3$setX = F2(
 	function (x, _v0) {
@@ -7598,10 +7596,10 @@ var $author$project$Vector3$setX = F2(
 				]));
 	});
 var $author$project$AltMath$Record$Vector3$setY = F2(
-	function (y, v3) {
-		return _Utils_update(
-			v3,
-			{y: y});
+	function (y, _v0) {
+		var x = _v0.x;
+		var z = _v0.z;
+		return {x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector3$setY = F2(
 	function (y, _v0) {
@@ -7654,10 +7652,10 @@ var $author$project$Vector3$setY = F2(
 				]));
 	});
 var $author$project$AltMath$Record$Vector3$setZ = F2(
-	function (z, v3) {
-		return _Utils_update(
-			v3,
-			{z: z});
+	function (z, _v0) {
+		var x = _v0.x;
+		var y = _v0.y;
+		return {x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector3$setZ = F2(
 	function (z, _v0) {
@@ -8827,10 +8825,11 @@ var $author$project$Vector4$scale = function (_v0) {
 			]));
 };
 var $author$project$AltMath$Record$Vector4$setW = F2(
-	function (w, v4) {
-		return _Utils_update(
-			v4,
-			{w: w});
+	function (w, _v0) {
+		var x = _v0.x;
+		var y = _v0.y;
+		var z = _v0.z;
+		return {w: w, x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector4$setW = F2(
 	function (w, _v0) {
@@ -8889,10 +8888,11 @@ var $author$project$Vector4$setW = F2(
 				]));
 	});
 var $author$project$AltMath$Record$Vector4$setX = F2(
-	function (x, v4) {
-		return _Utils_update(
-			v4,
-			{x: x});
+	function (x, _v0) {
+		var y = _v0.y;
+		var z = _v0.z;
+		var w = _v0.w;
+		return {w: w, x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector4$setX = F2(
 	function (x, _v0) {
@@ -8951,10 +8951,11 @@ var $author$project$Vector4$setX = F2(
 				]));
 	});
 var $author$project$AltMath$Record$Vector4$setY = F2(
-	function (y, v4) {
-		return _Utils_update(
-			v4,
-			{y: y});
+	function (y, _v0) {
+		var x = _v0.x;
+		var z = _v0.z;
+		var w = _v0.w;
+		return {w: w, x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector4$setY = F2(
 	function (y, _v0) {
@@ -9013,10 +9014,11 @@ var $author$project$Vector4$setY = F2(
 				]));
 	});
 var $author$project$AltMath$Record$Vector4$setZ = F2(
-	function (z, v4) {
-		return _Utils_update(
-			v4,
-			{z: z});
+	function (z, _v0) {
+		var x = _v0.x;
+		var y = _v0.y;
+		var w = _v0.w;
+		return {w: w, x: x, y: y, z: z};
 	});
 var $author$project$AltMath$Tuple$Vector4$setZ = F2(
 	function (z, _v0) {
