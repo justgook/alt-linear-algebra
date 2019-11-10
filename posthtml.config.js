@@ -1,6 +1,6 @@
 const packageJson = require("./package.json");
 
-const root = "gh-pages";
+const root = "benchmark/gh-pages";
 
 const info = {
     url: `${process.env.GAME_URL}`,
@@ -9,6 +9,7 @@ const info = {
     version: packageJson.version,
     license: packageJson.license,
     twitterName: "@justgook",
+    image: "image.jpg",
 
 };
 const socialTags_ = ({ facebook, twitter }) =>

@@ -6,6 +6,9 @@
   "author": "Romans Potasovs",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "posthtml": "posthtml ./benchmark/gh-pages/index.html -o ./benchmark/gh-pages/index.html -c posthtml.config.js"
+  },
   "dependencies": {
     "htmlnano": "0.2.5",
     "jscodeshift": "0.6.4",
