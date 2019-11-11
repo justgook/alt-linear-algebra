@@ -138,22 +138,22 @@ inverse m =
 
     else
         Just
-            { m11 = r11 * det
-            , m21 = r21 * det
-            , m31 = r31 * det
-            , m41 = r41 * det
-            , m12 = r12 * det
-            , m22 = r22 * det
-            , m32 = r32 * det
-            , m42 = r42 * det
-            , m13 = r13 * det
-            , m23 = r23 * det
-            , m33 = r33 * det
-            , m43 = r43 * det
-            , m14 = r14 * det
-            , m24 = r24 * det
-            , m34 = r34 * det
-            , m44 = r44 * det
+            { m11 = r11 * idet
+            , m21 = r21 * idet
+            , m31 = r31 * idet
+            , m41 = r41 * idet
+            , m12 = r12 * idet
+            , m22 = r22 * idet
+            , m32 = r32 * idet
+            , m42 = r42 * idet
+            , m13 = r13 * idet
+            , m23 = r23 * idet
+            , m33 = r33 * idet
+            , m43 = r43 * idet
+            , m14 = r14 * idet
+            , m24 = r24 * idet
+            , m34 = r34 * idet
+            , m44 = r44 * idet
             }
 
 

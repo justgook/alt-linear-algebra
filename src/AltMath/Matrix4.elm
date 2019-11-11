@@ -137,7 +137,25 @@ inverse (Mat4 m11 m21 m31 m41 m12 m22 m32 m42 m13 m23 m33 m43 m14 m24 m34 m44) =
         Nothing
 
     else
-        Just (Mat4 (r11 * det) (r21 * det) (r31 * det) (r41 * det) (r12 * det) (r22 * det) (r32 * det) (r42 * det) (r13 * det) (r23 * det) (r33 * det) (r43 * det) (r14 * det) (r24 * det) (r34 * det) (r44 * det))
+        Just
+            (Mat4
+                (r11 * idet)
+                (r21 * idet)
+                (r31 * idet)
+                (r41 * idet)
+                (r12 * idet)
+                (r22 * idet)
+                (r32 * idet)
+                (r42 * idet)
+                (r13 * idet)
+                (r23 * idet)
+                (r33 * idet)
+                (r43 * idet)
+                (r14 * idet)
+                (r24 * idet)
+                (r34 * idet)
+                (r44 * idet)
+            )
 
 
 {-| Computes the inverse of the given matrix, assuming that the matrix is
