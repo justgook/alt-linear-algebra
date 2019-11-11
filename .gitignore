@@ -5,9 +5,7 @@ logs
 #Dependencies
 node_modules/
 elm-stuff/
-assets/
-gh-pages/assets
-gh-pages/assets/
+
 # Yarn Integrity file
 .yarn-integrity
 
@@ -21,12 +19,8 @@ gh-pages/assets/
 #Other stuff
 documentation.json
 /index.html
-gh-pages/*
-!gh-pages/404.html
-!gh-pages/index.html
-!gh-pages/game.html
-!gh-pages/game.css
-!gh-pages/script.js
-!gh-pages/.gitignore
-
-!gh-pages/top-down-adventure
+benchmark/gh-pages/*
+!benchmark/gh-pages/404.html
+!benchmark/gh-pages/index.html
+!benchmark/gh-pages/script.js
+!benchmark/gh-pages/.gitignore
