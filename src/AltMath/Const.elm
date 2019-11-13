@@ -1,6 +1,11 @@
-module AltMath.Const exposing (epsilon)
+module AltMath.Const exposing (epsilon, infinity)
 
 
-epsilon : number
+epsilon : Float
 epsilon =
     2 ^ -52
+
+
+infinity : Float
+infinity =
+    1 / 0
