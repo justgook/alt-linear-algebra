@@ -1,4 +1,4 @@
-module Empty exposing (suite)
+module Matrix4 exposing (..)
 
 import Expect exposing (Expectation)
 import Test exposing (..)

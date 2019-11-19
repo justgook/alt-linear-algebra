@@ -2,7 +2,7 @@ module Vector4 exposing (all)
 
 import AltMath.Record.Vector4 as RecordVec4
 import AltMath.Tuple.Vector4 as TupleVec4
-import AltMath.Vector4 as AdtVec4
+import AltMath.ADT.Vector4 as AdtVec4
 import Benchmark exposing (..)
 import Math.Vector4 as GLVec4
 

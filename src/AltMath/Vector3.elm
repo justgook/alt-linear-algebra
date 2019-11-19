@@ -1,5 +1,5 @@
-module AltMath.ADT.Vector3 exposing
-    ( Vec3(..), vec3, i, j, k
+module AltMath.Vector3 exposing
+    ( Vec3, vec3, i, j, k
     , getX, getY, getZ, setX, setY, setZ
     , add, sub, negate, scale, dot, cross, normalize, direction
     , length, lengthSquared, distance, distanceSquared
@@ -33,210 +33,178 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
+import AltMath.Record.Vector3 as Vector3
+
 
 {-| Three dimensional vector type
 -}
-type Vec3
-    = Vec3 Float Float Float
+type alias Vec3 =
+    Vector3.Vec3
 
 
 {-| Creates a new 3-element vector with the given values.
 -}
 vec3 : Float -> Float -> Float -> Vec3
 vec3 =
-    Vec3
+    Vector3.vec3
 
 
 {-| The unit vector &icirc; which points in the x direction: `vec3 1 0 0`
 -}
 i : Vec3
 i =
-    Vec3 1 0 0
+    Vector3.i
 
 
 {-| The unit vector &jcirc; which points in the y direction: `vec3 0 1 0`
 -}
 j : Vec3
 j =
-    Vec3 0 1 0
+    Vector3.j
 
 
 {-| The unit vector k&#0770; which points in the z direction: `vec3 0 0 1`
 -}
 k : Vec3
 k =
-    Vec3 0 0 1
+    Vector3.k
 
 
 {-| Extract the x component of a vector.
 -}
 getX : Vec3 -> Float
-getX (Vec3 x _ _) =
-    x
+getX =
+    Vector3.getX
 
 
 {-| Extract the y component of a vector.
 -}
 getY : Vec3 -> Float
-getY (Vec3 _ y _) =
-    y
+getY =
+    Vector3.getY
 
 
 {-| Extract the z component of a vector.
 -}
 getZ : Vec3 -> Float
-getZ (Vec3 _ _ z) =
-    z
+getZ =
+    Vector3.getZ
 
 
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec3 -> Vec3
-setX x (Vec3 _ y z) =
-    Vec3 x y z
+setX x { y, z } =
+    { x = x, y = y, z = z }
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec3 -> Vec3
-setY y (Vec3 x _ z) =
-    Vec3 x y z
+setY y { x, z } =
+    { x = x, y = y, z = z }
 
 
 {-| Update the z component of a vector, returning a new vector.
 -}
 setZ : Float -> Vec3 -> Vec3
-setZ z (Vec3 x y _) =
-    Vec3 x y z
+setZ z { x, y } =
+    { x = x, y = y, z = z }
 
 
 {-| Convert a vector to a record.
 -}
 toRecord : Vec3 -> { x : Float, y : Float, z : Float }
-toRecord (Vec3 x y z) =
-    { x = x, y = y, z = z }
+toRecord =
+    Vector3.toRecord
 
 
 {-| Convert a record to a vector.
 -}
 fromRecord : { x : Float, y : Float, z : Float } -> Vec3
-fromRecord { x, y, z } =
-    Vec3 x y z
+fromRecord =
+    Vector3.fromRecord
 
 
 {-| Vector addition: a + b
 -}
 add : Vec3 -> Vec3 -> Vec3
-add (Vec3 ax ay az) (Vec3 bx by bz) =
-    Vec3 (ax + bx) (ay + by) (az + bz)
+add =
+    Vector3.add
 
 
 {-| Vector subtraction: a - b
 -}
 sub : Vec3 -> Vec3 -> Vec3
-sub (Vec3 ax ay az) (Vec3 bx by bz) =
-    Vec3 (ax - bx) (ay - by) (az - bz)
+sub =
+    Vector3.sub
 
 
 {-| Vector negation: -a
 -}
 negate : Vec3 -> Vec3
-negate (Vec3 x y z) =
-    Vec3 -x -y -z
+negate =
+    Vector3.negate
 
 
 {-| The normalized direction from b to a: (a - b) / |a - b|
 -}
 direction : Vec3 -> Vec3 -> Vec3
-direction a b =
-    let
-        ((Vec3 x y z) as c) =
-            sub a b
-
-        len =
-            length c
-    in
-    Vec3 (x / len) (y / len) (z / len)
+direction =
+    Vector3.direction
 
 
 {-| The length of the given vector: |a|
 -}
 length : Vec3 -> Float
-length (Vec3 x y z) =
-    sqrt (x * x + y * y + z * z)
+length =
+    Vector3.length
 
 
 {-| The square of the length of the given vector: |a| \* |a|
 -}
 lengthSquared : Vec3 -> Float
-lengthSquared (Vec3 x y z) =
-    x * x + y * y + z * z
+lengthSquared =
+    Vector3.lengthSquared
 
 
 {-| The distance between two vectors.
 -}
 distance : Vec3 -> Vec3 -> Float
-distance (Vec3 ax ay az) (Vec3 bx by bz) =
-    let
-        x =
-            ax - bx
-
-        y =
-            ay - by
-
-        z =
-            az - bz
-    in
-    sqrt (x * x + y * y + z * z)
+distance =
+    Vector3.distance
 
 
 {-| The square of the distance between two vectors.
 -}
 distanceSquared : Vec3 -> Vec3 -> Float
-distanceSquared (Vec3 ax ay az) (Vec3 bx by bz) =
-    let
-        x =
-            ax - bx
-
-        y =
-            ay - by
-
-        z =
-            az - bz
-    in
-    x * x + y * y + z * z
+distanceSquared =
+    Vector3.distanceSquared
 
 
 {-| A unit vector with the same direction as the given vector: a / |a|
 -}
 normalize : Vec3 -> Vec3
-normalize ((Vec3 x y z) as v3) =
-    let
-        len =
-            length v3
-    in
-    Vec3 (x / len) (y / len) (z / len)
+normalize =
+    Vector3.normalize
 
 
 {-| Multiply the vector by a scalar: s \* v
 -}
 scale : Float -> Vec3 -> Vec3
-scale s (Vec3 x y z) =
-    Vec3 (s * x) (s * y) (s * z)
+scale =
+    Vector3.scale
 
 
 {-| The dot product of a and b
 -}
 dot : Vec3 -> Vec3 -> Float
-dot (Vec3 ax ay az) (Vec3 bx by bz) =
-    ax * bx + ay * by + az * bz
+dot =
+    Vector3.dot
 
 
 {-| The cross product of a and b
 -}
 cross : Vec3 -> Vec3 -> Vec3
-cross (Vec3 ax ay az) (Vec3 bx by bz) =
-    Vec3
-        (ay * bz - az * by)
-        (az * bx - ax * bz)
-        (ax * by - ay * bx)
+cross =
+    Vector3.cross
