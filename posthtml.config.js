@@ -17,7 +17,7 @@ const socialTags_ = ({ facebook, twitter }) =>
         "meta": [
             // facebook
             { "property": "og:type", "content": facebook.type },
-            { "property": "og:url", "content": facebook.url },
+            // { "property": "og:url", "content": facebook.url },
             { "property": "og:title", "content": facebook.title },
             { "property": "og:description", "content": facebook.description },
             { "property": "og:image", "content": facebook.image },
@@ -29,7 +29,7 @@ const socialTags_ = ({ facebook, twitter }) =>
             { "name": "twitter:title", "content": twitter.title },
             { "name": "twitter:description", "content": twitter.description },
             { "name": "twitter:image", "content": twitter.image },
-            { "name": "twitter:url", "content": twitter.url },
+            // { "name": "twitter:url", "content": twitter.url },
             // { "name": "twitter:label1", "content": twitter.label1 },
             // { "name": "twitter:data1", "content": twitter.data1 },
             // { "name": "twitter:label2", "content": twitter.label2 },
