@@ -8,14 +8,27 @@
     "AltMath.Vector2",
     "AltMath.Vector3",
     "AltMath.Vector4",
-    "AltMath.Matrix4"
+    "AltMath.Matrix4",
+    "AltMath.Advanced.Record.Vector2",
+    "AltMath.Advanced.Record.Vector3",
+    "AltMath.Advanced.Record.Vector4",
+    "AltMath.Advanced.Record.Matrix4",
+    "AltMath.Advanced.Tuple.Vector2",
+    "AltMath.Advanced.Tuple.Vector3",
+    "AltMath.Advanced.Tuple.Vector4",
+    "AltMath.Advanced.Tuple.Matrix4",
+    "AltMath.Advanced.ADT.Vector2",
+    "AltMath.Advanced.ADT.Vector3",
+    "AltMath.Advanced.ADT.Vector4",
+    "AltMath.Advanced.ADT.Matrix4"
   ],
   "elm-version": "0.19.0 <= v < 0.20.0",
   "dependencies": {
-    "elm/core": "1.0.0 <= v < 2.0.0"
+    "elm/core": "1.0.0 <= v < 2.0.0",
+    "elm-explorations/test": "1.2.2 <= v < 2.0.0"
   },
   "test-dependencies": {
-    "elm-explorations/test": "1.2.2 <= v < 2.0.0",
+
     "elm-explorations/linear-algebra": "1.0.3 <= v < 2.0.0"
   }
 }

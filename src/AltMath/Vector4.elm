@@ -33,7 +33,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
-import AltMath.Record.Vector4 as Vector4
+import AltMath.Advanced.Record.Vector4 as Vector4
 
 
 {-| Four dimensional vector type

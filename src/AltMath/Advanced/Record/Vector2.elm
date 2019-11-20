@@ -1,4 +1,4 @@
-module AltMath.Tuple.Vector2 exposing
+module AltMath.Advanced.Record.Vector2 exposing
     ( Vec2, vec2
     , getX, getY, setX, setY
     , add, sub, negate, scale, dot, normalize, direction, mul
@@ -37,77 +37,77 @@ The set functions create a new copy of the vector, updating a single field.
 {-| Two dimensional vector type
 -}
 type alias Vec2 =
-    ( Float, Float )
+    { x : Float, y : Float }
 
 
 {-| Creates a new 2-element vector with the given values.
 -}
 vec2 : Float -> Float -> Vec2
 vec2 =
-    Tuple.pair
+    Vec2
 
 
 {-| Extract the x component of a vector.
 -}
 getX : Vec2 -> Float
 getX =
-    Tuple.first
+    .x
 
 
 {-| Extract the y component of a vector.
 -}
 getY : Vec2 -> Float
 getY =
-    Tuple.second
+    .y
 
 
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec2 -> Vec2
-setX x ( _, y ) =
-    ( x, y )
+setX x { y } =
+    { x = x, y = y }
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec2 -> Vec2
-setY y ( x, _ ) =
-    ( x, y )
+setY y { x } =
+    { x = x, y = y }
 
 
 {-| Convert a vector to a record.
 -}
 toRecord : Vec2 -> { x : Float, y : Float }
-toRecord ( x, y ) =
-    { x = x, y = y }
+toRecord =
+    identity
 
 
 {-| Convert a record to a vector.
 -}
 fromRecord : { x : Float, y : Float } -> Vec2
-fromRecord { x, y } =
-    ( x, y )
+fromRecord =
+    identity
 
 
 {-| Vector addition: a + b
 -}
 add : Vec2 -> Vec2 -> Vec2
-add ( ax, ay ) ( bx, by ) =
-    ( ax + bx, ay + by )
+add a b =
+    Vec2 (a.x + b.x) (a.y + b.y)
 
 
 {-| Vector subtraction: a - b
 -}
 sub : Vec2 -> Vec2 -> Vec2
-sub ( ax, ay ) ( bx, by ) =
-    ( ax - bx, ay - by )
+sub a b =
+    Vec2 (a.x - b.x) (a.y - b.y)
 
 
 {-| Vector negation: -a
 -}
 negate : Vec2 -> Vec2
-negate ( ax, ay ) =
-    ( -ax, -ay )
+negate a =
+    Vec2 -a.x -a.y
 
 
 {-| The normalized direction from b to a: (a - b) / |a - b|
@@ -115,26 +115,26 @@ negate ( ax, ay ) =
 direction : Vec2 -> Vec2 -> Vec2
 direction a b =
     let
-        (( x, y ) as c) =
+        c =
             sub a b
 
         len =
             length c
     in
-    ( x / len, y / len )
+    Vec2 (c.x / len) (c.y / len)
 
 
 {-| The length of the given vector: |a|
 -}
 length : Vec2 -> Float
-length ( x, y ) =
+length { x, y } =
     sqrt (x * x + y * y)
 
 
 {-| The square of the length of the given vector: |a| \* |a|
 -}
 lengthSquared : Vec2 -> Float
-lengthSquared ( x, y ) =
+lengthSquared { x, y } =
     x * x + y * y
 
 
@@ -155,30 +155,30 @@ distanceSquared a b =
 {-| A unit vector with the same direction as the given vector: a / |a|
 -}
 normalize : Vec2 -> Vec2
-normalize (( x, y ) as v2) =
+normalize v2 =
     let
         len =
             length v2
     in
-    ( x / len, y / len )
+    Vec2 (v2.x / len) (v2.y / len)
 
 
 {-| Multiply the vector by a scalar: s \* v
 -}
 scale : Float -> Vec2 -> Vec2
-scale s ( x, y ) =
-    ( s * x, s * y )
+scale s v2 =
+    Vec2 (s * v2.x) (s * v2.y)
 
 
 {-| The dot product of a and b
 -}
 dot : Vec2 -> Vec2 -> Float
-dot ( ax, ay ) ( bx, by ) =
-    ax * bx + ay * by
+dot a b =
+    a.x * b.x + a.y * b.y
 
 
 {-| Multiply the vector by a vector: a \* b
 -}
 mul : Vec2 -> Vec2 -> Vec2
-mul ( ax, ay ) ( bx, by ) =
-    ( ax * bx, ay * by )
+mul a b =
+    { x = a.x * b.x, y = a.y * b.y }

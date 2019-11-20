@@ -33,7 +33,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
-import AltMath.Record.Vector2 as Vector2
+import AltMath.Advanced.Record.Vector2 as Vector2
 
 
 {-| Two dimensional vector type

@@ -1,8 +1,8 @@
 module Vector2 exposing (all)
 
-import AltMath.Record.Vector2 as RecordVec2
-import AltMath.Tuple.Vector2 as TupleVec2
-import AltMath.ADT.Vector2 as AdtVec2
+import AltMath.Advanced.ADT.Vector2 as AdtVec2
+import AltMath.Advanced.Record.Vector2 as RecordVec2
+import AltMath.Advanced.Tuple.Vector2 as TupleVec2
 import Benchmark exposing (..)
 import Math.Vector2 as GLVec2
 

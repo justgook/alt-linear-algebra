@@ -1,8 +1,8 @@
 module Vector3 exposing (..)
 
-import AltMath.Record.Vector3 as RecordVec3
-import AltMath.Tuple.Vector3 as TupleVec3
-import AltMath.ADT.Vector3 as AdtVec3
+import AltMath.Advanced.ADT.Vector3 as AdtVec3
+import AltMath.Advanced.Record.Vector3 as RecordVec3
+import AltMath.Advanced.Tuple.Vector3 as TupleVec3
 import Benchmark exposing (..)
 import Math.Vector3 as GLVec3
 

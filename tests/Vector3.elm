@@ -1,9 +1,9 @@
 module Vector3 exposing (..)
 
-import AltMath.ADT.Vector3 as ADT
+import AltMath.Advanced.ADT.Vector3 as ADT
+import AltMath.Advanced.Record.Vector3 as Record
+import AltMath.Advanced.Tuple.Vector3 as Tuple
 import AltMath.Const exposing (epsilon)
-import AltMath.Record.Vector3 as Record
-import AltMath.Tuple.Vector3 as Tuple
 import Expect exposing (Expectation, FloatingPointTolerance(..))
 import Fuzz
 import Math.Vector3 as Math

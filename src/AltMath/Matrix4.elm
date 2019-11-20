@@ -43,7 +43,7 @@ existing matrix.
 
 -}
 
-import AltMath.Record.Matrix4 as Matrix4
+import AltMath.Advanced.Record.Matrix4 as Matrix4
 import AltMath.Vector3 exposing (Vec3)
 
 

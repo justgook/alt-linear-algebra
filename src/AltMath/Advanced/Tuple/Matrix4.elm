@@ -1,11 +1,10 @@
-module AltMath.Tuple.Matrix4 exposing
+module AltMath.Advanced.Tuple.Matrix4 exposing
     ( Mat4, identity
     , inverse, inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
     , makeFrustum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
     , rotate, scale, scale3, translate, translate3
     , makeRotate, makeScale, makeScale3, makeTranslate, makeTranslate3
-    , toRecord, fromRecord
-    , Matrix4Record
+    , toRecord, fromRecord, Matrix4Record
     )
 
 {-| This library uses the convention that the prefix `make` is creating a new
@@ -40,11 +39,11 @@ existing matrix.
 
 # Conversions
 
-@docs toRecord, fromRecord
+@docs toRecord, fromRecord, Matrix4Record
 
 -}
 
-import AltMath.Tuple.Vector3 as Vec3 exposing (Vec3)
+import AltMath.Advanced.Tuple.Vector3 as Vec3 exposing (Vec3)
 
 
 {-| 4x4 matrix type
@@ -61,9 +60,9 @@ transform ( ( ( ( m11, m21 ), ( m31, m41 ) ), ( ( m12, m22 ), ( m32, m42 ) ) ), 
         w =
             x * m41 + y * m42 + z * m43 + m44
     in
-    ( (m11 * x + m12 * y + m13 * z) / w
-    , (m21 * x + m22 * y + m23 * z) / w
-    , (m31 * x + m32 * y + m33 * z) / w
+    ( (m11 * x + m12 * y + m13 * z + m14) / w
+    , (m21 * x + m22 * y + m23 * z + m24) / w
+    , (m31 * x + m32 * y + m33 * z + m34) / w
     )
 
 
@@ -81,49 +80,49 @@ inverse : Mat4 -> Maybe Mat4
 inverse ( ( ( ( m11, m21 ), ( m31, m41 ) ), ( ( m12, m22 ), ( m32, m42 ) ) ), ( ( ( m13, m23 ), ( m33, m43 ) ), ( ( m14, m24 ), ( m34, m44 ) ) ) ) =
     let
         r11 =
-            m22 * m33 * m44 - m22 * m34 * m34 - m23 * m32 * m44 + m23 * m42 * m34 + m24 * m32 * m34 - m24 * m42 * m33
-
-        r21 =
-            -m21 * m33 * m44 + m21 * m34 * m34 + m23 * m31 * m44 - m23 * m41 * m34 - m24 * m31 * m34 + m24 * m41 * m33
-
-        r31 =
-            m21 * m32 * m44 - m21 * m42 * m34 - m22 * m31 * m44 + m22 * m41 * m34 + m24 * m31 * m42 - m24 * m41 * m32
-
-        r41 =
-            -m21 * m32 * m34 + m21 * m42 * m33 + m22 * m31 * m34 - m22 * m41 * m33 - m23 * m31 * m42 + m23 * m41 * m32
+            m22 * m33 * m44 - m22 * m43 * m34 - m23 * m32 * m44 + m23 * m42 * m34 + m24 * m32 * m43 - m24 * m42 * m33
 
         r12 =
-            -m12 * m33 * m44 + m12 * m34 * m34 + m13 * m32 * m44 - m13 * m42 * m34 - m14 * m32 * m34 + m14 * m42 * m33
-
-        r22 =
-            m11 * m33 * m44 - m11 * m34 * m34 - m13 * m31 * m44 + m13 * m41 * m34 + m14 * m31 * m34 - m14 * m41 * m33
-
-        r32 =
-            -m11 * m32 * m44 + m11 * m42 * m34 + m12 * m31 * m44 - m12 * m41 * m34 - m14 * m31 * m42 + m14 * m41 * m32
-
-        r42 =
-            m11 * m32 * m34 - m11 * m42 * m33 - m12 * m31 * m34 + m12 * m41 * m33 + m13 * m31 * m42 - m13 * m41 * m32
+            -m12 * m33 * m44 + m12 * m43 * m34 + m13 * m32 * m44 - m13 * m42 * m34 - m14 * m32 * m43 + m14 * m42 * m33
 
         r13 =
-            m12 * m23 * m44 - m12 * m34 * m24 - m13 * m22 * m44 + m13 * m42 * m24 + m14 * m22 * m34 - m14 * m42 * m23
-
-        r23 =
-            -m11 * m23 * m44 + m11 * m34 * m24 + m13 * m21 * m44 - m13 * m41 * m24 - m14 * m21 * m34 + m14 * m41 * m23
-
-        r33 =
-            m11 * m22 * m44 - m11 * m42 * m24 - m12 * m21 * m44 + m12 * m41 * m24 + m14 * m21 * m42 - m14 * m41 * m22
-
-        r43 =
-            -m11 * m22 * m34 + m11 * m42 * m23 + m12 * m21 * m34 - m12 * m41 * m23 - m13 * m21 * m42 + m13 * m41 * m22
+            m12 * m23 * m44 - m12 * m43 * m24 - m13 * m22 * m44 + m13 * m42 * m24 + m14 * m22 * m43 - m14 * m42 * m23
 
         r14 =
             -m12 * m23 * m34 + m12 * m33 * m24 + m13 * m22 * m34 - m13 * m32 * m24 - m14 * m22 * m33 + m14 * m32 * m23
 
+        r21 =
+            -m21 * m33 * m44 + m21 * m43 * m34 + m23 * m31 * m44 - m23 * m41 * m34 - m24 * m31 * m43 + m24 * m41 * m33
+
+        r22 =
+            m11 * m33 * m44 - m11 * m43 * m34 - m13 * m31 * m44 + m13 * m41 * m34 + m14 * m31 * m43 - m14 * m41 * m33
+
+        r23 =
+            -m11 * m23 * m44 + m11 * m43 * m24 + m13 * m21 * m44 - m13 * m41 * m24 - m14 * m21 * m43 + m14 * m41 * m23
+
         r24 =
             m11 * m23 * m34 - m11 * m33 * m24 - m13 * m21 * m34 + m13 * m31 * m24 + m14 * m21 * m33 - m14 * m31 * m23
 
+        r31 =
+            m21 * m32 * m44 - m21 * m42 * m34 - m22 * m31 * m44 + m22 * m41 * m34 + m24 * m31 * m42 - m24 * m41 * m32
+
+        r32 =
+            -m11 * m32 * m44 + m11 * m42 * m34 + m12 * m31 * m44 - m12 * m41 * m34 - m14 * m31 * m42 + m14 * m41 * m32
+
+        r33 =
+            m11 * m22 * m44 - m11 * m42 * m24 - m12 * m21 * m44 + m12 * m41 * m24 + m14 * m21 * m42 - m14 * m41 * m22
+
         r34 =
             -m11 * m22 * m34 + m11 * m32 * m24 + m12 * m21 * m34 - m12 * m31 * m24 - m14 * m21 * m32 + m14 * m31 * m22
+
+        r41 =
+            -m21 * m32 * m43 + m21 * m42 * m33 + m22 * m31 * m43 - m22 * m41 * m33 - m23 * m31 * m42 + m23 * m41 * m32
+
+        r42 =
+            m11 * m32 * m43 - m11 * m42 * m33 - m12 * m31 * m43 + m12 * m41 * m33 + m13 * m31 * m42 - m13 * m41 * m32
+
+        r43 =
+            -m11 * m22 * m43 + m11 * m42 * m23 + m12 * m21 * m43 - m12 * m41 * m23 - m13 * m21 * m42 + m13 * m41 * m22
 
         r44 =
             m11 * m22 * m33 - m11 * m32 * m23 - m12 * m21 * m33 + m12 * m31 * m23 + m13 * m21 * m32 - m13 * m31 * m22
@@ -331,8 +330,11 @@ mulAffine ( ( ( ( am11, am21 ), ( am31, am41 ) ), ( ( am12, am22 ), ( am32, am42
 3-element vector axis.
 -}
 makeRotate : Float -> Vec3 -> Mat4
-makeRotate angle ( x, y, z ) =
+makeRotate angle axis =
     let
+        ( x, y, z ) =
+            Vec3.normalize axis
+
         c =
             cos angle
 
