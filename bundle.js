@@ -792,66 +792,6 @@ var _List_sortWith = F2(function(f, xs)
 });
 
 
-
-// MATH
-
-var _Basics_add = F2(function(a, b) { return a + b; });
-var _Basics_sub = F2(function(a, b) { return a - b; });
-var _Basics_mul = F2(function(a, b) { return a * b; });
-var _Basics_fdiv = F2(function(a, b) { return a / b; });
-var _Basics_idiv = F2(function(a, b) { return (a / b) | 0; });
-var _Basics_pow = F2(Math.pow);
-
-var _Basics_remainderBy = F2(function(b, a) { return a % b; });
-
-// https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/divmodnote-letter.pdf
-var _Basics_modBy = F2(function(modulus, x)
-{
-	var answer = x % modulus;
-	return modulus === 0
-		? _Debug_crash(11)
-		:
-	((answer > 0 && modulus < 0) || (answer < 0 && modulus > 0))
-		? answer + modulus
-		: answer;
-});
-
-
-// TRIGONOMETRY
-
-var _Basics_pi = Math.PI;
-var _Basics_e = Math.E;
-var _Basics_cos = Math.cos;
-var _Basics_sin = Math.sin;
-var _Basics_tan = Math.tan;
-var _Basics_acos = Math.acos;
-var _Basics_asin = Math.asin;
-var _Basics_atan = Math.atan;
-var _Basics_atan2 = F2(Math.atan2);
-
-
-// MORE MATH
-
-function _Basics_toFloat(x) { return x; }
-function _Basics_truncate(n) { return n | 0; }
-function _Basics_isInfinite(n) { return n === Infinity || n === -Infinity; }
-
-var _Basics_ceiling = Math.ceil;
-var _Basics_floor = Math.floor;
-var _Basics_round = Math.round;
-var _Basics_sqrt = Math.sqrt;
-var _Basics_log = Math.log;
-var _Basics_isNaN = isNaN;
-
-
-// BOOLEANS
-
-function _Basics_not(bool) { return !bool; }
-var _Basics_and = F2(function(a, b) { return a && b; });
-var _Basics_or  = F2(function(a, b) { return a || b; });
-var _Basics_xor = F2(function(a, b) { return a !== b; });
-
-
 /*
  * Copyright (c) 2010 Mozilla Corporation
  * Copyright (c) 2010 Vladimir Vukicevic
@@ -1864,6 +1804,66 @@ var _MJS_m4x4makeBasis = F3(function(vx, vy, vz) {
 
     return r;
 });
+
+
+
+// MATH
+
+var _Basics_add = F2(function(a, b) { return a + b; });
+var _Basics_sub = F2(function(a, b) { return a - b; });
+var _Basics_mul = F2(function(a, b) { return a * b; });
+var _Basics_fdiv = F2(function(a, b) { return a / b; });
+var _Basics_idiv = F2(function(a, b) { return (a / b) | 0; });
+var _Basics_pow = F2(Math.pow);
+
+var _Basics_remainderBy = F2(function(b, a) { return a % b; });
+
+// https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/divmodnote-letter.pdf
+var _Basics_modBy = F2(function(modulus, x)
+{
+	var answer = x % modulus;
+	return modulus === 0
+		? _Debug_crash(11)
+		:
+	((answer > 0 && modulus < 0) || (answer < 0 && modulus > 0))
+		? answer + modulus
+		: answer;
+});
+
+
+// TRIGONOMETRY
+
+var _Basics_pi = Math.PI;
+var _Basics_e = Math.E;
+var _Basics_cos = Math.cos;
+var _Basics_sin = Math.sin;
+var _Basics_tan = Math.tan;
+var _Basics_acos = Math.acos;
+var _Basics_asin = Math.asin;
+var _Basics_atan = Math.atan;
+var _Basics_atan2 = F2(Math.atan2);
+
+
+// MORE MATH
+
+function _Basics_toFloat(x) { return x; }
+function _Basics_truncate(n) { return n | 0; }
+function _Basics_isInfinite(n) { return n === Infinity || n === -Infinity; }
+
+var _Basics_ceiling = Math.ceil;
+var _Basics_floor = Math.floor;
+var _Basics_round = Math.round;
+var _Basics_sqrt = Math.sqrt;
+var _Basics_log = Math.log;
+var _Basics_isNaN = isNaN;
+
+
+// BOOLEANS
+
+function _Basics_not(bool) { return !bool; }
+var _Basics_and = F2(function(a, b) { return a && b; });
+var _Basics_or  = F2(function(a, b) { return a || b; });
+var _Basics_xor = F2(function(a, b) { return a !== b; });
 
 
 
@@ -5439,61 +5439,139 @@ var $elm$core$Set$toList = function (_v0) {
 var $elm$core$Basics$EQ = {$: 'EQ'};
 var $elm$core$Basics$GT = {$: 'GT'};
 var $elm$core$Basics$LT = {$: 'LT'};
-var $author$project$Vector2$AdtVec2 = function (a) {
-	return {$: 'AdtVec2', a: a};
-};
-var $author$project$Vector2$GLVec2 = function (a) {
-	return {$: 'GLVec2', a: a};
-};
-var $author$project$Vector2$RecordVec2 = function (a) {
-	return {$: 'RecordVec2', a: a};
-};
-var $author$project$Vector2$TupleVec2 = function (a) {
-	return {$: 'TupleVec2', a: a};
-};
-var $author$project$AltMath$Record$Vector2$Vec2 = F2(
-	function (x, y) {
-		return {x: x, y: y};
-	});
-var $elm$core$Basics$add = _Basics_add;
-var $author$project$AltMath$Record$Vector2$add = F2(
-	function (a, b) {
-		return A2($author$project$AltMath$Record$Vector2$Vec2, a.x + b.x, a.y + b.y);
-	});
-var $author$project$AltMath$Tuple$Vector2$add = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var bx = _v1.a;
-		var by = _v1.b;
-		return _Utils_Tuple2(ax + bx, ay + by);
-	});
-var $author$project$AltMath$Vector2$Vec2 = F2(
-	function (a, b) {
-		return {$: 'Vec2', a: a, b: b};
-	});
-var $author$project$AltMath$Vector2$add = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var bx = _v1.a;
-		var by = _v1.b;
-		return A2($author$project$AltMath$Vector2$Vec2, ax + bx, ay + by);
-	});
-var $elm$core$Maybe$Just = function (a) {
-	return {$: 'Just', a: a};
-};
-var $elm$core$Maybe$Nothing = {$: 'Nothing'};
-var $elm_explorations$linear_algebra$Math$Vector2$add = _MJS_v2add;
 var $elm$core$Basics$apR = F2(
 	function (x, f) {
 		return f(x);
 	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$Mat4 = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return function (m) {
+													return function (n) {
+														return function (o) {
+															return function (p) {
+																return {$: 'Mat4', a: a, b: b, c: c, d: d, e: e, f: f, g: g, h: h, i: i, j: j, k: k, l: l, m: m, n: n, o: o, p: p};
+															};
+														};
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$fromRecord = function (_v0) {
+	var m11 = _v0.m11;
+	var m21 = _v0.m21;
+	var m31 = _v0.m31;
+	var m41 = _v0.m41;
+	var m12 = _v0.m12;
+	var m22 = _v0.m22;
+	var m32 = _v0.m32;
+	var m42 = _v0.m42;
+	var m13 = _v0.m13;
+	var m23 = _v0.m23;
+	var m33 = _v0.m33;
+	var m43 = _v0.m43;
+	var m14 = _v0.m14;
+	var m24 = _v0.m24;
+	var m34 = _v0.m34;
+	var m44 = _v0.m44;
+	return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11)(m21)(m31)(m41)(m12)(m22)(m32)(m42)(m13)(m23)(m33)(m43)(m14)(m24)(m34)(m44);
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$fromRecord = function (a) {
+	return a;
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord = function (_v0) {
+	var m11 = _v0.m11;
+	var m21 = _v0.m21;
+	var m31 = _v0.m31;
+	var m41 = _v0.m41;
+	var m12 = _v0.m12;
+	var m22 = _v0.m22;
+	var m32 = _v0.m32;
+	var m42 = _v0.m42;
+	var m13 = _v0.m13;
+	var m23 = _v0.m23;
+	var m33 = _v0.m33;
+	var m43 = _v0.m43;
+	var m14 = _v0.m14;
+	var m24 = _v0.m24;
+	var m34 = _v0.m34;
+	var m44 = _v0.m44;
+	return _Utils_Tuple2(
+		_Utils_Tuple2(
+			_Utils_Tuple2(
+				_Utils_Tuple2(m11, m21),
+				_Utils_Tuple2(m31, m41)),
+			_Utils_Tuple2(
+				_Utils_Tuple2(m12, m22),
+				_Utils_Tuple2(m32, m42))),
+		_Utils_Tuple2(
+			_Utils_Tuple2(
+				_Utils_Tuple2(m13, m23),
+				_Utils_Tuple2(m33, m43)),
+			_Utils_Tuple2(
+				_Utils_Tuple2(m14, m24),
+				_Utils_Tuple2(m34, m44))));
+};
+var $elm$core$Maybe$Just = function (a) {
+	return {$: 'Just', a: a};
+};
+var $elm$core$Maybe$Nothing = {$: 'Nothing'};
+var $elm_explorations$linear_algebra$Math$Matrix4$fromRecord = _MJS_m4x4fromRecord;
+var $author$project$Matrix4$AdtMat4 = function (a) {
+	return {$: 'AdtMat4', a: a};
+};
+var $author$project$Matrix4$GLMat4 = function (a) {
+	return {$: 'GLMat4', a: a};
+};
+var $author$project$Matrix4$RecordMat4 = function (a) {
+	return {$: 'RecordMat4', a: a};
+};
+var $author$project$Matrix4$TupleMat4 = function (a) {
+	return {$: 'TupleMat4', a: a};
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$identity = $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(1)(0)(0)(0)(0)(1)(0)(0)(0)(0)(1)(0)(0)(0)(0)(1);
+var $author$project$AltMath$Advanced$Record$Matrix4$identity = {m11: 1, m12: 0, m13: 0, m14: 0, m21: 0, m22: 1, m23: 0, m24: 0, m31: 0, m32: 0, m33: 1, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$identity = _Utils_Tuple2(
+	_Utils_Tuple2(
+		_Utils_Tuple2(
+			_Utils_Tuple2(1, 0),
+			_Utils_Tuple2(0, 0)),
+		_Utils_Tuple2(
+			_Utils_Tuple2(0, 1),
+			_Utils_Tuple2(0, 0))),
+	_Utils_Tuple2(
+		_Utils_Tuple2(
+			_Utils_Tuple2(0, 0),
+			_Utils_Tuple2(1, 0)),
+		_Utils_Tuple2(
+			_Utils_Tuple2(0, 0),
+			_Utils_Tuple2(0, 1))));
+var $elm_explorations$linear_algebra$Math$Matrix4$identity = _MJS_m4x4identity;
 var $elm_explorations$benchmark$Benchmark$Status$Cold = {$: 'Cold'};
 var $elm_explorations$benchmark$Benchmark$Benchmark$Series = F2(
 	function (a, b) {
 		return {$: 'Series', a: a, b: b};
 	});
+var $elm$core$Basics$add = _Basics_add;
 var $elm$core$List$foldl = F3(
 	function (func, acc, list) {
 		foldl:
@@ -5610,6 +5688,2431 @@ var $elm_explorations$benchmark$Benchmark$scale = F2(
 				},
 				series));
 	});
+var $author$project$Matrix4$identity = A2(
+	$elm_explorations$benchmark$Benchmark$scale,
+	'identity',
+	_List_fromArray(
+		[
+			_Utils_Tuple2(
+			'Linear Algebra',
+			function (_v0) {
+				return $author$project$Matrix4$GLMat4($elm_explorations$linear_algebra$Math$Matrix4$identity);
+			}),
+			_Utils_Tuple2(
+			'ADT',
+			function (_v1) {
+				return $author$project$Matrix4$AdtMat4($author$project$AltMath$Advanced$ADT$Matrix4$identity);
+			}),
+			_Utils_Tuple2(
+			'Record',
+			function (_v2) {
+				return $author$project$Matrix4$RecordMat4($author$project$AltMath$Advanced$Record$Matrix4$identity);
+			}),
+			_Utils_Tuple2(
+			'Tuple',
+			function (_v3) {
+				return $author$project$Matrix4$TupleMat4($author$project$AltMath$Advanced$Tuple$Matrix4$identity);
+			})
+		]));
+var $author$project$Matrix4$MaybeAdtMat4 = function (a) {
+	return {$: 'MaybeAdtMat4', a: a};
+};
+var $author$project$Matrix4$MaybeGLMat4 = function (a) {
+	return {$: 'MaybeGLMat4', a: a};
+};
+var $author$project$Matrix4$MaybeRecordMat4 = function (a) {
+	return {$: 'MaybeRecordMat4', a: a};
+};
+var $author$project$Matrix4$MaybeTupleMat4 = function (a) {
+	return {$: 'MaybeTupleMat4', a: a};
+};
+var $elm$core$Basics$eq = _Utils_equal;
+var $elm$core$Basics$fdiv = _Basics_fdiv;
+var $elm$core$Basics$mul = _Basics_mul;
+var $elm$core$Basics$negate = function (n) {
+	return -n;
+};
+var $elm$core$Basics$sub = _Basics_sub;
+var $author$project$AltMath$Advanced$ADT$Matrix4$inverse = function (_v0) {
+	var m11 = _v0.a;
+	var m21 = _v0.b;
+	var m31 = _v0.c;
+	var m41 = _v0.d;
+	var m12 = _v0.e;
+	var m22 = _v0.f;
+	var m32 = _v0.g;
+	var m42 = _v0.h;
+	var m13 = _v0.i;
+	var m23 = _v0.j;
+	var m33 = _v0.k;
+	var m43 = _v0.l;
+	var m14 = _v0.m;
+	var m24 = _v0.n;
+	var m34 = _v0.o;
+	var m44 = _v0.p;
+	var r44 = ((((((m11 * m22) * m33) - ((m11 * m32) * m23)) - ((m12 * m21) * m33)) + ((m12 * m31) * m23)) + ((m13 * m21) * m32)) - ((m13 * m31) * m22);
+	var r43 = (((((((-m11) * m22) * m43) + ((m11 * m42) * m23)) + ((m12 * m21) * m43)) - ((m12 * m41) * m23)) - ((m13 * m21) * m42)) + ((m13 * m41) * m22);
+	var r42 = ((((((m11 * m32) * m43) - ((m11 * m42) * m33)) - ((m12 * m31) * m43)) + ((m12 * m41) * m33)) + ((m13 * m31) * m42)) - ((m13 * m41) * m32);
+	var r41 = (((((((-m21) * m32) * m43) + ((m21 * m42) * m33)) + ((m22 * m31) * m43)) - ((m22 * m41) * m33)) - ((m23 * m31) * m42)) + ((m23 * m41) * m32);
+	var r34 = (((((((-m11) * m22) * m34) + ((m11 * m32) * m24)) + ((m12 * m21) * m34)) - ((m12 * m31) * m24)) - ((m14 * m21) * m32)) + ((m14 * m31) * m22);
+	var r33 = ((((((m11 * m22) * m44) - ((m11 * m42) * m24)) - ((m12 * m21) * m44)) + ((m12 * m41) * m24)) + ((m14 * m21) * m42)) - ((m14 * m41) * m22);
+	var r32 = (((((((-m11) * m32) * m44) + ((m11 * m42) * m34)) + ((m12 * m31) * m44)) - ((m12 * m41) * m34)) - ((m14 * m31) * m42)) + ((m14 * m41) * m32);
+	var r31 = ((((((m21 * m32) * m44) - ((m21 * m42) * m34)) - ((m22 * m31) * m44)) + ((m22 * m41) * m34)) + ((m24 * m31) * m42)) - ((m24 * m41) * m32);
+	var r24 = ((((((m11 * m23) * m34) - ((m11 * m33) * m24)) - ((m13 * m21) * m34)) + ((m13 * m31) * m24)) + ((m14 * m21) * m33)) - ((m14 * m31) * m23);
+	var r23 = (((((((-m11) * m23) * m44) + ((m11 * m43) * m24)) + ((m13 * m21) * m44)) - ((m13 * m41) * m24)) - ((m14 * m21) * m43)) + ((m14 * m41) * m23);
+	var r22 = ((((((m11 * m33) * m44) - ((m11 * m43) * m34)) - ((m13 * m31) * m44)) + ((m13 * m41) * m34)) + ((m14 * m31) * m43)) - ((m14 * m41) * m33);
+	var r21 = (((((((-m21) * m33) * m44) + ((m21 * m43) * m34)) + ((m23 * m31) * m44)) - ((m23 * m41) * m34)) - ((m24 * m31) * m43)) + ((m24 * m41) * m33);
+	var r14 = (((((((-m12) * m23) * m34) + ((m12 * m33) * m24)) + ((m13 * m22) * m34)) - ((m13 * m32) * m24)) - ((m14 * m22) * m33)) + ((m14 * m32) * m23);
+	var r13 = ((((((m12 * m23) * m44) - ((m12 * m43) * m24)) - ((m13 * m22) * m44)) + ((m13 * m42) * m24)) + ((m14 * m22) * m43)) - ((m14 * m42) * m23);
+	var r12 = (((((((-m12) * m33) * m44) + ((m12 * m43) * m34)) + ((m13 * m32) * m44)) - ((m13 * m42) * m34)) - ((m14 * m32) * m43)) + ((m14 * m42) * m33);
+	var r11 = ((((((m22 * m33) * m44) - ((m22 * m43) * m34)) - ((m23 * m32) * m44)) + ((m23 * m42) * m34)) + ((m24 * m32) * m43)) - ((m24 * m42) * m33);
+	var det = (((m11 * r11) + (m21 * r12)) + (m31 * r13)) + (m41 * r14);
+	var idet = 1 / det;
+	return (!det) ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(
+		$author$project$AltMath$Advanced$ADT$Matrix4$Mat4(r11 * idet)(r21 * idet)(r31 * idet)(r41 * idet)(r12 * idet)(r22 * idet)(r32 * idet)(r42 * idet)(r13 * idet)(r23 * idet)(r33 * idet)(r43 * idet)(r14 * idet)(r24 * idet)(r34 * idet)(r44 * idet));
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$inverse = function (m) {
+	var r44 = ((((((m.m11 * m.m22) * m.m33) - ((m.m11 * m.m32) * m.m23)) - ((m.m12 * m.m21) * m.m33)) + ((m.m12 * m.m31) * m.m23)) + ((m.m13 * m.m21) * m.m32)) - ((m.m13 * m.m31) * m.m22);
+	var r43 = (((((((-m.m11) * m.m22) * m.m43) + ((m.m11 * m.m42) * m.m23)) + ((m.m12 * m.m21) * m.m43)) - ((m.m12 * m.m41) * m.m23)) - ((m.m13 * m.m21) * m.m42)) + ((m.m13 * m.m41) * m.m22);
+	var r42 = ((((((m.m11 * m.m32) * m.m43) - ((m.m11 * m.m42) * m.m33)) - ((m.m12 * m.m31) * m.m43)) + ((m.m12 * m.m41) * m.m33)) + ((m.m13 * m.m31) * m.m42)) - ((m.m13 * m.m41) * m.m32);
+	var r41 = (((((((-m.m21) * m.m32) * m.m43) + ((m.m21 * m.m42) * m.m33)) + ((m.m22 * m.m31) * m.m43)) - ((m.m22 * m.m41) * m.m33)) - ((m.m23 * m.m31) * m.m42)) + ((m.m23 * m.m41) * m.m32);
+	var r34 = (((((((-m.m11) * m.m22) * m.m34) + ((m.m11 * m.m32) * m.m24)) + ((m.m12 * m.m21) * m.m34)) - ((m.m12 * m.m31) * m.m24)) - ((m.m14 * m.m21) * m.m32)) + ((m.m14 * m.m31) * m.m22);
+	var r33 = ((((((m.m11 * m.m22) * m.m44) - ((m.m11 * m.m42) * m.m24)) - ((m.m12 * m.m21) * m.m44)) + ((m.m12 * m.m41) * m.m24)) + ((m.m14 * m.m21) * m.m42)) - ((m.m14 * m.m41) * m.m22);
+	var r32 = (((((((-m.m11) * m.m32) * m.m44) + ((m.m11 * m.m42) * m.m34)) + ((m.m12 * m.m31) * m.m44)) - ((m.m12 * m.m41) * m.m34)) - ((m.m14 * m.m31) * m.m42)) + ((m.m14 * m.m41) * m.m32);
+	var r31 = ((((((m.m21 * m.m32) * m.m44) - ((m.m21 * m.m42) * m.m34)) - ((m.m22 * m.m31) * m.m44)) + ((m.m22 * m.m41) * m.m34)) + ((m.m24 * m.m31) * m.m42)) - ((m.m24 * m.m41) * m.m32);
+	var r24 = ((((((m.m11 * m.m23) * m.m34) - ((m.m11 * m.m33) * m.m24)) - ((m.m13 * m.m21) * m.m34)) + ((m.m13 * m.m31) * m.m24)) + ((m.m14 * m.m21) * m.m33)) - ((m.m14 * m.m31) * m.m23);
+	var r23 = (((((((-m.m11) * m.m23) * m.m44) + ((m.m11 * m.m43) * m.m24)) + ((m.m13 * m.m21) * m.m44)) - ((m.m13 * m.m41) * m.m24)) - ((m.m14 * m.m21) * m.m43)) + ((m.m14 * m.m41) * m.m23);
+	var r22 = ((((((m.m11 * m.m33) * m.m44) - ((m.m11 * m.m43) * m.m34)) - ((m.m13 * m.m31) * m.m44)) + ((m.m13 * m.m41) * m.m34)) + ((m.m14 * m.m31) * m.m43)) - ((m.m14 * m.m41) * m.m33);
+	var r21 = (((((((-m.m21) * m.m33) * m.m44) + ((m.m21 * m.m43) * m.m34)) + ((m.m23 * m.m31) * m.m44)) - ((m.m23 * m.m41) * m.m34)) - ((m.m24 * m.m31) * m.m43)) + ((m.m24 * m.m41) * m.m33);
+	var r14 = (((((((-m.m12) * m.m23) * m.m34) + ((m.m12 * m.m33) * m.m24)) + ((m.m13 * m.m22) * m.m34)) - ((m.m13 * m.m32) * m.m24)) - ((m.m14 * m.m22) * m.m33)) + ((m.m14 * m.m32) * m.m23);
+	var r13 = ((((((m.m12 * m.m23) * m.m44) - ((m.m12 * m.m43) * m.m24)) - ((m.m13 * m.m22) * m.m44)) + ((m.m13 * m.m42) * m.m24)) + ((m.m14 * m.m22) * m.m43)) - ((m.m14 * m.m42) * m.m23);
+	var r12 = (((((((-m.m12) * m.m33) * m.m44) + ((m.m12 * m.m43) * m.m34)) + ((m.m13 * m.m32) * m.m44)) - ((m.m13 * m.m42) * m.m34)) - ((m.m14 * m.m32) * m.m43)) + ((m.m14 * m.m42) * m.m33);
+	var r11 = ((((((m.m22 * m.m33) * m.m44) - ((m.m22 * m.m43) * m.m34)) - ((m.m23 * m.m32) * m.m44)) + ((m.m23 * m.m42) * m.m34)) + ((m.m24 * m.m32) * m.m43)) - ((m.m24 * m.m42) * m.m33);
+	var det = (((m.m11 * r11) + (m.m21 * r12)) + (m.m31 * r13)) + (m.m41 * r14);
+	var idet = 1 / det;
+	return (!det) ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(
+		{m11: r11 * idet, m12: r12 * idet, m13: r13 * idet, m14: r14 * idet, m21: r21 * idet, m22: r22 * idet, m23: r23 * idet, m24: r24 * idet, m31: r31 * idet, m32: r32 * idet, m33: r33 * idet, m34: r34 * idet, m41: r41 * idet, m42: r42 * idet, m43: r43 * idet, m44: r44 * idet});
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$inverse = function (_v0) {
+	var _v1 = _v0.a;
+	var _v2 = _v1.a;
+	var _v3 = _v2.a;
+	var m11 = _v3.a;
+	var m21 = _v3.b;
+	var _v4 = _v2.b;
+	var m31 = _v4.a;
+	var m41 = _v4.b;
+	var _v5 = _v1.b;
+	var _v6 = _v5.a;
+	var m12 = _v6.a;
+	var m22 = _v6.b;
+	var _v7 = _v5.b;
+	var m32 = _v7.a;
+	var m42 = _v7.b;
+	var _v8 = _v0.b;
+	var _v9 = _v8.a;
+	var _v10 = _v9.a;
+	var m13 = _v10.a;
+	var m23 = _v10.b;
+	var _v11 = _v9.b;
+	var m33 = _v11.a;
+	var m43 = _v11.b;
+	var _v12 = _v8.b;
+	var _v13 = _v12.a;
+	var m14 = _v13.a;
+	var m24 = _v13.b;
+	var _v14 = _v12.b;
+	var m34 = _v14.a;
+	var m44 = _v14.b;
+	var r44 = ((((((m11 * m22) * m33) - ((m11 * m32) * m23)) - ((m12 * m21) * m33)) + ((m12 * m31) * m23)) + ((m13 * m21) * m32)) - ((m13 * m31) * m22);
+	var r43 = (((((((-m11) * m22) * m43) + ((m11 * m42) * m23)) + ((m12 * m21) * m43)) - ((m12 * m41) * m23)) - ((m13 * m21) * m42)) + ((m13 * m41) * m22);
+	var r42 = ((((((m11 * m32) * m43) - ((m11 * m42) * m33)) - ((m12 * m31) * m43)) + ((m12 * m41) * m33)) + ((m13 * m31) * m42)) - ((m13 * m41) * m32);
+	var r41 = (((((((-m21) * m32) * m43) + ((m21 * m42) * m33)) + ((m22 * m31) * m43)) - ((m22 * m41) * m33)) - ((m23 * m31) * m42)) + ((m23 * m41) * m32);
+	var r34 = (((((((-m11) * m22) * m34) + ((m11 * m32) * m24)) + ((m12 * m21) * m34)) - ((m12 * m31) * m24)) - ((m14 * m21) * m32)) + ((m14 * m31) * m22);
+	var r33 = ((((((m11 * m22) * m44) - ((m11 * m42) * m24)) - ((m12 * m21) * m44)) + ((m12 * m41) * m24)) + ((m14 * m21) * m42)) - ((m14 * m41) * m22);
+	var r32 = (((((((-m11) * m32) * m44) + ((m11 * m42) * m34)) + ((m12 * m31) * m44)) - ((m12 * m41) * m34)) - ((m14 * m31) * m42)) + ((m14 * m41) * m32);
+	var r31 = ((((((m21 * m32) * m44) - ((m21 * m42) * m34)) - ((m22 * m31) * m44)) + ((m22 * m41) * m34)) + ((m24 * m31) * m42)) - ((m24 * m41) * m32);
+	var r24 = ((((((m11 * m23) * m34) - ((m11 * m33) * m24)) - ((m13 * m21) * m34)) + ((m13 * m31) * m24)) + ((m14 * m21) * m33)) - ((m14 * m31) * m23);
+	var r23 = (((((((-m11) * m23) * m44) + ((m11 * m43) * m24)) + ((m13 * m21) * m44)) - ((m13 * m41) * m24)) - ((m14 * m21) * m43)) + ((m14 * m41) * m23);
+	var r22 = ((((((m11 * m33) * m44) - ((m11 * m43) * m34)) - ((m13 * m31) * m44)) + ((m13 * m41) * m34)) + ((m14 * m31) * m43)) - ((m14 * m41) * m33);
+	var r21 = (((((((-m21) * m33) * m44) + ((m21 * m43) * m34)) + ((m23 * m31) * m44)) - ((m23 * m41) * m34)) - ((m24 * m31) * m43)) + ((m24 * m41) * m33);
+	var r14 = (((((((-m12) * m23) * m34) + ((m12 * m33) * m24)) + ((m13 * m22) * m34)) - ((m13 * m32) * m24)) - ((m14 * m22) * m33)) + ((m14 * m32) * m23);
+	var r13 = ((((((m12 * m23) * m44) - ((m12 * m43) * m24)) - ((m13 * m22) * m44)) + ((m13 * m42) * m24)) + ((m14 * m22) * m43)) - ((m14 * m42) * m23);
+	var r12 = (((((((-m12) * m33) * m44) + ((m12 * m43) * m34)) + ((m13 * m32) * m44)) - ((m13 * m42) * m34)) - ((m14 * m32) * m43)) + ((m14 * m42) * m33);
+	var r11 = ((((((m22 * m33) * m44) - ((m22 * m43) * m34)) - ((m23 * m32) * m44)) + ((m23 * m42) * m34)) + ((m24 * m32) * m43)) - ((m24 * m42) * m33);
+	var det = (((m11 * r11) + (m21 * r12)) + (m31 * r13)) + (m41 * r14);
+	var idet = 1 / det;
+	return (!det) ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(
+		_Utils_Tuple2(
+			_Utils_Tuple2(
+				_Utils_Tuple2(
+					_Utils_Tuple2(r11 * idet, r21 * idet),
+					_Utils_Tuple2(r31 * idet, r41 * idet)),
+				_Utils_Tuple2(
+					_Utils_Tuple2(r12 * idet, r22 * idet),
+					_Utils_Tuple2(r32 * idet, r42 * idet))),
+			_Utils_Tuple2(
+				_Utils_Tuple2(
+					_Utils_Tuple2(r13 * idet, r23 * idet),
+					_Utils_Tuple2(r33 * idet, r43 * idet)),
+				_Utils_Tuple2(
+					_Utils_Tuple2(r14 * idet, r24 * idet),
+					_Utils_Tuple2(r34 * idet, r44 * idet)))));
+};
+var $elm_explorations$linear_algebra$Math$Matrix4$inverse = _MJS_m4x4inverse;
+var $author$project$Matrix4$inverse = function (_v0) {
+	var glMat1 = _v0.glMat1;
+	var adtMat1 = _v0.adtMat1;
+	var recMat1 = _v0.recMat1;
+	var tupleMat1 = _v0.tupleMat1;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'inverse',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$MaybeGLMat4(
+						$elm_explorations$linear_algebra$Math$Matrix4$inverse(glMat1));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$MaybeAdtMat4(
+						$author$project$AltMath$Advanced$ADT$Matrix4$inverse(adtMat1));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$MaybeRecordMat4(
+						$author$project$AltMath$Advanced$Record$Matrix4$inverse(recMat1));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$MaybeTupleMat4(
+						$author$project$AltMath$Advanced$Tuple$Matrix4$inverse(tupleMat1));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$inverseOrthonormal = function (_v0) {
+	var m11 = _v0.a;
+	var m21 = _v0.b;
+	var m31 = _v0.c;
+	var m41 = _v0.d;
+	var m12 = _v0.e;
+	var m22 = _v0.f;
+	var m32 = _v0.g;
+	var m42 = _v0.h;
+	var m13 = _v0.i;
+	var m23 = _v0.j;
+	var m33 = _v0.k;
+	var m43 = _v0.l;
+	var m14 = _v0.m;
+	var m24 = _v0.n;
+	var m34 = _v0.o;
+	var m44 = _v0.p;
+	return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11)(m12)(m13)(0)(m21)(m22)(m23)(0)(m31)(m32)(m33)(0)(-(((m11 * m14) + (m21 * m24)) + (m31 * m34)))(-(((m12 * m14) + (m22 * m24)) + (m32 * m34)))(-(((m13 * m14) + (m23 * m24)) + (m33 * m34)))(m44);
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$inverseOrthonormal = function (m) {
+	return {m11: m.m11, m12: m.m21, m13: m.m31, m14: -(((m.m11 * m.m14) + (m.m21 * m.m24)) + (m.m31 * m.m34)), m21: m.m12, m22: m.m22, m23: m.m32, m24: -(((m.m12 * m.m14) + (m.m22 * m.m24)) + (m.m32 * m.m34)), m31: m.m13, m32: m.m23, m33: m.m33, m34: -(((m.m13 * m.m14) + (m.m23 * m.m24)) + (m.m33 * m.m34)), m41: 0, m42: 0, m43: 0, m44: m.m44};
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$inverseOrthonormal = function (_v0) {
+	var _v1 = _v0.a;
+	var _v2 = _v1.a;
+	var _v3 = _v2.a;
+	var m11 = _v3.a;
+	var m21 = _v3.b;
+	var _v4 = _v2.b;
+	var m31 = _v4.a;
+	var m41 = _v4.b;
+	var _v5 = _v1.b;
+	var _v6 = _v5.a;
+	var m12 = _v6.a;
+	var m22 = _v6.b;
+	var _v7 = _v5.b;
+	var m32 = _v7.a;
+	var m42 = _v7.b;
+	var _v8 = _v0.b;
+	var _v9 = _v8.a;
+	var _v10 = _v9.a;
+	var m13 = _v10.a;
+	var m23 = _v10.b;
+	var _v11 = _v9.b;
+	var m33 = _v11.a;
+	var m43 = _v11.b;
+	var _v12 = _v8.b;
+	var _v13 = _v12.a;
+	var m14 = _v13.a;
+	var m24 = _v13.b;
+	var _v14 = _v12.b;
+	var m34 = _v14.a;
+	var m44 = _v14.b;
+	return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+		{m11: m11, m12: m21, m13: m31, m14: -(((m11 * m14) + (m21 * m24)) + (m31 * m34)), m21: m12, m22: m22, m23: m32, m24: -(((m12 * m14) + (m22 * m24)) + (m32 * m34)), m31: m13, m32: m23, m33: m33, m34: -(((m13 * m14) + (m23 * m24)) + (m33 * m34)), m41: 0, m42: 0, m43: 0, m44: m44});
+};
+var $elm_explorations$linear_algebra$Math$Matrix4$inverseOrthonormal = _MJS_m4x4inverseOrthonormal;
+var $author$project$Matrix4$inverseOrthonormal = function (_v0) {
+	var glMat1 = _v0.glMat1;
+	var adtMat1 = _v0.adtMat1;
+	var recMat1 = _v0.recMat1;
+	var tupleMat1 = _v0.tupleMat1;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'inverseOrthonormal',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						$elm_explorations$linear_algebra$Math$Matrix4$inverseOrthonormal(glMat1));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						$author$project$AltMath$Advanced$ADT$Matrix4$inverseOrthonormal(adtMat1));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						$author$project$AltMath$Advanced$Record$Matrix4$inverseOrthonormal(recMat1));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						$author$project$AltMath$Advanced$Tuple$Matrix4$inverseOrthonormal(tupleMat1));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeBasis = F3(
+	function (_v0, _v1, _v2) {
+		var xx = _v0.a;
+		var xy = _v0.b;
+		var xz = _v0.c;
+		var yx = _v1.a;
+		var yy = _v1.b;
+		var yz = _v1.c;
+		var zx = _v2.a;
+		var zy = _v2.b;
+		var zz = _v2.c;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(xx)(xy)(xz)(0)(yx)(yy)(yz)(0)(zx)(zy)(zz)(0)(0)(0)(0)(1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeBasis = F3(
+	function (vx, vy, vz) {
+		return {m11: vx.x, m12: vy.x, m13: vz.x, m14: 0, m21: vx.y, m22: vy.y, m23: vz.y, m24: 0, m31: vx.z, m32: vy.z, m33: vz.z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeBasis = F3(
+	function (_v0, _v1, _v2) {
+		var v1x = _v0.a;
+		var v1y = _v0.b;
+		var v1z = _v0.c;
+		var v2x = _v1.a;
+		var v2y = _v1.b;
+		var v2z = _v1.c;
+		var v3x = _v2.a;
+		var v3y = _v2.b;
+		var v3z = _v2.c;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: v1x, m12: v2x, m13: v3x, m14: 0, m21: v1y, m22: v2y, m23: v3y, m24: 0, m31: v1z, m32: v2z, m33: v3z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeBasis = _MJS_m4x4makeBasis;
+var $author$project$Matrix4$makeBasis = function (_v0) {
+	var glVec1 = _v0.glVec1;
+	var glVec2 = _v0.glVec2;
+	var glVec3 = _v0.glVec3;
+	var adtVec1 = _v0.adtVec1;
+	var adtVec2 = _v0.adtVec2;
+	var adtVec3 = _v0.adtVec3;
+	var recVec1 = _v0.recVec1;
+	var recVec2 = _v0.recVec2;
+	var recVec3 = _v0.recVec3;
+	var tupleVec1 = _v0.tupleVec1;
+	var tupleVec2 = _v0.tupleVec2;
+	var tupleVec3 = _v0.tupleVec3;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'makeBasis',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						A3($elm_explorations$linear_algebra$Math$Matrix4$makeBasis, glVec1, glVec2, glVec3));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						A3($author$project$AltMath$Advanced$ADT$Matrix4$makeBasis, adtVec1, adtVec2, adtVec3));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						A3($author$project$AltMath$Advanced$Record$Matrix4$makeBasis, recVec1, recVec2, recVec3));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						A3($author$project$AltMath$Advanced$Tuple$Matrix4$makeBasis, tupleVec1, tupleVec2, tupleVec3));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeFrustum = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4((2 * znear) / (right - left))(0)(0)(0)(0)((2 * znear) / (top - bottom))(0)(0)((right + left) / (right - left))((top + bottom) / (top - bottom))((-(zfar + znear)) / (zfar - znear))(-1)(0)(0)((((-2) * zfar) * znear) / (zfar - znear))(0);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeFrustum = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return {m11: (2 * znear) / (right - left), m12: 0, m13: (right + left) / (right - left), m14: 0, m21: 0, m22: (2 * znear) / (top - bottom), m23: (top + bottom) / (top - bottom), m24: 0, m31: 0, m32: 0, m33: (-(zfar + znear)) / (zfar - znear), m34: (((-2) * zfar) * znear) / (zfar - znear), m41: 0, m42: 0, m43: -1, m44: 0};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeFrustum = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: (2 * znear) / (right - left), m12: 0, m13: (right + left) / (right - left), m14: 0, m21: 0, m22: (2 * znear) / (top - bottom), m23: (top + bottom) / (top - bottom), m24: 0, m31: 0, m32: 0, m33: (-(zfar + znear)) / (zfar - znear), m34: (((-2) * zfar) * znear) / (zfar - znear), m41: 0, m42: 0, m43: -1, m44: 0});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeFrustum = _MJS_m4x4makeFrustum;
+var $author$project$Matrix4$makeFrustum = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makeFrustum',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v0) {
+						return $author$project$Matrix4$GLMat4(
+							A6($elm_explorations$linear_algebra$Math$Matrix4$makeFrustum, left, right, bottom, top, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v1) {
+						return $author$project$Matrix4$AdtMat4(
+							A6($author$project$AltMath$Advanced$ADT$Matrix4$makeFrustum, left, right, bottom, top, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v2) {
+						return $author$project$Matrix4$RecordMat4(
+							A6($author$project$AltMath$Advanced$Record$Matrix4$makeFrustum, left, right, bottom, top, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v3) {
+						return $author$project$Matrix4$TupleMat4(
+							A6($author$project$AltMath$Advanced$Tuple$Matrix4$makeFrustum, left, right, bottom, top, znear, zfar));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Vector3$Vec3 = F3(
+	function (a, b, c) {
+		return {$: 'Vec3', a: a, b: b, c: c};
+	});
+var $author$project$AltMath$Advanced$ADT$Vector3$cross = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, (ay * bz) - (az * by), (az * bx) - (ax * bz), (ax * by) - (ay * bx));
+	});
+var $elm$core$Basics$sqrt = _Basics_sqrt;
+var $author$project$AltMath$Advanced$ADT$Vector3$length = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
+};
+var $author$project$AltMath$Advanced$ADT$Vector3$sub = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, ax - bx, ay - by, az - bz);
+	});
+var $author$project$AltMath$Advanced$ADT$Vector3$direction = F2(
+	function (a, b) {
+		var c = A2($author$project$AltMath$Advanced$ADT$Vector3$sub, a, b);
+		var x = c.a;
+		var y = c.b;
+		var z = c.c;
+		var len = $author$project$AltMath$Advanced$ADT$Vector3$length(c);
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, x / len, y / len, z / len);
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$mul = F2(
+	function (_v0, _v1) {
+		var am11 = _v0.a;
+		var am21 = _v0.b;
+		var am31 = _v0.c;
+		var am41 = _v0.d;
+		var am12 = _v0.e;
+		var am22 = _v0.f;
+		var am32 = _v0.g;
+		var am42 = _v0.h;
+		var am13 = _v0.i;
+		var am23 = _v0.j;
+		var am33 = _v0.k;
+		var am43 = _v0.l;
+		var am14 = _v0.m;
+		var am24 = _v0.n;
+		var am34 = _v0.o;
+		var am44 = _v0.p;
+		var bm11 = _v1.a;
+		var bm21 = _v1.b;
+		var bm31 = _v1.c;
+		var bm41 = _v1.d;
+		var bm12 = _v1.e;
+		var bm22 = _v1.f;
+		var bm32 = _v1.g;
+		var bm42 = _v1.h;
+		var bm13 = _v1.i;
+		var bm23 = _v1.j;
+		var bm33 = _v1.k;
+		var bm43 = _v1.l;
+		var bm14 = _v1.m;
+		var bm24 = _v1.n;
+		var bm34 = _v1.o;
+		var bm44 = _v1.p;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4((((am11 * bm11) + (am12 * bm21)) + (am13 * bm31)) + (am14 * bm41))((((am21 * bm11) + (am22 * bm21)) + (am23 * bm31)) + (am24 * bm41))((((am31 * bm11) + (am32 * bm21)) + (am33 * bm31)) + (am34 * bm41))((((am41 * bm11) + (am42 * bm21)) + (am43 * bm31)) + (am44 * bm41))((((am11 * bm12) + (am12 * bm22)) + (am13 * bm32)) + (am14 * bm42))((((am21 * bm12) + (am22 * bm22)) + (am23 * bm32)) + (am24 * bm42))((((am31 * bm12) + (am32 * bm22)) + (am33 * bm32)) + (am34 * bm42))((((am41 * bm12) + (am42 * bm22)) + (am43 * bm32)) + (am44 * bm42))((((am11 * bm13) + (am12 * bm23)) + (am13 * bm33)) + (am14 * bm43))((((am21 * bm13) + (am22 * bm23)) + (am23 * bm33)) + (am24 * bm43))((((am31 * bm13) + (am32 * bm23)) + (am33 * bm33)) + (am34 * bm43))((((am41 * bm13) + (am42 * bm23)) + (am43 * bm33)) + (am44 * bm43))((((am11 * bm14) + (am12 * bm24)) + (am13 * bm34)) + (am14 * bm44))((((am21 * bm14) + (am22 * bm24)) + (am23 * bm34)) + (am24 * bm44))((((am31 * bm14) + (am32 * bm24)) + (am33 * bm34)) + (am34 * bm44))((((am41 * bm14) + (am42 * bm24)) + (am43 * bm34)) + (am44 * bm44));
+	});
+var $author$project$AltMath$Advanced$ADT$Vector3$normalize = function (v3) {
+	var x = v3.a;
+	var y = v3.b;
+	var z = v3.c;
+	var len = $author$project$AltMath$Advanced$ADT$Vector3$length(v3);
+	return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, x / len, y / len, z / len);
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeLookAt = F3(
+	function (eye, center, up) {
+		var eyex = eye.a;
+		var eyey = eye.b;
+		var eyez = eye.c;
+		var z = A2($author$project$AltMath$Advanced$ADT$Vector3$direction, eye, center);
+		var zx = z.a;
+		var zy = z.b;
+		var zz = z.c;
+		var x = $author$project$AltMath$Advanced$ADT$Vector3$normalize(
+			A2($author$project$AltMath$Advanced$ADT$Vector3$cross, up, z));
+		var xx = x.a;
+		var xy = x.b;
+		var xz = x.c;
+		var y = $author$project$AltMath$Advanced$ADT$Vector3$normalize(
+			A2($author$project$AltMath$Advanced$ADT$Vector3$cross, z, x));
+		var yx = y.a;
+		var yy = y.b;
+		var yz = y.c;
+		return A2(
+			$author$project$AltMath$Advanced$ADT$Matrix4$mul,
+			$author$project$AltMath$Advanced$ADT$Matrix4$Mat4(xx)(yx)(zx)(0)(xy)(yy)(zy)(0)(xz)(yz)(zz)(0)(0)(0)(0)(1),
+			$author$project$AltMath$Advanced$ADT$Matrix4$Mat4(1)(0)(0)(0)(0)(1)(0)(0)(0)(0)(1)(0)(-eyex)(-eyey)(-eyez)(1));
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$Vec3 = F3(
+	function (x, y, z) {
+		return {x: x, y: y, z: z};
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$cross = F2(
+	function (a, b) {
+		return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, (a.y * b.z) - (a.z * b.y), (a.z * b.x) - (a.x * b.z), (a.x * b.y) - (a.y * b.x));
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$length = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	var z = _v0.z;
+	return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
+};
+var $author$project$AltMath$Advanced$Record$Vector3$sub = F2(
+	function (a, b) {
+		return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, a.x - b.x, a.y - b.y, a.z - b.z);
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$direction = F2(
+	function (a, b) {
+		var c = A2($author$project$AltMath$Advanced$Record$Vector3$sub, a, b);
+		var len = $author$project$AltMath$Advanced$Record$Vector3$length(c);
+		return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, c.x / len, c.y / len, c.z / len);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$mul = F2(
+	function (a, b) {
+		return {m11: (((a.m11 * b.m11) + (a.m12 * b.m21)) + (a.m13 * b.m31)) + (a.m14 * b.m41), m12: (((a.m11 * b.m12) + (a.m12 * b.m22)) + (a.m13 * b.m32)) + (a.m14 * b.m42), m13: (((a.m11 * b.m13) + (a.m12 * b.m23)) + (a.m13 * b.m33)) + (a.m14 * b.m43), m14: (((a.m11 * b.m14) + (a.m12 * b.m24)) + (a.m13 * b.m34)) + (a.m14 * b.m44), m21: (((a.m21 * b.m11) + (a.m22 * b.m21)) + (a.m23 * b.m31)) + (a.m24 * b.m41), m22: (((a.m21 * b.m12) + (a.m22 * b.m22)) + (a.m23 * b.m32)) + (a.m24 * b.m42), m23: (((a.m21 * b.m13) + (a.m22 * b.m23)) + (a.m23 * b.m33)) + (a.m24 * b.m43), m24: (((a.m21 * b.m14) + (a.m22 * b.m24)) + (a.m23 * b.m34)) + (a.m24 * b.m44), m31: (((a.m31 * b.m11) + (a.m32 * b.m21)) + (a.m33 * b.m31)) + (a.m34 * b.m41), m32: (((a.m31 * b.m12) + (a.m32 * b.m22)) + (a.m33 * b.m32)) + (a.m34 * b.m42), m33: (((a.m31 * b.m13) + (a.m32 * b.m23)) + (a.m33 * b.m33)) + (a.m34 * b.m43), m34: (((a.m31 * b.m14) + (a.m32 * b.m24)) + (a.m33 * b.m34)) + (a.m34 * b.m44), m41: (((a.m41 * b.m11) + (a.m42 * b.m21)) + (a.m43 * b.m31)) + (a.m44 * b.m41), m42: (((a.m41 * b.m12) + (a.m42 * b.m22)) + (a.m43 * b.m32)) + (a.m44 * b.m42), m43: (((a.m41 * b.m13) + (a.m42 * b.m23)) + (a.m43 * b.m33)) + (a.m44 * b.m43), m44: (((a.m41 * b.m14) + (a.m42 * b.m24)) + (a.m43 * b.m34)) + (a.m44 * b.m44)};
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$normalize = function (v3) {
+	var len = $author$project$AltMath$Advanced$Record$Vector3$length(v3);
+	return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, v3.x / len, v3.y / len, v3.z / len);
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$makeLookAt = F3(
+	function (eye, center, up) {
+		var z = A2($author$project$AltMath$Advanced$Record$Vector3$direction, eye, center);
+		var x = $author$project$AltMath$Advanced$Record$Vector3$normalize(
+			A2($author$project$AltMath$Advanced$Record$Vector3$cross, up, z));
+		var y = $author$project$AltMath$Advanced$Record$Vector3$normalize(
+			A2($author$project$AltMath$Advanced$Record$Vector3$cross, z, x));
+		return A2(
+			$author$project$AltMath$Advanced$Record$Matrix4$mul,
+			{m11: x.x, m12: x.y, m13: x.z, m14: 0, m21: y.x, m22: y.y, m23: y.z, m24: 0, m31: z.x, m32: z.y, m33: z.z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1},
+			{m11: 1, m12: 0, m13: 0, m14: -eye.x, m21: 0, m22: 1, m23: 0, m24: -eye.y, m31: 0, m32: 0, m33: 1, m34: -eye.z, m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$cross = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		return _Utils_Tuple3((ay * bz) - (az * by), (az * bx) - (ax * bz), (ax * by) - (ay * bx));
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$length = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
+};
+var $author$project$AltMath$Advanced$Tuple$Vector3$sub = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		return _Utils_Tuple3(ax - bx, ay - by, az - bz);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$direction = F2(
+	function (a, b) {
+		var c = A2($author$project$AltMath$Advanced$Tuple$Vector3$sub, a, b);
+		var x = c.a;
+		var y = c.b;
+		var z = c.c;
+		var len = $author$project$AltMath$Advanced$Tuple$Vector3$length(c);
+		return _Utils_Tuple3(x / len, y / len, z / len);
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$mul = F2(
+	function (_v0, _v15) {
+		var _v1 = _v0.a;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var am11 = _v3.a;
+		var am21 = _v3.b;
+		var _v4 = _v2.b;
+		var am31 = _v4.a;
+		var am41 = _v4.b;
+		var _v5 = _v1.b;
+		var _v6 = _v5.a;
+		var am12 = _v6.a;
+		var am22 = _v6.b;
+		var _v7 = _v5.b;
+		var am32 = _v7.a;
+		var am42 = _v7.b;
+		var _v8 = _v0.b;
+		var _v9 = _v8.a;
+		var _v10 = _v9.a;
+		var am13 = _v10.a;
+		var am23 = _v10.b;
+		var _v11 = _v9.b;
+		var am33 = _v11.a;
+		var am43 = _v11.b;
+		var _v12 = _v8.b;
+		var _v13 = _v12.a;
+		var am14 = _v13.a;
+		var am24 = _v13.b;
+		var _v14 = _v12.b;
+		var am34 = _v14.a;
+		var am44 = _v14.b;
+		var _v16 = _v15.a;
+		var _v17 = _v16.a;
+		var _v18 = _v17.a;
+		var bm11 = _v18.a;
+		var bm21 = _v18.b;
+		var _v19 = _v17.b;
+		var bm31 = _v19.a;
+		var bm41 = _v19.b;
+		var _v20 = _v16.b;
+		var _v21 = _v20.a;
+		var bm12 = _v21.a;
+		var bm22 = _v21.b;
+		var _v22 = _v20.b;
+		var bm32 = _v22.a;
+		var bm42 = _v22.b;
+		var _v23 = _v15.b;
+		var _v24 = _v23.a;
+		var _v25 = _v24.a;
+		var bm13 = _v25.a;
+		var bm23 = _v25.b;
+		var _v26 = _v24.b;
+		var bm33 = _v26.a;
+		var bm43 = _v26.b;
+		var _v27 = _v23.b;
+		var _v28 = _v27.a;
+		var bm14 = _v28.a;
+		var bm24 = _v28.b;
+		var _v29 = _v27.b;
+		var bm34 = _v29.a;
+		var bm44 = _v29.b;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: (((am11 * bm11) + (am12 * bm21)) + (am13 * bm31)) + (am14 * bm41), m12: (((am11 * bm12) + (am12 * bm22)) + (am13 * bm32)) + (am14 * bm42), m13: (((am11 * bm13) + (am12 * bm23)) + (am13 * bm33)) + (am14 * bm43), m14: (((am11 * bm14) + (am12 * bm24)) + (am13 * bm34)) + (am14 * bm44), m21: (((am21 * bm11) + (am22 * bm21)) + (am23 * bm31)) + (am24 * bm41), m22: (((am21 * bm12) + (am22 * bm22)) + (am23 * bm32)) + (am24 * bm42), m23: (((am21 * bm13) + (am22 * bm23)) + (am23 * bm33)) + (am24 * bm43), m24: (((am21 * bm14) + (am22 * bm24)) + (am23 * bm34)) + (am24 * bm44), m31: (((am31 * bm11) + (am32 * bm21)) + (am33 * bm31)) + (am34 * bm41), m32: (((am31 * bm12) + (am32 * bm22)) + (am33 * bm32)) + (am34 * bm42), m33: (((am31 * bm13) + (am32 * bm23)) + (am33 * bm33)) + (am34 * bm43), m34: (((am31 * bm14) + (am32 * bm24)) + (am33 * bm34)) + (am34 * bm44), m41: (((am41 * bm11) + (am42 * bm21)) + (am43 * bm31)) + (am44 * bm41), m42: (((am41 * bm12) + (am42 * bm22)) + (am43 * bm32)) + (am44 * bm42), m43: (((am41 * bm13) + (am42 * bm23)) + (am43 * bm33)) + (am44 * bm43), m44: (((am41 * bm14) + (am42 * bm24)) + (am43 * bm34)) + (am44 * bm44)});
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$normalize = function (v3) {
+	var x = v3.a;
+	var y = v3.b;
+	var z = v3.c;
+	var len = $author$project$AltMath$Advanced$Tuple$Vector3$length(v3);
+	return _Utils_Tuple3(x / len, y / len, z / len);
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeLookAt = F3(
+	function (eye, center, up) {
+		var eyex = eye.a;
+		var eyey = eye.b;
+		var eyez = eye.c;
+		var z = A2($author$project$AltMath$Advanced$Tuple$Vector3$direction, eye, center);
+		var zx = z.a;
+		var zy = z.b;
+		var zz = z.c;
+		var x = $author$project$AltMath$Advanced$Tuple$Vector3$normalize(
+			A2($author$project$AltMath$Advanced$Tuple$Vector3$cross, up, z));
+		var xx = x.a;
+		var xy = x.b;
+		var xz = x.c;
+		var _v0 = $author$project$AltMath$Advanced$Tuple$Vector3$normalize(
+			A2($author$project$AltMath$Advanced$Tuple$Vector3$cross, z, x));
+		var yx = _v0.a;
+		var yy = _v0.b;
+		var yz = _v0.c;
+		return A2(
+			$author$project$AltMath$Advanced$Tuple$Matrix4$mul,
+			$author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+				{m11: xx, m12: xy, m13: xz, m14: 0, m21: yx, m22: yy, m23: yz, m24: 0, m31: zx, m32: zy, m33: zz, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1}),
+			$author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+				{m11: 1, m12: 0, m13: 0, m14: -eyex, m21: 0, m22: 1, m23: 0, m24: -eyey, m31: 0, m32: 0, m33: 1, m34: -eyez, m41: 0, m42: 0, m43: 0, m44: 1}));
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeLookAt = _MJS_m4x4makeLookAt;
+var $author$project$Matrix4$makeLookAt = function (_v0) {
+	var glVec1 = _v0.glVec1;
+	var glVec2 = _v0.glVec2;
+	var glVec3 = _v0.glVec3;
+	var adtVec1 = _v0.adtVec1;
+	var adtVec2 = _v0.adtVec2;
+	var adtVec3 = _v0.adtVec3;
+	var recVec1 = _v0.recVec1;
+	var recVec2 = _v0.recVec2;
+	var recVec3 = _v0.recVec3;
+	var tupleVec1 = _v0.tupleVec1;
+	var tupleVec2 = _v0.tupleVec2;
+	var tupleVec3 = _v0.tupleVec3;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'makeLookAt',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						A3($elm_explorations$linear_algebra$Math$Matrix4$makeLookAt, glVec1, glVec2, glVec3));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						A3($author$project$AltMath$Advanced$ADT$Matrix4$makeLookAt, adtVec1, adtVec2, adtVec3));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						A3($author$project$AltMath$Advanced$Record$Matrix4$makeLookAt, recVec1, recVec2, recVec3));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						A3($author$project$AltMath$Advanced$Tuple$Matrix4$makeLookAt, tupleVec1, tupleVec2, tupleVec3));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeOrtho = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(2 / (right - left))(0)(0)(0)(0)(2 / (top - bottom))(0)(0)(0)(0)((-2) / (zfar - znear))(0)((-(right + left)) / (right - left))((-(top + bottom)) / (top - bottom))((-(zfar + znear)) / (zfar - znear))(1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeOrtho = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return {m11: 2 / (right - left), m12: 0, m13: 0, m14: (-(right + left)) / (right - left), m21: 0, m22: 2 / (top - bottom), m23: 0, m24: (-(top + bottom)) / (top - bottom), m31: 0, m32: 0, m33: (-2) / (zfar - znear), m34: (-(zfar + znear)) / (zfar - znear), m41: 0, m42: 0, m43: 0, m44: 1};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeOrtho = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: 2 / (right - left), m12: 0, m13: 0, m14: (-(right + left)) / (right - left), m21: 0, m22: 2 / (top - bottom), m23: 0, m24: (-(top + bottom)) / (top - bottom), m31: 0, m32: 0, m33: (-2) / (zfar - znear), m34: (-(zfar + znear)) / (zfar - znear), m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeOrtho = _MJS_m4x4makeOrtho;
+var $author$project$Matrix4$makeOrtho = F6(
+	function (left, right, bottom, top, znear, zfar) {
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makeOrtho',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v0) {
+						return $author$project$Matrix4$GLMat4(
+							A6($elm_explorations$linear_algebra$Math$Matrix4$makeOrtho, left, right, bottom, top, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v1) {
+						return $author$project$Matrix4$AdtMat4(
+							A6($author$project$AltMath$Advanced$ADT$Matrix4$makeOrtho, left, right, bottom, top, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v2) {
+						return $author$project$Matrix4$RecordMat4(
+							A6($author$project$AltMath$Advanced$Record$Matrix4$makeOrtho, left, right, bottom, top, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v3) {
+						return $author$project$Matrix4$TupleMat4(
+							A6($author$project$AltMath$Advanced$Tuple$Matrix4$makeOrtho, left, right, bottom, top, znear, zfar));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeOrtho2D = F4(
+	function (left, right, bottom, top) {
+		return A6($author$project$AltMath$Advanced$ADT$Matrix4$makeOrtho, left, right, bottom, top, -1, 1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeOrtho2D = F4(
+	function (left, right, bottom, top) {
+		return A6($author$project$AltMath$Advanced$Record$Matrix4$makeOrtho, left, right, bottom, top, -1, 1);
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeOrtho2D = F4(
+	function (left, right, bottom, top) {
+		return A6($author$project$AltMath$Advanced$Tuple$Matrix4$makeOrtho, left, right, bottom, top, -1, 1);
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeOrtho2D = _MJS_m4x4makeOrtho2D;
+var $author$project$Matrix4$makeOrtho2D = F4(
+	function (left, right, bottom, top) {
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makeOrtho2D',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v0) {
+						return $author$project$Matrix4$GLMat4(
+							A4($elm_explorations$linear_algebra$Math$Matrix4$makeOrtho2D, left, right, bottom, top));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v1) {
+						return $author$project$Matrix4$AdtMat4(
+							A4($author$project$AltMath$Advanced$ADT$Matrix4$makeOrtho2D, left, right, bottom, top));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v2) {
+						return $author$project$Matrix4$RecordMat4(
+							A4($author$project$AltMath$Advanced$Record$Matrix4$makeOrtho2D, left, right, bottom, top));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v3) {
+						return $author$project$Matrix4$TupleMat4(
+							A4($author$project$AltMath$Advanced$Tuple$Matrix4$makeOrtho2D, left, right, bottom, top));
+					})
+				]));
+	});
+var $elm$core$Basics$pi = _Basics_pi;
+var $elm$core$Basics$tan = _Basics_tan;
+var $author$project$AltMath$Advanced$ADT$Matrix4$makePerspective = F4(
+	function (fovy, aspect, znear, zfar) {
+		var ymax = znear * $elm$core$Basics$tan((fovy * $elm$core$Basics$pi) / 360.0);
+		var ymin = -ymax;
+		var xmin = ymin * aspect;
+		var xmax = ymax * aspect;
+		return A6($author$project$AltMath$Advanced$ADT$Matrix4$makeFrustum, xmin, xmax, ymin, ymax, znear, zfar);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makePerspective = F4(
+	function (fovy, aspect, znear, zfar) {
+		var ymax = znear * $elm$core$Basics$tan((fovy * $elm$core$Basics$pi) / 360.0);
+		var ymin = -ymax;
+		var xmin = ymin * aspect;
+		var xmax = ymax * aspect;
+		return A6($author$project$AltMath$Advanced$Record$Matrix4$makeFrustum, xmin, xmax, ymin, ymax, znear, zfar);
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makePerspective = F4(
+	function (fovy, aspect, znear, zfar) {
+		var ymax = znear * $elm$core$Basics$tan((fovy * $elm$core$Basics$pi) / 360.0);
+		var ymin = -ymax;
+		var xmin = ymin * aspect;
+		var xmax = ymax * aspect;
+		return A6($author$project$AltMath$Advanced$Tuple$Matrix4$makeFrustum, xmin, xmax, ymin, ymax, znear, zfar);
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makePerspective = _MJS_m4x4makePerspective;
+var $author$project$Matrix4$makePerspective = F4(
+	function (fovy, aspect, znear, zfar) {
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makePerspective',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v0) {
+						return $author$project$Matrix4$GLMat4(
+							A4($elm_explorations$linear_algebra$Math$Matrix4$makePerspective, fovy, aspect, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v1) {
+						return $author$project$Matrix4$AdtMat4(
+							A4($author$project$AltMath$Advanced$ADT$Matrix4$makePerspective, fovy, aspect, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v2) {
+						return $author$project$Matrix4$RecordMat4(
+							A4($author$project$AltMath$Advanced$Record$Matrix4$makePerspective, fovy, aspect, znear, zfar));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v3) {
+						return $author$project$Matrix4$TupleMat4(
+							A4($author$project$AltMath$Advanced$Tuple$Matrix4$makePerspective, fovy, aspect, znear, zfar));
+					})
+				]));
+	});
+var $elm$core$Basics$cos = _Basics_cos;
+var $elm$core$Basics$sin = _Basics_sin;
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeRotate = F2(
+	function (angle, axis) {
+		var s = $elm$core$Basics$sin(angle);
+		var c = $elm$core$Basics$cos(angle);
+		var c1 = 1 - c;
+		var _v0 = $author$project$AltMath$Advanced$ADT$Vector3$normalize(axis);
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(((x * x) * c1) + c)(((y * x) * c1) + (z * s))(((z * x) * c1) - (y * s))(0)(((x * y) * c1) - (z * s))(((y * y) * c1) + c)(((y * z) * c1) + (x * s))(0)(((x * z) * c1) + (y * s))(((y * z) * c1) - (x * s))(((z * z) * c1) + c)(0)(0)(0)(0)(1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeRotate = F2(
+	function (angle, axis) {
+		var s = $elm$core$Basics$sin(angle);
+		var c = $elm$core$Basics$cos(angle);
+		var c1 = 1 - c;
+		var _v0 = $author$project$AltMath$Advanced$Record$Vector3$normalize(axis);
+		var x = _v0.x;
+		var y = _v0.y;
+		var z = _v0.z;
+		return {m11: ((x * x) * c1) + c, m12: ((x * y) * c1) - (z * s), m13: ((x * z) * c1) + (y * s), m14: 0, m21: ((y * x) * c1) + (z * s), m22: ((y * y) * c1) + c, m23: ((y * z) * c1) - (x * s), m24: 0, m31: ((z * x) * c1) - (y * s), m32: ((y * z) * c1) + (x * s), m33: ((z * z) * c1) + c, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeRotate = F2(
+	function (angle, axis) {
+		var s = $elm$core$Basics$sin(angle);
+		var c = $elm$core$Basics$cos(angle);
+		var c1 = 1 - c;
+		var _v0 = $author$project$AltMath$Advanced$Tuple$Vector3$normalize(axis);
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: ((x * x) * c1) + c, m12: ((x * y) * c1) - (z * s), m13: ((x * z) * c1) + (y * s), m14: 0, m21: ((y * x) * c1) + (z * s), m22: ((y * y) * c1) + c, m23: ((y * z) * c1) - (x * s), m24: 0, m31: ((z * x) * c1) - (y * s), m32: ((y * z) * c1) + (x * s), m33: ((z * z) * c1) + c, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeRotate = _MJS_m4x4makeRotate;
+var $author$project$Matrix4$makeRotate = F2(
+	function (angle, _v0) {
+		var glVec1 = _v0.glVec1;
+		var adtVec1 = _v0.adtVec1;
+		var recVec1 = _v0.recVec1;
+		var tupleVec1 = _v0.tupleVec1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makeRotate',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v1) {
+						return $author$project$Matrix4$GLMat4(
+							A2($elm_explorations$linear_algebra$Math$Matrix4$makeRotate, angle, glVec1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v2) {
+						return $author$project$Matrix4$AdtMat4(
+							A2($author$project$AltMath$Advanced$ADT$Matrix4$makeRotate, angle, adtVec1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v3) {
+						return $author$project$Matrix4$RecordMat4(
+							A2($author$project$AltMath$Advanced$Record$Matrix4$makeRotate, angle, recVec1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v4) {
+						return $author$project$Matrix4$TupleMat4(
+							A2($author$project$AltMath$Advanced$Tuple$Matrix4$makeRotate, angle, tupleVec1));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeScale = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(x)(0)(0)(0)(0)(y)(0)(0)(0)(0)(z)(0)(0)(0)(0)(1);
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$makeScale = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	var z = _v0.z;
+	return {m11: x, m12: 0, m13: 0, m14: 0, m21: 0, m22: y, m23: 0, m24: 0, m31: 0, m32: 0, m33: z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1};
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeScale = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+		{m11: x, m12: 0, m13: 0, m14: 0, m21: 0, m22: y, m23: 0, m24: 0, m31: 0, m32: 0, m33: z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1});
+};
+var $elm_explorations$linear_algebra$Math$Matrix4$makeScale = _MJS_m4x4makeScale;
+var $author$project$Matrix4$makeScale = function (_v0) {
+	var glVec1 = _v0.glVec1;
+	var adtVec1 = _v0.adtVec1;
+	var recVec1 = _v0.recVec1;
+	var tupleVec1 = _v0.tupleVec1;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'makeScale',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						$elm_explorations$linear_algebra$Math$Matrix4$makeScale(glVec1));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						$author$project$AltMath$Advanced$ADT$Matrix4$makeScale(adtVec1));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						$author$project$AltMath$Advanced$Record$Matrix4$makeScale(recVec1));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						$author$project$AltMath$Advanced$Tuple$Matrix4$makeScale(tupleVec1));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeScale3 = F3(
+	function (x, y, z) {
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(x)(0)(0)(0)(0)(y)(0)(0)(0)(0)(z)(0)(0)(0)(0)(1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeScale3 = F3(
+	function (x, y, z) {
+		return {m11: x, m12: 0, m13: 0, m14: 0, m21: 0, m22: y, m23: 0, m24: 0, m31: 0, m32: 0, m33: z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeScale3 = F3(
+	function (x, y, z) {
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: x, m12: 0, m13: 0, m14: 0, m21: 0, m22: y, m23: 0, m24: 0, m31: 0, m32: 0, m33: z, m34: 0, m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeScale3 = _MJS_m4x4makeScale3;
+var $author$project$Matrix4$makeScale3 = F3(
+	function (x, y, z) {
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makeScale3',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v0) {
+						return $author$project$Matrix4$GLMat4(
+							A3($elm_explorations$linear_algebra$Math$Matrix4$makeScale3, x, y, z));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v1) {
+						return $author$project$Matrix4$AdtMat4(
+							A3($author$project$AltMath$Advanced$ADT$Matrix4$makeScale3, x, y, z));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v2) {
+						return $author$project$Matrix4$RecordMat4(
+							A3($author$project$AltMath$Advanced$Record$Matrix4$makeScale3, x, y, z));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v3) {
+						return $author$project$Matrix4$TupleMat4(
+							A3($author$project$AltMath$Advanced$Tuple$Matrix4$makeScale3, x, y, z));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeTranslate = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(1)(0)(0)(0)(0)(1)(0)(0)(0)(0)(1)(0)(x)(y)(z)(1);
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$makeTranslate = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	var z = _v0.z;
+	return {m11: 1, m12: 0, m13: 0, m14: x, m21: 0, m22: 1, m23: 0, m24: y, m31: 0, m32: 0, m33: 1, m34: z, m41: 0, m42: 0, m43: 0, m44: 1};
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeTranslate = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+		{m11: 1, m12: 0, m13: 0, m14: x, m21: 0, m22: 1, m23: 0, m24: y, m31: 0, m32: 0, m33: 1, m34: z, m41: 0, m42: 0, m43: 0, m44: 1});
+};
+var $elm_explorations$linear_algebra$Math$Matrix4$makeTranslate = _MJS_m4x4makeTranslate;
+var $author$project$Matrix4$makeTranslate = function (_v0) {
+	var glVec1 = _v0.glVec1;
+	var adtVec1 = _v0.adtVec1;
+	var recVec1 = _v0.recVec1;
+	var tupleVec1 = _v0.tupleVec1;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'makeTranslate',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						$elm_explorations$linear_algebra$Math$Matrix4$makeTranslate(glVec1));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						$author$project$AltMath$Advanced$ADT$Matrix4$makeTranslate(adtVec1));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						$author$project$AltMath$Advanced$Record$Matrix4$makeTranslate(recVec1));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						$author$project$AltMath$Advanced$Tuple$Matrix4$makeTranslate(tupleVec1));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$makeTranslate3 = F3(
+	function (x, y, z) {
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(1)(0)(0)(0)(0)(1)(0)(0)(0)(0)(1)(0)(x)(y)(z)(1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$makeTranslate3 = F3(
+	function (x, y, z) {
+		return {m11: 1, m12: 0, m13: 0, m14: x, m21: 0, m22: 1, m23: 0, m24: y, m31: 0, m32: 0, m33: 1, m34: z, m41: 0, m42: 0, m43: 0, m44: 1};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$makeTranslate3 = F3(
+	function (x, y, z) {
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: 1, m12: 0, m13: 0, m14: x, m21: 0, m22: 1, m23: 0, m24: y, m31: 0, m32: 0, m33: 1, m34: z, m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$makeTranslate3 = _MJS_m4x4makeTranslate3;
+var $author$project$Matrix4$makeTranslate3 = F3(
+	function (x, y, z) {
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'makeTranslate3',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v0) {
+						return $author$project$Matrix4$GLMat4(
+							A3($elm_explorations$linear_algebra$Math$Matrix4$makeTranslate3, x, y, z));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v1) {
+						return $author$project$Matrix4$AdtMat4(
+							A3($author$project$AltMath$Advanced$ADT$Matrix4$makeTranslate3, x, y, z));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v2) {
+						return $author$project$Matrix4$RecordMat4(
+							A3($author$project$AltMath$Advanced$Record$Matrix4$makeTranslate3, x, y, z));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v3) {
+						return $author$project$Matrix4$TupleMat4(
+							A3($author$project$AltMath$Advanced$Tuple$Matrix4$makeTranslate3, x, y, z));
+					})
+				]));
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$mul = _MJS_m4x4mul;
+var $author$project$Matrix4$mul = function (_v0) {
+	var glMat1 = _v0.glMat1;
+	var glMat2 = _v0.glMat2;
+	var adtMat1 = _v0.adtMat1;
+	var adtMat2 = _v0.adtMat2;
+	var recMat1 = _v0.recMat1;
+	var recMat2 = _v0.recMat2;
+	var tupleMat1 = _v0.tupleMat1;
+	var tupleMat2 = _v0.tupleMat2;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'mul',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						A2($elm_explorations$linear_algebra$Math$Matrix4$mul, glMat1, glMat2));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						A2($author$project$AltMath$Advanced$ADT$Matrix4$mul, adtMat1, adtMat2));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						A2($author$project$AltMath$Advanced$Record$Matrix4$mul, recMat1, recMat2));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						A2($author$project$AltMath$Advanced$Tuple$Matrix4$mul, tupleMat1, tupleMat2));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$mulAffine = F2(
+	function (_v0, _v1) {
+		var am11 = _v0.a;
+		var am21 = _v0.b;
+		var am31 = _v0.c;
+		var am41 = _v0.d;
+		var am12 = _v0.e;
+		var am22 = _v0.f;
+		var am32 = _v0.g;
+		var am42 = _v0.h;
+		var am13 = _v0.i;
+		var am23 = _v0.j;
+		var am33 = _v0.k;
+		var am43 = _v0.l;
+		var am14 = _v0.m;
+		var am24 = _v0.n;
+		var am34 = _v0.o;
+		var am44 = _v0.p;
+		var bm11 = _v1.a;
+		var bm21 = _v1.b;
+		var bm31 = _v1.c;
+		var bm41 = _v1.d;
+		var bm12 = _v1.e;
+		var bm22 = _v1.f;
+		var bm32 = _v1.g;
+		var bm42 = _v1.h;
+		var bm13 = _v1.i;
+		var bm23 = _v1.j;
+		var bm33 = _v1.k;
+		var bm43 = _v1.l;
+		var bm14 = _v1.m;
+		var bm24 = _v1.n;
+		var bm34 = _v1.o;
+		var bm44 = _v1.p;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(((am11 * bm11) + (am12 * bm21)) + (am13 * bm31))(((am21 * bm11) + (am22 * bm21)) + (am23 * bm31))(((am31 * bm11) + (am32 * bm21)) + (am33 * bm31))(0)(((am11 * bm12) + (am12 * bm22)) + (am13 * bm32))(((am21 * bm12) + (am22 * bm22)) + (am23 * bm32))(((am31 * bm12) + (am32 * bm22)) + (am33 * bm32))(0)(((am11 * bm13) + (am12 * bm23)) + (am13 * bm33))(((am21 * bm13) + (am22 * bm23)) + (am23 * bm33))(((am31 * bm13) + (am32 * bm23)) + (am33 * bm33))(0)((((am11 * bm14) + (am12 * bm24)) + (am13 * bm34)) + am14)((((am21 * bm14) + (am22 * bm24)) + (am23 * bm34)) + am24)((((am31 * bm14) + (am32 * bm24)) + (am33 * bm34)) + am34)(1);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$mulAffine = F2(
+	function (a, b) {
+		return {m11: ((a.m11 * b.m11) + (a.m12 * b.m21)) + (a.m13 * b.m31), m12: ((a.m11 * b.m12) + (a.m12 * b.m22)) + (a.m13 * b.m32), m13: ((a.m11 * b.m13) + (a.m12 * b.m23)) + (a.m13 * b.m33), m14: (((a.m11 * b.m14) + (a.m12 * b.m24)) + (a.m13 * b.m34)) + a.m14, m21: ((a.m21 * b.m11) + (a.m22 * b.m21)) + (a.m23 * b.m31), m22: ((a.m21 * b.m12) + (a.m22 * b.m22)) + (a.m23 * b.m32), m23: ((a.m21 * b.m13) + (a.m22 * b.m23)) + (a.m23 * b.m33), m24: (((a.m21 * b.m14) + (a.m22 * b.m24)) + (a.m23 * b.m34)) + a.m24, m31: ((a.m31 * b.m11) + (a.m32 * b.m21)) + (a.m33 * b.m31), m32: ((a.m31 * b.m12) + (a.m32 * b.m22)) + (a.m33 * b.m32), m33: ((a.m31 * b.m13) + (a.m32 * b.m23)) + (a.m33 * b.m33), m34: (((a.m31 * b.m14) + (a.m32 * b.m24)) + (a.m33 * b.m34)) + a.m34, m41: 0, m42: 0, m43: 0, m44: 1};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$mulAffine = F2(
+	function (_v0, _v15) {
+		var _v1 = _v0.a;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var am11 = _v3.a;
+		var am21 = _v3.b;
+		var _v4 = _v2.b;
+		var am31 = _v4.a;
+		var am41 = _v4.b;
+		var _v5 = _v1.b;
+		var _v6 = _v5.a;
+		var am12 = _v6.a;
+		var am22 = _v6.b;
+		var _v7 = _v5.b;
+		var am32 = _v7.a;
+		var am42 = _v7.b;
+		var _v8 = _v0.b;
+		var _v9 = _v8.a;
+		var _v10 = _v9.a;
+		var am13 = _v10.a;
+		var am23 = _v10.b;
+		var _v11 = _v9.b;
+		var am33 = _v11.a;
+		var am43 = _v11.b;
+		var _v12 = _v8.b;
+		var _v13 = _v12.a;
+		var am14 = _v13.a;
+		var am24 = _v13.b;
+		var _v14 = _v12.b;
+		var am34 = _v14.a;
+		var am44 = _v14.b;
+		var _v16 = _v15.a;
+		var _v17 = _v16.a;
+		var _v18 = _v17.a;
+		var bm11 = _v18.a;
+		var bm21 = _v18.b;
+		var _v19 = _v17.b;
+		var bm31 = _v19.a;
+		var bm41 = _v19.b;
+		var _v20 = _v16.b;
+		var _v21 = _v20.a;
+		var bm12 = _v21.a;
+		var bm22 = _v21.b;
+		var _v22 = _v20.b;
+		var bm32 = _v22.a;
+		var bm42 = _v22.b;
+		var _v23 = _v15.b;
+		var _v24 = _v23.a;
+		var _v25 = _v24.a;
+		var bm13 = _v25.a;
+		var bm23 = _v25.b;
+		var _v26 = _v24.b;
+		var bm33 = _v26.a;
+		var bm43 = _v26.b;
+		var _v27 = _v23.b;
+		var _v28 = _v27.a;
+		var bm14 = _v28.a;
+		var bm24 = _v28.b;
+		var _v29 = _v27.b;
+		var bm34 = _v29.a;
+		var bm44 = _v29.b;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: ((am11 * bm11) + (am12 * bm21)) + (am13 * bm31), m12: ((am11 * bm12) + (am12 * bm22)) + (am13 * bm32), m13: ((am11 * bm13) + (am12 * bm23)) + (am13 * bm33), m14: (((am11 * bm14) + (am12 * bm24)) + (am13 * bm34)) + am14, m21: ((am21 * bm11) + (am22 * bm21)) + (am23 * bm31), m22: ((am21 * bm12) + (am22 * bm22)) + (am23 * bm32), m23: ((am21 * bm13) + (am22 * bm23)) + (am23 * bm33), m24: (((am21 * bm14) + (am22 * bm24)) + (am23 * bm34)) + am24, m31: ((am31 * bm11) + (am32 * bm21)) + (am33 * bm31), m32: ((am31 * bm12) + (am32 * bm22)) + (am33 * bm32), m33: ((am31 * bm13) + (am32 * bm23)) + (am33 * bm33), m34: (((am31 * bm14) + (am32 * bm24)) + (am33 * bm34)) + am34, m41: 0, m42: 0, m43: 0, m44: 1});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$mulAffine = _MJS_m4x4mulAffine;
+var $author$project$Matrix4$mulAffine = function (_v0) {
+	var glMat1 = _v0.glMat1;
+	var glMat2 = _v0.glMat2;
+	var adtMat1 = _v0.adtMat1;
+	var adtMat2 = _v0.adtMat2;
+	var recMat1 = _v0.recMat1;
+	var recMat2 = _v0.recMat2;
+	var tupleMat1 = _v0.tupleMat1;
+	var tupleMat2 = _v0.tupleMat2;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'mulAffine',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						A2($elm_explorations$linear_algebra$Math$Matrix4$mulAffine, glMat1, glMat2));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						A2($author$project$AltMath$Advanced$ADT$Matrix4$mulAffine, adtMat1, adtMat2));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						A2($author$project$AltMath$Advanced$Record$Matrix4$mulAffine, recMat1, recMat2));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						A2($author$project$AltMath$Advanced$Tuple$Matrix4$mulAffine, tupleMat1, tupleMat2));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$rotate = F3(
+	function (angle, axis, _v0) {
+		var axisx = axis.a;
+		var axisy = axis.b;
+		var axisz = axis.c;
+		var m11 = _v0.a;
+		var m21 = _v0.b;
+		var m31 = _v0.c;
+		var m41 = _v0.d;
+		var m12 = _v0.e;
+		var m22 = _v0.f;
+		var m32 = _v0.g;
+		var m42 = _v0.h;
+		var m13 = _v0.i;
+		var m23 = _v0.j;
+		var m33 = _v0.k;
+		var m43 = _v0.l;
+		var m14 = _v0.m;
+		var m24 = _v0.n;
+		var m34 = _v0.o;
+		var m44 = _v0.p;
+		var s = $elm$core$Basics$sin(angle);
+		var im = 1.0 / $author$project$AltMath$Advanced$ADT$Vector3$length(axis);
+		var x = axisx * im;
+		var xs = x * s;
+		var y = axisy * im;
+		var ys = y * s;
+		var z = axisz * im;
+		var zs = z * s;
+		var c = $elm$core$Basics$cos(angle);
+		var c1 = 1 - c;
+		var xyc1 = (x * y) * c1;
+		var t12 = xyc1 - zs;
+		var t21 = xyc1 + zs;
+		var xzc1 = (x * z) * c1;
+		var t13 = xzc1 + ys;
+		var t31 = xzc1 - ys;
+		var yzc1 = (y * z) * c1;
+		var t23 = yzc1 - xs;
+		var t32 = yzc1 + xs;
+		var t11 = ((x * x) * c1) + c;
+		var t22 = ((y * y) * c1) + c;
+		var t33 = ((z * z) * c1) + c;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(((m11 * t11) + (m12 * t21)) + (m13 * t31))(((m21 * t11) + (m22 * t21)) + (m23 * t31))(((m31 * t11) + (m32 * t21)) + (m33 * t31))(((m41 * t11) + (m42 * t21)) + (m43 * t31))(((m11 * t12) + (m12 * t22)) + (m13 * t32))(((m21 * t12) + (m22 * t22)) + (m23 * t32))(((m31 * t12) + (m32 * t22)) + (m33 * t32))(((m41 * t12) + (m42 * t22)) + (m43 * t32))(((m11 * t13) + (m12 * t23)) + (m13 * t33))(((m21 * t13) + (m22 * t23)) + (m23 * t33))(((m31 * t13) + (m32 * t23)) + (m33 * t33))(((m41 * t13) + (m42 * t23)) + (m43 * t33))(m14)(m24)(m34)(m44);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$rotate = F3(
+	function (angle, axis, m) {
+		var s = $elm$core$Basics$sin(angle);
+		var im = 1.0 / $author$project$AltMath$Advanced$Record$Vector3$length(axis);
+		var x = axis.x * im;
+		var xs = x * s;
+		var y = axis.y * im;
+		var ys = y * s;
+		var z = axis.z * im;
+		var zs = z * s;
+		var c = $elm$core$Basics$cos(angle);
+		var c1 = 1 - c;
+		var xyc1 = (x * y) * c1;
+		var t12 = xyc1 - zs;
+		var t21 = xyc1 + zs;
+		var xzc1 = (x * z) * c1;
+		var t13 = xzc1 + ys;
+		var t31 = xzc1 - ys;
+		var yzc1 = (y * z) * c1;
+		var t23 = yzc1 - xs;
+		var t32 = yzc1 + xs;
+		var t11 = ((x * x) * c1) + c;
+		var t22 = ((y * y) * c1) + c;
+		var t33 = ((z * z) * c1) + c;
+		return {m11: ((m.m11 * t11) + (m.m12 * t21)) + (m.m13 * t31), m12: ((m.m11 * t12) + (m.m12 * t22)) + (m.m13 * t32), m13: ((m.m11 * t13) + (m.m12 * t23)) + (m.m13 * t33), m14: m.m14, m21: ((m.m21 * t11) + (m.m22 * t21)) + (m.m23 * t31), m22: ((m.m21 * t12) + (m.m22 * t22)) + (m.m23 * t32), m23: ((m.m21 * t13) + (m.m22 * t23)) + (m.m23 * t33), m24: m.m24, m31: ((m.m31 * t11) + (m.m32 * t21)) + (m.m33 * t31), m32: ((m.m31 * t12) + (m.m32 * t22)) + (m.m33 * t32), m33: ((m.m31 * t13) + (m.m32 * t23)) + (m.m33 * t33), m34: m.m34, m41: ((m.m41 * t11) + (m.m42 * t21)) + (m.m43 * t31), m42: ((m.m41 * t12) + (m.m42 * t22)) + (m.m43 * t32), m43: ((m.m41 * t13) + (m.m42 * t23)) + (m.m43 * t33), m44: m.m44};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$rotate = F3(
+	function (angle, axis, _v0) {
+		var axisx = axis.a;
+		var axisy = axis.b;
+		var axisz = axis.c;
+		var _v1 = _v0.a;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var m11 = _v3.a;
+		var m21 = _v3.b;
+		var _v4 = _v2.b;
+		var m31 = _v4.a;
+		var m41 = _v4.b;
+		var _v5 = _v1.b;
+		var _v6 = _v5.a;
+		var m12 = _v6.a;
+		var m22 = _v6.b;
+		var _v7 = _v5.b;
+		var m32 = _v7.a;
+		var m42 = _v7.b;
+		var _v8 = _v0.b;
+		var _v9 = _v8.a;
+		var _v10 = _v9.a;
+		var m13 = _v10.a;
+		var m23 = _v10.b;
+		var _v11 = _v9.b;
+		var m33 = _v11.a;
+		var m43 = _v11.b;
+		var _v12 = _v8.b;
+		var _v13 = _v12.a;
+		var m14 = _v13.a;
+		var m24 = _v13.b;
+		var _v14 = _v12.b;
+		var m34 = _v14.a;
+		var m44 = _v14.b;
+		var s = $elm$core$Basics$sin(angle);
+		var im = 1.0 / $author$project$AltMath$Advanced$Tuple$Vector3$length(axis);
+		var x = axisx * im;
+		var xs = x * s;
+		var y = axisy * im;
+		var ys = y * s;
+		var z = axisz * im;
+		var zs = z * s;
+		var c = $elm$core$Basics$cos(angle);
+		var c1 = 1 - c;
+		var xyc1 = (x * y) * c1;
+		var t12 = xyc1 - zs;
+		var t21 = xyc1 + zs;
+		var xzc1 = (x * z) * c1;
+		var t13 = xzc1 + ys;
+		var t31 = xzc1 - ys;
+		var yzc1 = (y * z) * c1;
+		var t23 = yzc1 - xs;
+		var t32 = yzc1 + xs;
+		var t11 = ((x * x) * c1) + c;
+		var t22 = ((y * y) * c1) + c;
+		var t33 = ((z * z) * c1) + c;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: ((m11 * t11) + (m12 * t21)) + (m13 * t31), m12: ((m11 * t12) + (m12 * t22)) + (m13 * t32), m13: ((m11 * t13) + (m12 * t23)) + (m13 * t33), m14: m14, m21: ((m21 * t11) + (m22 * t21)) + (m23 * t31), m22: ((m21 * t12) + (m22 * t22)) + (m23 * t32), m23: ((m21 * t13) + (m22 * t23)) + (m23 * t33), m24: m24, m31: ((m31 * t11) + (m32 * t21)) + (m33 * t31), m32: ((m31 * t12) + (m32 * t22)) + (m33 * t32), m33: ((m31 * t13) + (m32 * t23)) + (m33 * t33), m34: m34, m41: ((m41 * t11) + (m42 * t21)) + (m43 * t31), m42: ((m41 * t12) + (m42 * t22)) + (m43 * t32), m43: ((m41 * t13) + (m42 * t23)) + (m43 * t33), m44: m44});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$rotate = _MJS_m4x4rotate;
+var $author$project$Matrix4$rotate = F3(
+	function (angle, _v0, _v1) {
+		var glMat1 = _v0.glMat1;
+		var adtMat1 = _v0.adtMat1;
+		var recMat1 = _v0.recMat1;
+		var tupleMat1 = _v0.tupleMat1;
+		var glVec1 = _v1.glVec1;
+		var adtVec1 = _v1.adtVec1;
+		var recVec1 = _v1.recVec1;
+		var tupleVec1 = _v1.tupleVec1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'rotate',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v2) {
+						return $author$project$Matrix4$GLMat4(
+							A3($elm_explorations$linear_algebra$Math$Matrix4$rotate, angle, glVec1, glMat1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v3) {
+						return $author$project$Matrix4$AdtMat4(
+							A3($author$project$AltMath$Advanced$ADT$Matrix4$rotate, angle, adtVec1, adtMat1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v4) {
+						return $author$project$Matrix4$RecordMat4(
+							A3($author$project$AltMath$Advanced$Record$Matrix4$rotate, angle, recVec1, recMat1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v5) {
+						return $author$project$Matrix4$TupleMat4(
+							A3($author$project$AltMath$Advanced$Tuple$Matrix4$rotate, angle, tupleVec1, tupleMat1));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$scale = F2(
+	function (_v0, _v1) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		var m11 = _v1.a;
+		var m21 = _v1.b;
+		var m31 = _v1.c;
+		var m41 = _v1.d;
+		var m12 = _v1.e;
+		var m22 = _v1.f;
+		var m32 = _v1.g;
+		var m42 = _v1.h;
+		var m13 = _v1.i;
+		var m23 = _v1.j;
+		var m33 = _v1.k;
+		var m43 = _v1.l;
+		var m14 = _v1.m;
+		var m24 = _v1.n;
+		var m34 = _v1.o;
+		var m44 = _v1.p;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11 * x)(m21 * x)(m31 * x)(m41 * x)(m12 * y)(m22 * y)(m32 * y)(m42 * y)(m13 * z)(m23 * z)(m33 * z)(m43 * z)(m14)(m24)(m34)(m44);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$scale = F2(
+	function (_v0, m) {
+		var x = _v0.x;
+		var y = _v0.y;
+		var z = _v0.z;
+		return {m11: m.m11 * x, m12: m.m12 * y, m13: m.m13 * z, m14: m.m14, m21: m.m21 * x, m22: m.m22 * y, m23: m.m23 * z, m24: m.m24, m31: m.m31 * x, m32: m.m32 * y, m33: m.m33 * z, m34: m.m34, m41: m.m41 * x, m42: m.m42 * y, m43: m.m43 * z, m44: m.m44};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$scale = F2(
+	function (_v0, _v1) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var _v4 = _v3.a;
+		var m11 = _v4.a;
+		var m21 = _v4.b;
+		var _v5 = _v3.b;
+		var m31 = _v5.a;
+		var m41 = _v5.b;
+		var _v6 = _v2.b;
+		var _v7 = _v6.a;
+		var m12 = _v7.a;
+		var m22 = _v7.b;
+		var _v8 = _v6.b;
+		var m32 = _v8.a;
+		var m42 = _v8.b;
+		var _v9 = _v1.b;
+		var _v10 = _v9.a;
+		var _v11 = _v10.a;
+		var m13 = _v11.a;
+		var m23 = _v11.b;
+		var _v12 = _v10.b;
+		var m33 = _v12.a;
+		var m43 = _v12.b;
+		var _v13 = _v9.b;
+		var _v14 = _v13.a;
+		var m14 = _v14.a;
+		var m24 = _v14.b;
+		var _v15 = _v13.b;
+		var m34 = _v15.a;
+		var m44 = _v15.b;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: m11 * x, m12: m12 * y, m13: m13 * z, m14: m14, m21: m21 * x, m22: m22 * y, m23: m23 * z, m24: m24, m31: m31 * x, m32: m32 * y, m33: m33 * z, m34: m34, m41: m41 * x, m42: m42 * y, m43: m43 * z, m44: m44});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$scale = _MJS_m4x4scale;
+var $author$project$Matrix4$scale = F2(
+	function (_v0, _v1) {
+		var glMat1 = _v0.glMat1;
+		var adtMat1 = _v0.adtMat1;
+		var recMat1 = _v0.recMat1;
+		var tupleMat1 = _v0.tupleMat1;
+		var glVec1 = _v1.glVec1;
+		var adtVec1 = _v1.adtVec1;
+		var recVec1 = _v1.recVec1;
+		var tupleVec1 = _v1.tupleVec1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'scale',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v2) {
+						return $author$project$Matrix4$GLMat4(
+							A2($elm_explorations$linear_algebra$Math$Matrix4$scale, glVec1, glMat1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v3) {
+						return $author$project$Matrix4$AdtMat4(
+							A2($author$project$AltMath$Advanced$ADT$Matrix4$scale, adtVec1, adtMat1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v4) {
+						return $author$project$Matrix4$RecordMat4(
+							A2($author$project$AltMath$Advanced$Record$Matrix4$scale, recVec1, recMat1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v5) {
+						return $author$project$Matrix4$TupleMat4(
+							A2($author$project$AltMath$Advanced$Tuple$Matrix4$scale, tupleVec1, tupleMat1));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$scale3 = F4(
+	function (x, y, z, _v0) {
+		var m11 = _v0.a;
+		var m21 = _v0.b;
+		var m31 = _v0.c;
+		var m41 = _v0.d;
+		var m12 = _v0.e;
+		var m22 = _v0.f;
+		var m32 = _v0.g;
+		var m42 = _v0.h;
+		var m13 = _v0.i;
+		var m23 = _v0.j;
+		var m33 = _v0.k;
+		var m43 = _v0.l;
+		var m14 = _v0.m;
+		var m24 = _v0.n;
+		var m34 = _v0.o;
+		var m44 = _v0.p;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11 * x)(m21 * x)(m31 * x)(m41 * x)(m12 * y)(m22 * y)(m32 * y)(m42 * y)(m13 * z)(m23 * z)(m33 * z)(m43 * z)(m14)(m24)(m34)(m44);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$scale3 = F4(
+	function (x, y, z, m) {
+		return {m11: m.m11 * x, m12: m.m12 * y, m13: m.m13 * z, m14: m.m14, m21: m.m21 * x, m22: m.m22 * y, m23: m.m23 * z, m24: m.m24, m31: m.m31 * x, m32: m.m32 * y, m33: m.m33 * z, m34: m.m34, m41: m.m41 * x, m42: m.m42 * y, m43: m.m43 * z, m44: m.m44};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$scale3 = F4(
+	function (x, y, z, _v0) {
+		var _v1 = _v0.a;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var m11 = _v3.a;
+		var m21 = _v3.b;
+		var _v4 = _v2.b;
+		var m31 = _v4.a;
+		var m41 = _v4.b;
+		var _v5 = _v1.b;
+		var _v6 = _v5.a;
+		var m12 = _v6.a;
+		var m22 = _v6.b;
+		var _v7 = _v5.b;
+		var m32 = _v7.a;
+		var m42 = _v7.b;
+		var _v8 = _v0.b;
+		var _v9 = _v8.a;
+		var _v10 = _v9.a;
+		var m13 = _v10.a;
+		var m23 = _v10.b;
+		var _v11 = _v9.b;
+		var m33 = _v11.a;
+		var m43 = _v11.b;
+		var _v12 = _v8.b;
+		var _v13 = _v12.a;
+		var m14 = _v13.a;
+		var m24 = _v13.b;
+		var _v14 = _v12.b;
+		var m34 = _v14.a;
+		var m44 = _v14.b;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: m11 * x, m12: m12 * y, m13: m13 * z, m14: m14, m21: m21 * x, m22: m22 * y, m23: m23 * z, m24: m24, m31: m31 * x, m32: m32 * y, m33: m33 * z, m34: m34, m41: m41 * x, m42: m42 * y, m43: m43 * z, m44: m44});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$scale3 = _MJS_m4x4scale3;
+var $author$project$Matrix4$scale3 = F4(
+	function (x, y, z, _v0) {
+		var glMat1 = _v0.glMat1;
+		var adtMat1 = _v0.adtMat1;
+		var recMat1 = _v0.recMat1;
+		var tupleMat1 = _v0.tupleMat1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'scale3',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v1) {
+						return $author$project$Matrix4$GLMat4(
+							A4($elm_explorations$linear_algebra$Math$Matrix4$scale3, x, y, z, glMat1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v2) {
+						return $author$project$Matrix4$AdtMat4(
+							A4($author$project$AltMath$Advanced$ADT$Matrix4$scale3, x, y, z, adtMat1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v3) {
+						return $author$project$Matrix4$RecordMat4(
+							A4($author$project$AltMath$Advanced$Record$Matrix4$scale3, x, y, z, recMat1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v4) {
+						return $author$project$Matrix4$TupleMat4(
+							A4($author$project$AltMath$Advanced$Tuple$Matrix4$scale3, x, y, z, tupleMat1));
+					})
+				]));
+	});
+var $elm$core$String$toFloat = _String_toFloat;
+var $author$project$Matrix4$AdtVec3 = function (a) {
+	return {$: 'AdtVec3', a: a};
+};
+var $author$project$Matrix4$GLVec3 = function (a) {
+	return {$: 'GLVec3', a: a};
+};
+var $author$project$Matrix4$RecordVec3 = function (a) {
+	return {$: 'RecordVec3', a: a};
+};
+var $author$project$Matrix4$TupleVec3 = function (a) {
+	return {$: 'TupleVec3', a: a};
+};
+var $author$project$AltMath$Advanced$ADT$Matrix4$transform = F2(
+	function (_v0, _v1) {
+		var m11 = _v0.a;
+		var m21 = _v0.b;
+		var m31 = _v0.c;
+		var m41 = _v0.d;
+		var m12 = _v0.e;
+		var m22 = _v0.f;
+		var m32 = _v0.g;
+		var m42 = _v0.h;
+		var m13 = _v0.i;
+		var m23 = _v0.j;
+		var m33 = _v0.k;
+		var m43 = _v0.l;
+		var m14 = _v0.m;
+		var m24 = _v0.n;
+		var m34 = _v0.o;
+		var m44 = _v0.p;
+		var x = _v1.a;
+		var y = _v1.b;
+		var z = _v1.c;
+		var w = (((x * m41) + (y * m42)) + (z * m43)) + m44;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, ((((m11 * x) + (m12 * y)) + (m13 * z)) + m14) / w, ((((m21 * x) + (m22 * y)) + (m23 * z)) + m24) / w, ((((m31 * x) + (m32 * y)) + (m33 * z)) + m34) / w);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$transform = F2(
+	function (m, _v0) {
+		var x = _v0.x;
+		var y = _v0.y;
+		var z = _v0.z;
+		var w = (((x * m.m41) + (y * m.m42)) + (z * m.m43)) + m.m44;
+		return {x: ((((m.m11 * x) + (m.m12 * y)) + (m.m13 * z)) + m.m14) / w, y: ((((m.m21 * x) + (m.m22 * y)) + (m.m23 * z)) + m.m24) / w, z: ((((m.m31 * x) + (m.m32 * y)) + (m.m33 * z)) + m.m34) / w};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$transform = F2(
+	function (_v0, _v15) {
+		var _v1 = _v0.a;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var m11 = _v3.a;
+		var m21 = _v3.b;
+		var _v4 = _v2.b;
+		var m31 = _v4.a;
+		var m41 = _v4.b;
+		var _v5 = _v1.b;
+		var _v6 = _v5.a;
+		var m12 = _v6.a;
+		var m22 = _v6.b;
+		var _v7 = _v5.b;
+		var m32 = _v7.a;
+		var m42 = _v7.b;
+		var _v8 = _v0.b;
+		var _v9 = _v8.a;
+		var _v10 = _v9.a;
+		var m13 = _v10.a;
+		var m23 = _v10.b;
+		var _v11 = _v9.b;
+		var m33 = _v11.a;
+		var m43 = _v11.b;
+		var _v12 = _v8.b;
+		var _v13 = _v12.a;
+		var m14 = _v13.a;
+		var m24 = _v13.b;
+		var _v14 = _v12.b;
+		var m34 = _v14.a;
+		var m44 = _v14.b;
+		var x = _v15.a;
+		var y = _v15.b;
+		var z = _v15.c;
+		var w = (((x * m41) + (y * m42)) + (z * m43)) + m44;
+		return _Utils_Tuple3(((((m11 * x) + (m12 * y)) + (m13 * z)) + m14) / w, ((((m21 * x) + (m22 * y)) + (m23 * z)) + m24) / w, ((((m31 * x) + (m32 * y)) + (m33 * z)) + m34) / w);
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$transform = _MJS_v3mul4x4;
+var $author$project$Matrix4$transform = F2(
+	function (_v0, _v1) {
+		var glMat1 = _v0.glMat1;
+		var adtMat1 = _v0.adtMat1;
+		var recMat1 = _v0.recMat1;
+		var tupleMat1 = _v0.tupleMat1;
+		var glVec1 = _v1.glVec1;
+		var adtVec1 = _v1.adtVec1;
+		var recVec1 = _v1.recVec1;
+		var tupleVec1 = _v1.tupleVec1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'transform',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v2) {
+						return $author$project$Matrix4$GLVec3(
+							A2($elm_explorations$linear_algebra$Math$Matrix4$transform, glMat1, glVec1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v3) {
+						return $author$project$Matrix4$AdtVec3(
+							A2($author$project$AltMath$Advanced$ADT$Matrix4$transform, adtMat1, adtVec1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v4) {
+						return $author$project$Matrix4$RecordVec3(
+							A2($author$project$AltMath$Advanced$Record$Matrix4$transform, recMat1, recVec1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v5) {
+						return $author$project$Matrix4$TupleVec3(
+							A2($author$project$AltMath$Advanced$Tuple$Matrix4$transform, tupleMat1, tupleVec1));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$translate = F2(
+	function (_v0, _v1) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		var m11 = _v1.a;
+		var m21 = _v1.b;
+		var m31 = _v1.c;
+		var m41 = _v1.d;
+		var m12 = _v1.e;
+		var m22 = _v1.f;
+		var m32 = _v1.g;
+		var m42 = _v1.h;
+		var m13 = _v1.i;
+		var m23 = _v1.j;
+		var m33 = _v1.k;
+		var m43 = _v1.l;
+		var m14 = _v1.m;
+		var m24 = _v1.n;
+		var m34 = _v1.o;
+		var m44 = _v1.p;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11)(m21)(m31)(m41)(m12)(m22)(m32)(m42)(m13)(m23)(m33)(m43)((((m11 * x) + (m12 * y)) + (m13 * z)) + m14)((((m21 * x) + (m22 * y)) + (m23 * z)) + m24)((((m31 * x) + (m32 * y)) + (m33 * z)) + m34)((((m41 * x) + (m42 * y)) + (m43 * z)) + m44);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$translate = F2(
+	function (_v0, m) {
+		var x = _v0.x;
+		var y = _v0.y;
+		var z = _v0.z;
+		return {m11: m.m11, m12: m.m12, m13: m.m13, m14: (((m.m11 * x) + (m.m12 * y)) + (m.m13 * z)) + m.m14, m21: m.m21, m22: m.m22, m23: m.m23, m24: (((m.m21 * x) + (m.m22 * y)) + (m.m23 * z)) + m.m24, m31: m.m31, m32: m.m32, m33: m.m33, m34: (((m.m31 * x) + (m.m32 * y)) + (m.m33 * z)) + m.m34, m41: m.m41, m42: m.m42, m43: m.m43, m44: (((m.m41 * x) + (m.m42 * y)) + (m.m43 * z)) + m.m44};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$translate = F2(
+	function (_v0, _v1) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var _v4 = _v3.a;
+		var m11 = _v4.a;
+		var m21 = _v4.b;
+		var _v5 = _v3.b;
+		var m31 = _v5.a;
+		var m41 = _v5.b;
+		var _v6 = _v2.b;
+		var _v7 = _v6.a;
+		var m12 = _v7.a;
+		var m22 = _v7.b;
+		var _v8 = _v6.b;
+		var m32 = _v8.a;
+		var m42 = _v8.b;
+		var _v9 = _v1.b;
+		var _v10 = _v9.a;
+		var _v11 = _v10.a;
+		var m13 = _v11.a;
+		var m23 = _v11.b;
+		var _v12 = _v10.b;
+		var m33 = _v12.a;
+		var m43 = _v12.b;
+		var _v13 = _v9.b;
+		var _v14 = _v13.a;
+		var m14 = _v14.a;
+		var m24 = _v14.b;
+		var _v15 = _v13.b;
+		var m34 = _v15.a;
+		var m44 = _v15.b;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: m11, m12: m12, m13: m13, m14: (((m11 * x) + (m12 * y)) + (m13 * z)) + m14, m21: m21, m22: m22, m23: m23, m24: (((m21 * x) + (m22 * y)) + (m23 * z)) + m24, m31: m31, m32: m32, m33: m33, m34: (((m31 * x) + (m32 * y)) + (m33 * z)) + m34, m41: m41, m42: m42, m43: m43, m44: (((m41 * x) + (m42 * y)) + (m43 * z)) + m44});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$translate = _MJS_m4x4translate;
+var $author$project$Matrix4$translate = F2(
+	function (_v0, _v1) {
+		var glMat1 = _v0.glMat1;
+		var adtMat1 = _v0.adtMat1;
+		var recMat1 = _v0.recMat1;
+		var tupleMat1 = _v0.tupleMat1;
+		var glVec1 = _v1.glVec1;
+		var adtVec1 = _v1.adtVec1;
+		var recVec1 = _v1.recVec1;
+		var tupleVec1 = _v1.tupleVec1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'translate',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v2) {
+						return $author$project$Matrix4$GLMat4(
+							A2($elm_explorations$linear_algebra$Math$Matrix4$translate, glVec1, glMat1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v3) {
+						return $author$project$Matrix4$AdtMat4(
+							A2($author$project$AltMath$Advanced$ADT$Matrix4$translate, adtVec1, adtMat1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v4) {
+						return $author$project$Matrix4$RecordMat4(
+							A2($author$project$AltMath$Advanced$Record$Matrix4$translate, recVec1, recMat1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v5) {
+						return $author$project$Matrix4$TupleMat4(
+							A2($author$project$AltMath$Advanced$Tuple$Matrix4$translate, tupleVec1, tupleMat1));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$translate3 = F4(
+	function (x, y, z, _v0) {
+		var m11 = _v0.a;
+		var m21 = _v0.b;
+		var m31 = _v0.c;
+		var m41 = _v0.d;
+		var m12 = _v0.e;
+		var m22 = _v0.f;
+		var m32 = _v0.g;
+		var m42 = _v0.h;
+		var m13 = _v0.i;
+		var m23 = _v0.j;
+		var m33 = _v0.k;
+		var m43 = _v0.l;
+		var m14 = _v0.m;
+		var m24 = _v0.n;
+		var m34 = _v0.o;
+		var m44 = _v0.p;
+		return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11)(m21)(m31)(m41)(m12)(m22)(m32)(m42)(m13)(m23)(m33)(m43)((((m11 * x) + (m12 * y)) + (m13 * z)) + m14)((((m21 * x) + (m22 * y)) + (m23 * z)) + m24)((((m31 * x) + (m32 * y)) + (m33 * z)) + m34)((((m41 * x) + (m42 * y)) + (m43 * z)) + m44);
+	});
+var $author$project$AltMath$Advanced$Record$Matrix4$translate3 = F4(
+	function (x, y, z, m) {
+		return {m11: m.m11, m12: m.m12, m13: m.m13, m14: (((m.m11 * x) + (m.m12 * y)) + (m.m13 * z)) + m.m14, m21: m.m21, m22: m.m22, m23: m.m23, m24: (((m.m21 * x) + (m.m22 * y)) + (m.m23 * z)) + m.m24, m31: m.m31, m32: m.m32, m33: m.m33, m34: (((m.m31 * x) + (m.m32 * y)) + (m.m33 * z)) + m.m34, m41: m.m41, m42: m.m42, m43: m.m43, m44: (((m.m41 * x) + (m.m42 * y)) + (m.m43 * z)) + m.m44};
+	});
+var $author$project$AltMath$Advanced$Tuple$Matrix4$translate3 = F4(
+	function (x, y, z, _v0) {
+		var _v1 = _v0.a;
+		var _v2 = _v1.a;
+		var _v3 = _v2.a;
+		var m11 = _v3.a;
+		var m21 = _v3.b;
+		var _v4 = _v2.b;
+		var m31 = _v4.a;
+		var m41 = _v4.b;
+		var _v5 = _v1.b;
+		var _v6 = _v5.a;
+		var m12 = _v6.a;
+		var m22 = _v6.b;
+		var _v7 = _v5.b;
+		var m32 = _v7.a;
+		var m42 = _v7.b;
+		var _v8 = _v0.b;
+		var _v9 = _v8.a;
+		var _v10 = _v9.a;
+		var m13 = _v10.a;
+		var m23 = _v10.b;
+		var _v11 = _v9.b;
+		var m33 = _v11.a;
+		var m43 = _v11.b;
+		var _v12 = _v8.b;
+		var _v13 = _v12.a;
+		var m14 = _v13.a;
+		var m24 = _v13.b;
+		var _v14 = _v12.b;
+		var m34 = _v14.a;
+		var m44 = _v14.b;
+		return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+			{m11: m11, m12: m12, m13: m13, m14: (((m11 * x) + (m12 * y)) + (m13 * z)) + m14, m21: m21, m22: m22, m23: m23, m24: (((m21 * x) + (m22 * y)) + (m23 * z)) + m24, m31: m31, m32: m32, m33: m33, m34: (((m31 * x) + (m32 * y)) + (m33 * z)) + m34, m41: m41, m42: m42, m43: m43, m44: (((m41 * x) + (m42 * y)) + (m43 * z)) + m44});
+	});
+var $elm_explorations$linear_algebra$Math$Matrix4$translate3 = _MJS_m4x4translate3;
+var $author$project$Matrix4$translate3 = F4(
+	function (x, y, z, _v0) {
+		var glMat1 = _v0.glMat1;
+		var adtMat1 = _v0.adtMat1;
+		var recMat1 = _v0.recMat1;
+		var tupleMat1 = _v0.tupleMat1;
+		return A2(
+			$elm_explorations$benchmark$Benchmark$scale,
+			'translate3',
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'Linear Algebra',
+					function (_v1) {
+						return $author$project$Matrix4$GLMat4(
+							A4($elm_explorations$linear_algebra$Math$Matrix4$translate3, x, y, z, glMat1));
+					}),
+					_Utils_Tuple2(
+					'ADT',
+					function (_v2) {
+						return $author$project$Matrix4$AdtMat4(
+							A4($author$project$AltMath$Advanced$ADT$Matrix4$translate3, x, y, z, adtMat1));
+					}),
+					_Utils_Tuple2(
+					'Record',
+					function (_v3) {
+						return $author$project$Matrix4$RecordMat4(
+							A4($author$project$AltMath$Advanced$Record$Matrix4$translate3, x, y, z, recMat1));
+					}),
+					_Utils_Tuple2(
+					'Tuple',
+					function (_v4) {
+						return $author$project$Matrix4$TupleMat4(
+							A4($author$project$AltMath$Advanced$Tuple$Matrix4$translate3, x, y, z, tupleMat1));
+					})
+				]));
+	});
+var $author$project$AltMath$Advanced$ADT$Matrix4$transpose = function (_v0) {
+	var m11 = _v0.a;
+	var m21 = _v0.b;
+	var m31 = _v0.c;
+	var m41 = _v0.d;
+	var m12 = _v0.e;
+	var m22 = _v0.f;
+	var m32 = _v0.g;
+	var m42 = _v0.h;
+	var m13 = _v0.i;
+	var m23 = _v0.j;
+	var m33 = _v0.k;
+	var m43 = _v0.l;
+	var m14 = _v0.m;
+	var m24 = _v0.n;
+	var m34 = _v0.o;
+	var m44 = _v0.p;
+	return $author$project$AltMath$Advanced$ADT$Matrix4$Mat4(m11)(m12)(m13)(m14)(m21)(m22)(m23)(m24)(m31)(m32)(m33)(m34)(m41)(m42)(m43)(m44);
+};
+var $author$project$AltMath$Advanced$Record$Matrix4$transpose = function (m) {
+	return {m11: m.m11, m12: m.m21, m13: m.m31, m14: m.m41, m21: m.m12, m22: m.m22, m23: m.m32, m24: m.m42, m31: m.m13, m32: m.m23, m33: m.m33, m34: m.m43, m41: m.m14, m42: m.m24, m43: m.m34, m44: m.m44};
+};
+var $author$project$AltMath$Advanced$Tuple$Matrix4$transpose = function (_v0) {
+	var _v1 = _v0.a;
+	var _v2 = _v1.a;
+	var _v3 = _v2.a;
+	var m11 = _v3.a;
+	var m21 = _v3.b;
+	var _v4 = _v2.b;
+	var m31 = _v4.a;
+	var m41 = _v4.b;
+	var _v5 = _v1.b;
+	var _v6 = _v5.a;
+	var m12 = _v6.a;
+	var m22 = _v6.b;
+	var _v7 = _v5.b;
+	var m32 = _v7.a;
+	var m42 = _v7.b;
+	var _v8 = _v0.b;
+	var _v9 = _v8.a;
+	var _v10 = _v9.a;
+	var m13 = _v10.a;
+	var m23 = _v10.b;
+	var _v11 = _v9.b;
+	var m33 = _v11.a;
+	var m43 = _v11.b;
+	var _v12 = _v8.b;
+	var _v13 = _v12.a;
+	var m14 = _v13.a;
+	var m24 = _v13.b;
+	var _v14 = _v12.b;
+	var m34 = _v14.a;
+	var m44 = _v14.b;
+	return $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(
+		{m11: m11, m12: m21, m13: m31, m14: m41, m21: m12, m22: m22, m23: m32, m24: m42, m31: m13, m32: m23, m33: m33, m34: m43, m41: m14, m42: m24, m43: m34, m44: m44});
+};
+var $elm_explorations$linear_algebra$Math$Matrix4$transpose = _MJS_m4x4transpose;
+var $author$project$Matrix4$transpose = function (_v0) {
+	var glMat1 = _v0.glMat1;
+	var glMat2 = _v0.glMat2;
+	var adtMat1 = _v0.adtMat1;
+	var adtMat2 = _v0.adtMat2;
+	var recMat1 = _v0.recMat1;
+	var recMat2 = _v0.recMat2;
+	var tupleMat1 = _v0.tupleMat1;
+	var tupleMat2 = _v0.tupleMat2;
+	return A2(
+		$elm_explorations$benchmark$Benchmark$scale,
+		'transpose',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'Linear Algebra',
+				function (_v1) {
+					return $author$project$Matrix4$GLMat4(
+						$elm_explorations$linear_algebra$Math$Matrix4$transpose(glMat1));
+				}),
+				_Utils_Tuple2(
+				'ADT',
+				function (_v2) {
+					return $author$project$Matrix4$AdtMat4(
+						$author$project$AltMath$Advanced$ADT$Matrix4$transpose(adtMat1));
+				}),
+				_Utils_Tuple2(
+				'Record',
+				function (_v3) {
+					return $author$project$Matrix4$RecordMat4(
+						$author$project$AltMath$Advanced$Record$Matrix4$transpose(recMat1));
+				}),
+				_Utils_Tuple2(
+				'Tuple',
+				function (_v4) {
+					return $author$project$Matrix4$TupleMat4(
+						$author$project$AltMath$Advanced$Tuple$Matrix4$transpose(tupleMat1));
+				})
+			]));
+};
+var $author$project$AltMath$Advanced$ADT$Vector3$vec3 = $author$project$AltMath$Advanced$ADT$Vector3$Vec3;
+var $author$project$AltMath$Advanced$Record$Vector3$vec3 = $author$project$AltMath$Advanced$Record$Vector3$Vec3;
+var $author$project$AltMath$Advanced$Tuple$Vector3$vec3 = F3(
+	function (x, y, z) {
+		return _Utils_Tuple3(x, y, z);
+	});
+var $elm_explorations$linear_algebra$Math$Vector3$vec3 = _MJS_v3;
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $author$project$Matrix4$all = function (_v0) {
+	var m1 = _v0.m1;
+	var m2 = _v0.m2;
+	var dataM2 = {
+		m11: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m11)),
+		m12: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m12)),
+		m13: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m13)),
+		m14: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m14)),
+		m21: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m21)),
+		m22: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m22)),
+		m23: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m23)),
+		m24: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m24)),
+		m31: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m31)),
+		m32: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m32)),
+		m33: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m33)),
+		m34: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m34)),
+		m41: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m41)),
+		m42: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m42)),
+		m43: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m43)),
+		m44: A2(
+			$elm$core$Maybe$withDefault,
+			43,
+			$elm$core$String$toFloat(m2.m44))
+	};
+	var dataM1 = {
+		m11: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m11)),
+		m12: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m12)),
+		m13: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m13)),
+		m14: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m14)),
+		m21: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m21)),
+		m22: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m22)),
+		m23: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m23)),
+		m24: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m24)),
+		m31: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m31)),
+		m32: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m32)),
+		m33: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m33)),
+		m34: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m34)),
+		m41: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m41)),
+		m42: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m42)),
+		m43: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m43)),
+		m44: A2(
+			$elm$core$Maybe$withDefault,
+			42,
+			$elm$core$String$toFloat(m1.m44))
+	};
+	var data2 = {
+		adtVec1: A3($author$project$AltMath$Advanced$ADT$Vector3$vec3, dataM1.m11, dataM1.m21, dataM1.m31),
+		adtVec2: A3($author$project$AltMath$Advanced$ADT$Vector3$vec3, dataM2.m11, dataM2.m21, dataM2.m31),
+		adtVec3: A3($author$project$AltMath$Advanced$ADT$Vector3$vec3, dataM2.m12, dataM2.m22, dataM2.m32),
+		glVec1: A3($elm_explorations$linear_algebra$Math$Vector3$vec3, dataM1.m11, dataM1.m21, dataM1.m31),
+		glVec2: A3($elm_explorations$linear_algebra$Math$Vector3$vec3, dataM2.m11, dataM2.m21, dataM2.m31),
+		glVec3: A3($elm_explorations$linear_algebra$Math$Vector3$vec3, dataM2.m12, dataM2.m22, dataM2.m32),
+		recVec1: A3($author$project$AltMath$Advanced$Record$Vector3$vec3, dataM1.m11, dataM1.m21, dataM1.m31),
+		recVec2: A3($author$project$AltMath$Advanced$Record$Vector3$vec3, dataM2.m11, dataM2.m21, dataM2.m31),
+		recVec3: A3($author$project$AltMath$Advanced$Record$Vector3$vec3, dataM2.m12, dataM2.m22, dataM2.m32),
+		tupleVec1: A3($author$project$AltMath$Advanced$Tuple$Vector3$vec3, dataM1.m11, dataM1.m21, dataM1.m31),
+		tupleVec2: A3($author$project$AltMath$Advanced$Tuple$Vector3$vec3, dataM2.m11, dataM2.m21, dataM2.m31),
+		tupleVec3: A3($author$project$AltMath$Advanced$Tuple$Vector3$vec3, dataM2.m12, dataM2.m22, dataM2.m32)
+	};
+	var data1 = {
+		adtMat1: $author$project$AltMath$Advanced$ADT$Matrix4$fromRecord(dataM1),
+		adtMat2: $author$project$AltMath$Advanced$ADT$Matrix4$fromRecord(dataM2),
+		glMat1: $elm_explorations$linear_algebra$Math$Matrix4$fromRecord(dataM1),
+		glMat2: $elm_explorations$linear_algebra$Math$Matrix4$fromRecord(dataM2),
+		recMat1: $author$project$AltMath$Advanced$Record$Matrix4$fromRecord(dataM1),
+		recMat2: $author$project$AltMath$Advanced$Record$Matrix4$fromRecord(dataM2),
+		tupleMat1: $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(dataM1),
+		tupleMat2: $author$project$AltMath$Advanced$Tuple$Matrix4$fromRecord(dataM2)
+	};
+	return _List_fromArray(
+		[
+			$author$project$Matrix4$identity,
+			$author$project$Matrix4$inverse(data1),
+			$author$project$Matrix4$inverseOrthonormal(data1),
+			$author$project$Matrix4$mul(data1),
+			$author$project$Matrix4$mulAffine(data1),
+			$author$project$Matrix4$transpose(data1),
+			$author$project$Matrix4$makeBasis(data2),
+			A2($author$project$Matrix4$transform, data1, data2),
+			A6($author$project$Matrix4$makeFrustum, dataM1.m11, dataM1.m21, dataM1.m31, dataM1.m41, dataM1.m12, dataM1.m22),
+			A4($author$project$Matrix4$makePerspective, dataM1.m11, dataM1.m21, dataM1.m31, dataM1.m41),
+			A6($author$project$Matrix4$makeOrtho, dataM1.m11, dataM1.m21, dataM1.m31, dataM1.m41, dataM1.m12, dataM1.m22),
+			A4($author$project$Matrix4$makeOrtho2D, dataM1.m11, dataM1.m21, dataM1.m31, dataM1.m41),
+			$author$project$Matrix4$makeLookAt(data2),
+			A3($author$project$Matrix4$rotate, dataM2.m11, data1, data2),
+			A2($author$project$Matrix4$scale, data1, data2),
+			A4($author$project$Matrix4$scale3, dataM1.m11, dataM1.m21, dataM1.m31, data1),
+			A2($author$project$Matrix4$translate, data1, data2),
+			A4($author$project$Matrix4$translate3, dataM1.m11, dataM1.m21, dataM1.m31, data1),
+			A2($author$project$Matrix4$makeRotate, dataM1.m11, data2),
+			$author$project$Matrix4$makeScale(data2),
+			A3($author$project$Matrix4$makeScale3, dataM1.m11, dataM1.m21, dataM1.m31),
+			$author$project$Matrix4$makeTranslate(data2),
+			A3($author$project$Matrix4$makeTranslate3, dataM1.m11, dataM1.m21, dataM1.m31)
+		]);
+};
+var $author$project$Vector2$AdtVec2 = function (a) {
+	return {$: 'AdtVec2', a: a};
+};
+var $author$project$Vector2$GLVec2 = function (a) {
+	return {$: 'GLVec2', a: a};
+};
+var $author$project$Vector2$RecordVec2 = function (a) {
+	return {$: 'RecordVec2', a: a};
+};
+var $author$project$Vector2$TupleVec2 = function (a) {
+	return {$: 'TupleVec2', a: a};
+};
+var $author$project$AltMath$Advanced$ADT$Vector2$Vec2 = F2(
+	function (a, b) {
+		return {$: 'Vec2', a: a, b: b};
+	});
+var $author$project$AltMath$Advanced$ADT$Vector2$add = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var bx = _v1.a;
+		var by = _v1.b;
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, ax + bx, ay + by);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$Vec2 = F2(
+	function (x, y) {
+		return {x: x, y: y};
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$add = F2(
+	function (a, b) {
+		return A2($author$project$AltMath$Advanced$Record$Vector2$Vec2, a.x + b.x, a.y + b.y);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector2$add = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var bx = _v1.a;
+		var by = _v1.b;
+		return _Utils_Tuple2(ax + bx, ay + by);
+	});
+var $elm_explorations$linear_algebra$Math$Vector2$add = _MJS_v2add;
 var $author$project$Vector2$add = function (_v0) {
 	var glVec1 = _v0.glVec1;
 	var adtVec1 = _v0.adtVec1;
@@ -5634,47 +8137,64 @@ var $author$project$Vector2$add = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector2$AdtVec2(
-						A2($author$project$AltMath$Vector2$add, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector2$add, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector2$RecordVec2(
-						A2($author$project$AltMath$Record$Vector2$add, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector2$add, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector2$TupleVec2(
-						A2($author$project$AltMath$Tuple$Vector2$add, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector2$add, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $elm$core$Basics$fdiv = _Basics_fdiv;
-var $elm$core$Basics$mul = _Basics_mul;
-var $elm$core$Basics$sqrt = _Basics_sqrt;
-var $author$project$AltMath$Record$Vector2$length = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	return $elm$core$Basics$sqrt((x * x) + (y * y));
-};
-var $elm$core$Basics$sub = _Basics_sub;
-var $author$project$AltMath$Record$Vector2$sub = F2(
-	function (a, b) {
-		return A2($author$project$AltMath$Record$Vector2$Vec2, a.x - b.x, a.y - b.y);
-	});
-var $author$project$AltMath$Record$Vector2$direction = F2(
-	function (a, b) {
-		var c = A2($author$project$AltMath$Record$Vector2$sub, a, b);
-		var len = $author$project$AltMath$Record$Vector2$length(c);
-		return A2($author$project$AltMath$Record$Vector2$Vec2, c.x / len, c.y / len);
-	});
-var $author$project$AltMath$Tuple$Vector2$length = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector2$length = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	return $elm$core$Basics$sqrt((x * x) + (y * y));
 };
-var $author$project$AltMath$Tuple$Vector2$sub = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$sub = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var bx = _v1.a;
+		var by = _v1.b;
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, ax - bx, ay - by);
+	});
+var $author$project$AltMath$Advanced$ADT$Vector2$direction = F2(
+	function (a, b) {
+		var c = A2($author$project$AltMath$Advanced$ADT$Vector2$sub, a, b);
+		var x = c.a;
+		var y = c.b;
+		var len = $author$project$AltMath$Advanced$ADT$Vector2$length(c);
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, x / len, y / len);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$length = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	return $elm$core$Basics$sqrt((x * x) + (y * y));
+};
+var $author$project$AltMath$Advanced$Record$Vector2$sub = F2(
+	function (a, b) {
+		return A2($author$project$AltMath$Advanced$Record$Vector2$Vec2, a.x - b.x, a.y - b.y);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$direction = F2(
+	function (a, b) {
+		var c = A2($author$project$AltMath$Advanced$Record$Vector2$sub, a, b);
+		var len = $author$project$AltMath$Advanced$Record$Vector2$length(c);
+		return A2($author$project$AltMath$Advanced$Record$Vector2$Vec2, c.x / len, c.y / len);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector2$length = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	return $elm$core$Basics$sqrt((x * x) + (y * y));
+};
+var $author$project$AltMath$Advanced$Tuple$Vector2$sub = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -5682,34 +8202,13 @@ var $author$project$AltMath$Tuple$Vector2$sub = F2(
 		var by = _v1.b;
 		return _Utils_Tuple2(ax - bx, ay - by);
 	});
-var $author$project$AltMath$Tuple$Vector2$direction = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector2$direction = F2(
 	function (a, b) {
-		var c = A2($author$project$AltMath$Tuple$Vector2$sub, a, b);
+		var c = A2($author$project$AltMath$Advanced$Tuple$Vector2$sub, a, b);
 		var x = c.a;
 		var y = c.b;
-		var len = $author$project$AltMath$Tuple$Vector2$length(c);
+		var len = $author$project$AltMath$Advanced$Tuple$Vector2$length(c);
 		return _Utils_Tuple2(x / len, y / len);
-	});
-var $author$project$AltMath$Vector2$length = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	return $elm$core$Basics$sqrt((x * x) + (y * y));
-};
-var $author$project$AltMath$Vector2$sub = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var bx = _v1.a;
-		var by = _v1.b;
-		return A2($author$project$AltMath$Vector2$Vec2, ax - bx, ay - by);
-	});
-var $author$project$AltMath$Vector2$direction = F2(
-	function (a, b) {
-		var c = A2($author$project$AltMath$Vector2$sub, a, b);
-		var x = c.a;
-		var y = c.b;
-		var len = $author$project$AltMath$Vector2$length(c);
-		return A2($author$project$AltMath$Vector2$Vec2, x / len, y / len);
 	});
 var $elm_explorations$linear_algebra$Math$Vector2$direction = _MJS_v2direction;
 var $author$project$Vector2$direction = function (_v0) {
@@ -5736,33 +8235,23 @@ var $author$project$Vector2$direction = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector2$AdtVec2(
-						A2($author$project$AltMath$Vector2$direction, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector2$direction, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector2$RecordVec2(
-						A2($author$project$AltMath$Record$Vector2$direction, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector2$direction, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector2$TupleVec2(
-						A2($author$project$AltMath$Tuple$Vector2$direction, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector2$direction, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$distance = F2(
-	function (a, b) {
-		return $author$project$AltMath$Record$Vector2$length(
-			A2($author$project$AltMath$Record$Vector2$sub, a, b));
-	});
-var $author$project$AltMath$Tuple$Vector2$distance = F2(
-	function (a, b) {
-		return $author$project$AltMath$Tuple$Vector2$length(
-			A2($author$project$AltMath$Tuple$Vector2$sub, a, b));
-	});
-var $author$project$AltMath$Vector2$distance = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$distance = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -5771,6 +8260,16 @@ var $author$project$AltMath$Vector2$distance = F2(
 		var dy = ay - by;
 		var dx = ax - bx;
 		return $elm$core$Basics$sqrt((dx * dx) + (dy * dy));
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$distance = F2(
+	function (a, b) {
+		return $author$project$AltMath$Advanced$Record$Vector2$length(
+			A2($author$project$AltMath$Advanced$Record$Vector2$sub, a, b));
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector2$distance = F2(
+	function (a, b) {
+		return $author$project$AltMath$Advanced$Tuple$Vector2$length(
+			A2($author$project$AltMath$Advanced$Tuple$Vector2$sub, a, b));
 	});
 var $elm_explorations$linear_algebra$Math$Vector2$distance = _MJS_v2distance;
 var $author$project$Vector2$distance = function (_v0) {
@@ -5795,41 +8294,21 @@ var $author$project$Vector2$distance = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector2$distance, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector2$distance, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector2$distance, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector2$distance, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector2$distance, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector2$distance, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$lengthSquared = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	return (x * x) + (y * y);
-};
-var $author$project$AltMath$Record$Vector2$distanceSquared = F2(
-	function (a, b) {
-		return $author$project$AltMath$Record$Vector2$lengthSquared(
-			A2($author$project$AltMath$Record$Vector2$sub, a, b));
-	});
-var $author$project$AltMath$Tuple$Vector2$lengthSquared = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	return (x * x) + (y * y);
-};
-var $author$project$AltMath$Tuple$Vector2$distanceSquared = F2(
-	function (a, b) {
-		return $author$project$AltMath$Tuple$Vector2$lengthSquared(
-			A2($author$project$AltMath$Tuple$Vector2$sub, a, b));
-	});
-var $author$project$AltMath$Vector2$distanceSquared = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$distanceSquared = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -5838,6 +8317,26 @@ var $author$project$AltMath$Vector2$distanceSquared = F2(
 		var dy = ay - by;
 		var dx = ax - bx;
 		return (dx * dx) + (dy * dy);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$lengthSquared = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	return (x * x) + (y * y);
+};
+var $author$project$AltMath$Advanced$Record$Vector2$distanceSquared = F2(
+	function (a, b) {
+		return $author$project$AltMath$Advanced$Record$Vector2$lengthSquared(
+			A2($author$project$AltMath$Advanced$Record$Vector2$sub, a, b));
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector2$lengthSquared = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	return (x * x) + (y * y);
+};
+var $author$project$AltMath$Advanced$Tuple$Vector2$distanceSquared = F2(
+	function (a, b) {
+		return $author$project$AltMath$Advanced$Tuple$Vector2$lengthSquared(
+			A2($author$project$AltMath$Advanced$Tuple$Vector2$sub, a, b));
 	});
 var $elm_explorations$linear_algebra$Math$Vector2$distanceSquared = _MJS_v2distanceSquared;
 var $author$project$Vector2$distanceSquared = function (_v0) {
@@ -5862,25 +8361,21 @@ var $author$project$Vector2$distanceSquared = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector2$distanceSquared, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector2$distanceSquared, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector2$distanceSquared, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector2$distanceSquared, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector2$distanceSquared, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector2$distanceSquared, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$dot = F2(
-	function (a, b) {
-		return (a.x * b.x) + (a.y * b.y);
-	});
-var $author$project$AltMath$Tuple$Vector2$dot = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$dot = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -5888,7 +8383,11 @@ var $author$project$AltMath$Tuple$Vector2$dot = F2(
 		var by = _v1.b;
 		return (ax * bx) + (ay * by);
 	});
-var $author$project$AltMath$Vector2$dot = F2(
+var $author$project$AltMath$Advanced$Record$Vector2$dot = F2(
+	function (a, b) {
+		return (a.x * b.x) + (a.y * b.y);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector2$dot = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -5919,33 +8418,33 @@ var $author$project$Vector2$dot = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector2$dot, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector2$dot, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector2$dot, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector2$dot, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector2$dot, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector2$dot, tupleVec1, tupleVec2);
 				})
 			]));
+};
+var $author$project$AltMath$Advanced$ADT$Vector2$fromRecord = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, x, y);
 };
 var $elm$core$Basics$identity = function (x) {
 	return x;
 };
-var $author$project$AltMath$Record$Vector2$fromRecord = $elm$core$Basics$identity;
-var $author$project$AltMath$Tuple$Vector2$fromRecord = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector2$fromRecord = $elm$core$Basics$identity;
+var $author$project$AltMath$Advanced$Tuple$Vector2$fromRecord = function (_v0) {
 	var x = _v0.x;
 	var y = _v0.y;
 	return _Utils_Tuple2(x, y);
-};
-var $author$project$AltMath$Vector2$fromRecord = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	return A2($author$project$AltMath$Vector2$Vec2, x, y);
 };
 var $elm_explorations$linear_algebra$Math$Vector2$fromRecord = _MJS_v2fromRecord;
 var $author$project$Vector2$fromRecord = function (record) {
@@ -5964,34 +8463,34 @@ var $author$project$Vector2$fromRecord = function (record) {
 				'ADT',
 				function (_v1) {
 					return $author$project$Vector2$AdtVec2(
-						$author$project$AltMath$Vector2$fromRecord(record));
+						$author$project$AltMath$Advanced$ADT$Vector2$fromRecord(record));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v2) {
 					return $author$project$Vector2$RecordVec2(
-						$author$project$AltMath$Record$Vector2$fromRecord(record));
+						$author$project$AltMath$Advanced$Record$Vector2$fromRecord(record));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v3) {
 					return $author$project$Vector2$TupleVec2(
-						$author$project$AltMath$Tuple$Vector2$fromRecord(record));
+						$author$project$AltMath$Advanced$Tuple$Vector2$fromRecord(record));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$getX = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector2$getX = function (_v0) {
+	var x = _v0.a;
+	return x;
+};
+var $author$project$AltMath$Advanced$Record$Vector2$getX = function ($) {
 	return $.x;
 };
 var $elm$core$Tuple$first = function (_v0) {
 	var x = _v0.a;
 	return x;
 };
-var $author$project$AltMath$Tuple$Vector2$getX = $elm$core$Tuple$first;
-var $author$project$AltMath$Vector2$getX = function (_v0) {
-	var x = _v0.a;
-	return x;
-};
+var $author$project$AltMath$Advanced$Tuple$Vector2$getX = $elm$core$Tuple$first;
 var $elm_explorations$linear_algebra$Math$Vector2$getX = _MJS_v2getX;
 var $author$project$Vector2$getX = function (_v0) {
 	var glVec1 = _v0.glVec1;
@@ -6011,32 +8510,32 @@ var $author$project$Vector2$getX = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector2$getX(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector2$getX(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector2$getX(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector2$getX(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector2$getX(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector2$getX(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$getY = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector2$getY = function (_v0) {
+	var y = _v0.b;
+	return y;
+};
+var $author$project$AltMath$Advanced$Record$Vector2$getY = function ($) {
 	return $.y;
 };
 var $elm$core$Tuple$second = function (_v0) {
 	var y = _v0.b;
 	return y;
 };
-var $author$project$AltMath$Tuple$Vector2$getY = $elm$core$Tuple$second;
-var $author$project$AltMath$Vector2$getY = function (_v0) {
-	var y = _v0.b;
-	return y;
-};
+var $author$project$AltMath$Advanced$Tuple$Vector2$getY = $elm$core$Tuple$second;
 var $elm_explorations$linear_algebra$Math$Vector2$getY = _MJS_v2getY;
 var $author$project$Vector2$getY = function (_v0) {
 	var glVec1 = _v0.glVec1;
@@ -6056,17 +8555,17 @@ var $author$project$Vector2$getY = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector2$getY(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector2$getY(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector2$getY(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector2$getY(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector2$getY(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector2$getY(tupleVec1);
 				})
 			]));
 };
@@ -6089,21 +8588,21 @@ var $author$project$Vector2$length = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector2$length(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector2$length(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector2$length(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector2$length(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector2$length(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector2$length(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Vector2$lengthSquared = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector2$lengthSquared = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	return (x * x) + (y * y);
@@ -6127,39 +8626,39 @@ var $author$project$Vector2$lengthSquared = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector2$lengthSquared(adtVec2);
+					return $author$project$AltMath$Advanced$ADT$Vector2$lengthSquared(adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector2$lengthSquared(recVec2);
+					return $author$project$AltMath$Advanced$Record$Vector2$lengthSquared(recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector2$lengthSquared(tupleVec2);
+					return $author$project$AltMath$Advanced$Tuple$Vector2$lengthSquared(tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$mul = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$mul = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var bx = _v1.a;
+		var by = _v1.b;
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, ax * bx, ay * by);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$mul = F2(
 	function (a, b) {
 		return {x: a.x * b.x, y: a.y * b.y};
 	});
-var $author$project$AltMath$Tuple$Vector2$mul = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector2$mul = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
 		var bx = _v1.a;
 		var by = _v1.b;
 		return _Utils_Tuple2(ax * bx, ay * by);
-	});
-var $author$project$AltMath$Vector2$mul = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var bx = _v1.a;
-		var by = _v1.b;
-		return A2($author$project$AltMath$Vector2$Vec2, ax * bx, ay * by);
 	});
 var $author$project$Vector2$mul = function (_v0) {
 	var glVec1 = _v0.glVec1;
@@ -6179,37 +8678,34 @@ var $author$project$Vector2$mul = function (_v0) {
 				'ADT',
 				function (_v1) {
 					return $author$project$Vector2$AdtVec2(
-						A2($author$project$AltMath$Vector2$mul, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector2$mul, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v2) {
 					return $author$project$Vector2$RecordVec2(
-						A2($author$project$AltMath$Record$Vector2$mul, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector2$mul, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v3) {
 					return $author$project$Vector2$TupleVec2(
-						A2($author$project$AltMath$Tuple$Vector2$mul, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector2$mul, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $elm$core$Basics$negate = function (n) {
-	return -n;
+var $author$project$AltMath$Advanced$ADT$Vector2$negate = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, -x, -y);
 };
-var $author$project$AltMath$Record$Vector2$negate = function (a) {
-	return A2($author$project$AltMath$Record$Vector2$Vec2, -a.x, -a.y);
+var $author$project$AltMath$Advanced$Record$Vector2$negate = function (a) {
+	return A2($author$project$AltMath$Advanced$Record$Vector2$Vec2, -a.x, -a.y);
 };
-var $author$project$AltMath$Tuple$Vector2$negate = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector2$negate = function (_v0) {
 	var ax = _v0.a;
 	var ay = _v0.b;
 	return _Utils_Tuple2(-ax, -ay);
-};
-var $author$project$AltMath$Vector2$negate = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	return A2($author$project$AltMath$Vector2$Vec2, -x, -y);
 };
 var $elm_explorations$linear_algebra$Math$Vector2$negate = _MJS_v2negate;
 var $author$project$Vector2$negate = function (_v0) {
@@ -6232,37 +8728,37 @@ var $author$project$Vector2$negate = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector2$AdtVec2(
-						$author$project$AltMath$Vector2$negate(adtVec1));
+						$author$project$AltMath$Advanced$ADT$Vector2$negate(adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector2$RecordVec2(
-						$author$project$AltMath$Record$Vector2$negate(recVec1));
+						$author$project$AltMath$Advanced$Record$Vector2$negate(recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector2$TupleVec2(
-						$author$project$AltMath$Tuple$Vector2$negate(tupleVec1));
+						$author$project$AltMath$Advanced$Tuple$Vector2$negate(tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$normalize = function (v2) {
-	var len = $author$project$AltMath$Record$Vector2$length(v2);
-	return A2($author$project$AltMath$Record$Vector2$Vec2, v2.x / len, v2.y / len);
-};
-var $author$project$AltMath$Tuple$Vector2$normalize = function (v2) {
+var $author$project$AltMath$Advanced$ADT$Vector2$normalize = function (v2) {
 	var x = v2.a;
 	var y = v2.b;
-	var len = $author$project$AltMath$Tuple$Vector2$length(v2);
+	var len = $author$project$AltMath$Advanced$ADT$Vector2$length(v2);
+	return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, x / len, y / len);
+};
+var $author$project$AltMath$Advanced$Record$Vector2$normalize = function (v2) {
+	var len = $author$project$AltMath$Advanced$Record$Vector2$length(v2);
+	return A2($author$project$AltMath$Advanced$Record$Vector2$Vec2, v2.x / len, v2.y / len);
+};
+var $author$project$AltMath$Advanced$Tuple$Vector2$normalize = function (v2) {
+	var x = v2.a;
+	var y = v2.b;
+	var len = $author$project$AltMath$Advanced$Tuple$Vector2$length(v2);
 	return _Utils_Tuple2(x / len, y / len);
-};
-var $author$project$AltMath$Vector2$normalize = function (v2) {
-	var x = v2.a;
-	var y = v2.b;
-	var len = $author$project$AltMath$Vector2$length(v2);
-	return A2($author$project$AltMath$Vector2$Vec2, x / len, y / len);
 };
 var $elm_explorations$linear_algebra$Math$Vector2$normalize = _MJS_v2normalize;
 var $author$project$Vector2$normalize = function (_v0) {
@@ -6285,37 +8781,37 @@ var $author$project$Vector2$normalize = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector2$AdtVec2(
-						$author$project$AltMath$Vector2$normalize(adtVec1));
+						$author$project$AltMath$Advanced$ADT$Vector2$normalize(adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector2$RecordVec2(
-						$author$project$AltMath$Record$Vector2$normalize(recVec1));
+						$author$project$AltMath$Advanced$Record$Vector2$normalize(recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector2$TupleVec2(
-						$author$project$AltMath$Tuple$Vector2$normalize(tupleVec1));
+						$author$project$AltMath$Advanced$Tuple$Vector2$normalize(tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$scale = F2(
-	function (s, v2) {
-		return A2($author$project$AltMath$Record$Vector2$Vec2, s * v2.x, s * v2.y);
+var $author$project$AltMath$Advanced$ADT$Vector2$scale = F2(
+	function (s, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, s * x, s * y);
 	});
-var $author$project$AltMath$Tuple$Vector2$scale = F2(
+var $author$project$AltMath$Advanced$Record$Vector2$scale = F2(
+	function (s, v2) {
+		return A2($author$project$AltMath$Advanced$Record$Vector2$Vec2, s * v2.x, s * v2.y);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector2$scale = F2(
 	function (s, _v0) {
 		var x = _v0.a;
 		var y = _v0.b;
 		return _Utils_Tuple2(s * x, s * y);
-	});
-var $author$project$AltMath$Vector2$scale = F2(
-	function (s, _v0) {
-		var x = _v0.a;
-		var y = _v0.b;
-		return A2($author$project$AltMath$Vector2$Vec2, s * x, s * y);
 	});
 var $elm_explorations$linear_algebra$Math$Vector2$scale = _MJS_v2scale;
 var $author$project$Vector2$scale = function (_v0) {
@@ -6338,36 +8834,36 @@ var $author$project$Vector2$scale = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector2$AdtVec2(
-						A2($author$project$AltMath$Vector2$scale, 2, adtVec1));
+						A2($author$project$AltMath$Advanced$ADT$Vector2$scale, 2, adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector2$RecordVec2(
-						A2($author$project$AltMath$Record$Vector2$scale, 2, recVec1));
+						A2($author$project$AltMath$Advanced$Record$Vector2$scale, 2, recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector2$TupleVec2(
-						A2($author$project$AltMath$Tuple$Vector2$scale, 2, tupleVec1));
+						A2($author$project$AltMath$Advanced$Tuple$Vector2$scale, 2, tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$setX = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$setX = F2(
+	function (x, _v0) {
+		var y = _v0.b;
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, x, y);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$setX = F2(
 	function (x, _v0) {
 		var y = _v0.y;
 		return {x: x, y: y};
 	});
-var $author$project$AltMath$Tuple$Vector2$setX = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector2$setX = F2(
 	function (x, _v0) {
 		var y = _v0.b;
 		return _Utils_Tuple2(x, y);
-	});
-var $author$project$AltMath$Vector2$setX = F2(
-	function (x, _v0) {
-		var y = _v0.b;
-		return A2($author$project$AltMath$Vector2$Vec2, x, y);
 	});
 var $elm_explorations$linear_algebra$Math$Vector2$setX = _MJS_v2setX;
 var $author$project$Vector2$setX = F2(
@@ -6391,36 +8887,36 @@ var $author$project$Vector2$setX = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector2$AdtVec2(
-							A2($author$project$AltMath$Vector2$setX, x, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector2$setX, x, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector2$RecordVec2(
-							A2($author$project$AltMath$Record$Vector2$setX, x, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector2$setX, x, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector2$TupleVec2(
-							A2($author$project$AltMath$Tuple$Vector2$setX, x, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector2$setX, x, tupleVec1));
 					})
 				]));
 	});
-var $author$project$AltMath$Record$Vector2$setY = F2(
+var $author$project$AltMath$Advanced$ADT$Vector2$setY = F2(
+	function (y, _v0) {
+		var x = _v0.a;
+		return A2($author$project$AltMath$Advanced$ADT$Vector2$Vec2, x, y);
+	});
+var $author$project$AltMath$Advanced$Record$Vector2$setY = F2(
 	function (y, _v0) {
 		var x = _v0.x;
 		return {x: x, y: y};
 	});
-var $author$project$AltMath$Tuple$Vector2$setY = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector2$setY = F2(
 	function (y, _v0) {
 		var x = _v0.a;
 		return _Utils_Tuple2(x, y);
-	});
-var $author$project$AltMath$Vector2$setY = F2(
-	function (y, _v0) {
-		var x = _v0.a;
-		return A2($author$project$AltMath$Vector2$Vec2, x, y);
 	});
 var $elm_explorations$linear_algebra$Math$Vector2$setY = _MJS_v2setY;
 var $author$project$Vector2$setY = F2(
@@ -6444,19 +8940,19 @@ var $author$project$Vector2$setY = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector2$AdtVec2(
-							A2($author$project$AltMath$Vector2$setY, y, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector2$setY, y, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector2$RecordVec2(
-							A2($author$project$AltMath$Record$Vector2$setY, y, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector2$setY, y, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector2$TupleVec2(
-							A2($author$project$AltMath$Tuple$Vector2$setY, y, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector2$setY, y, tupleVec1));
 					})
 				]));
 	});
@@ -6485,30 +8981,29 @@ var $author$project$Vector2$sub = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector2$AdtVec2(
-						A2($author$project$AltMath$Vector2$sub, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector2$sub, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector2$RecordVec2(
-						A2($author$project$AltMath$Record$Vector2$sub, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector2$sub, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector2$TupleVec2(
-						A2($author$project$AltMath$Tuple$Vector2$sub, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector2$sub, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $elm$core$String$toFloat = _String_toFloat;
-var $author$project$AltMath$Record$Vector2$toRecord = $elm$core$Basics$identity;
-var $author$project$AltMath$Tuple$Vector2$toRecord = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector2$toRecord = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	return {x: x, y: y};
 };
-var $author$project$AltMath$Vector2$toRecord = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector2$toRecord = $elm$core$Basics$identity;
+var $author$project$AltMath$Advanced$Tuple$Vector2$toRecord = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	return {x: x, y: y};
@@ -6532,27 +9027,27 @@ var $author$project$Vector2$toRecord = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector2$toRecord(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector2$toRecord(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector2$toRecord(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector2$toRecord(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector2$toRecord(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector2$toRecord(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector2$vec2 = $author$project$AltMath$Record$Vector2$Vec2;
+var $author$project$AltMath$Advanced$ADT$Vector2$vec2 = $author$project$AltMath$Advanced$ADT$Vector2$Vec2;
+var $author$project$AltMath$Advanced$Record$Vector2$vec2 = $author$project$AltMath$Advanced$Record$Vector2$Vec2;
 var $elm$core$Tuple$pair = F2(
 	function (a, b) {
 		return _Utils_Tuple2(a, b);
 	});
-var $author$project$AltMath$Tuple$Vector2$vec2 = $elm$core$Tuple$pair;
-var $author$project$AltMath$Vector2$vec2 = $author$project$AltMath$Vector2$Vec2;
+var $author$project$AltMath$Advanced$Tuple$Vector2$vec2 = $elm$core$Tuple$pair;
 var $elm_explorations$linear_algebra$Math$Vector2$vec2 = _MJS_v2;
 var $author$project$Vector2$vec2 = F2(
 	function (x, y) {
@@ -6571,30 +9066,21 @@ var $author$project$Vector2$vec2 = F2(
 					'ADT',
 					function (_v1) {
 						return $author$project$Vector2$AdtVec2(
-							A2($author$project$AltMath$Vector2$vec2, x, y));
+							A2($author$project$AltMath$Advanced$ADT$Vector2$vec2, x, y));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v2) {
 						return $author$project$Vector2$RecordVec2(
-							A2($author$project$AltMath$Record$Vector2$vec2, x, y));
+							A2($author$project$AltMath$Advanced$Record$Vector2$vec2, x, y));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v3) {
 						return $author$project$Vector2$TupleVec2(
-							A2($author$project$AltMath$Tuple$Vector2$vec2, x, y));
+							A2($author$project$AltMath$Advanced$Tuple$Vector2$vec2, x, y));
 					})
 				]));
-	});
-var $elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
-		}
 	});
 var $author$project$Vector2$all = function (_v0) {
 	var x1 = _v0.x1;
@@ -6619,14 +9105,14 @@ var $author$project$Vector2$all = function (_v0) {
 		$elm$core$String$toFloat(x1));
 	var record = {x: x1_, y: y1_};
 	var data = {
-		adtVec1: A2($author$project$AltMath$Vector2$vec2, x1_, y1_),
-		adtVec2: A2($author$project$AltMath$Vector2$vec2, x2_, y2_),
+		adtVec1: A2($author$project$AltMath$Advanced$ADT$Vector2$vec2, x1_, y1_),
+		adtVec2: A2($author$project$AltMath$Advanced$ADT$Vector2$vec2, x2_, y2_),
 		glVec1: A2($elm_explorations$linear_algebra$Math$Vector2$vec2, x1_, y1_),
 		glVec2: A2($elm_explorations$linear_algebra$Math$Vector2$vec2, x2_, y2_),
-		recVec1: A2($author$project$AltMath$Record$Vector2$vec2, x1_, y1_),
-		recVec2: A2($author$project$AltMath$Record$Vector2$vec2, x2_, y2_),
-		tupleVec1: A2($author$project$AltMath$Tuple$Vector2$vec2, x1_, y1_),
-		tupleVec2: A2($author$project$AltMath$Tuple$Vector2$vec2, x2_, y2_)
+		recVec1: A2($author$project$AltMath$Advanced$Record$Vector2$vec2, x1_, y1_),
+		recVec2: A2($author$project$AltMath$Advanced$Record$Vector2$vec2, x2_, y2_),
+		tupleVec1: A2($author$project$AltMath$Advanced$Tuple$Vector2$vec2, x1_, y1_),
+		tupleVec2: A2($author$project$AltMath$Advanced$Tuple$Vector2$vec2, x2_, y2_)
 	};
 	return _List_fromArray(
 		[
@@ -6663,15 +9149,21 @@ var $author$project$Vector3$RecordVec3 = function (a) {
 var $author$project$Vector3$TupleVec3 = function (a) {
 	return {$: 'TupleVec3', a: a};
 };
-var $author$project$AltMath$Record$Vector3$Vec3 = F3(
-	function (x, y, z) {
-		return {x: x, y: y, z: z};
+var $author$project$AltMath$Advanced$ADT$Vector3$add = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, ax + bx, ay + by, az + bz);
 	});
-var $author$project$AltMath$Record$Vector3$add = F2(
+var $author$project$AltMath$Advanced$Record$Vector3$add = F2(
 	function (a, b) {
-		return A3($author$project$AltMath$Record$Vector3$Vec3, a.x + b.x, a.y + b.y, a.z + b.z);
+		return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, a.x + b.x, a.y + b.y, a.z + b.z);
 	});
-var $author$project$AltMath$Tuple$Vector3$add = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector3$add = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -6680,20 +9172,6 @@ var $author$project$AltMath$Tuple$Vector3$add = F2(
 		var by = _v1.b;
 		var bz = _v1.c;
 		return _Utils_Tuple3(ax + bx, ay + by, az + bz);
-	});
-var $author$project$AltMath$Vector3$Vec3 = F3(
-	function (a, b, c) {
-		return {$: 'Vec3', a: a, b: b, c: c};
-	});
-var $author$project$AltMath$Vector3$add = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		return A3($author$project$AltMath$Vector3$Vec3, ax + bx, ay + by, az + bz);
 	});
 var $elm_explorations$linear_algebra$Math$Vector3$add = _MJS_v3add;
 var $author$project$Vector3$add = function (_v0) {
@@ -6720,46 +9198,22 @@ var $author$project$Vector3$add = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						A2($author$project$AltMath$Vector3$add, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector3$add, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						A2($author$project$AltMath$Record$Vector3$add, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector3$add, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						A2($author$project$AltMath$Tuple$Vector3$add, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector3$add, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$cross = F2(
-	function (a, b) {
-		return A3($author$project$AltMath$Record$Vector3$Vec3, (a.y * b.z) - (a.z * b.y), (a.z * b.x) - (a.x * b.z), (a.x * b.y) - (a.y * b.x));
-	});
-var $author$project$AltMath$Tuple$Vector3$cross = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		return _Utils_Tuple3((ay * bz) - (az * by), (az * bx) - (ax * bz), (ax * by) - (ay * bx));
-	});
-var $author$project$AltMath$Vector3$cross = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		return A3($author$project$AltMath$Vector3$Vec3, (ay * bz) - (az * by), (az * bx) - (ax * bz), (ax * by) - (ay * bx));
-	});
 var $elm_explorations$linear_algebra$Math$Vector3$cross = _MJS_v3cross;
 var $author$project$Vector3$cross = function (_v0) {
 	var glVec1 = _v0.glVec1;
@@ -6785,88 +9239,22 @@ var $author$project$Vector3$cross = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						A2($author$project$AltMath$Vector3$cross, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector3$cross, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						A2($author$project$AltMath$Record$Vector3$cross, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector3$cross, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						A2($author$project$AltMath$Tuple$Vector3$cross, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector3$cross, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$length = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	var z = _v0.z;
-	return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
-};
-var $author$project$AltMath$Record$Vector3$sub = F2(
-	function (a, b) {
-		return A3($author$project$AltMath$Record$Vector3$Vec3, a.x - b.x, a.y - b.y, a.z - b.z);
-	});
-var $author$project$AltMath$Record$Vector3$direction = F2(
-	function (a, b) {
-		var c = A2($author$project$AltMath$Record$Vector3$sub, a, b);
-		var len = $author$project$AltMath$Record$Vector3$length(c);
-		return A3($author$project$AltMath$Record$Vector3$Vec3, c.x / len, c.y / len, c.z / len);
-	});
-var $author$project$AltMath$Tuple$Vector3$length = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
-};
-var $author$project$AltMath$Tuple$Vector3$sub = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		return _Utils_Tuple3(ax - bx, ay - by, az - bz);
-	});
-var $author$project$AltMath$Tuple$Vector3$direction = F2(
-	function (a, b) {
-		var c = A2($author$project$AltMath$Tuple$Vector3$sub, a, b);
-		var x = c.a;
-		var y = c.b;
-		var z = c.c;
-		var len = $author$project$AltMath$Tuple$Vector3$length(c);
-		return _Utils_Tuple3(x / len, y / len, z / len);
-	});
-var $author$project$AltMath$Vector3$length = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
-};
-var $author$project$AltMath$Vector3$sub = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		return A3($author$project$AltMath$Vector3$Vec3, ax - bx, ay - by, az - bz);
-	});
-var $author$project$AltMath$Vector3$direction = F2(
-	function (a, b) {
-		var c = A2($author$project$AltMath$Vector3$sub, a, b);
-		var x = c.a;
-		var y = c.b;
-		var z = c.c;
-		var len = $author$project$AltMath$Vector3$length(c);
-		return A3($author$project$AltMath$Vector3$Vec3, x / len, y / len, z / len);
-	});
 var $elm_explorations$linear_algebra$Math$Vector3$direction = _MJS_v3direction;
 var $author$project$Vector3$direction = function (_v0) {
 	var glVec1 = _v0.glVec1;
@@ -6892,30 +9280,23 @@ var $author$project$Vector3$direction = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						A2($author$project$AltMath$Vector3$direction, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector3$direction, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						A2($author$project$AltMath$Record$Vector3$direction, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector3$direction, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						A2($author$project$AltMath$Tuple$Vector3$direction, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector3$direction, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$distance = F2(
-	function (a, b) {
-		var z = a.z - b.z;
-		var y = a.y - b.y;
-		var x = a.x - b.x;
-		return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
-	});
-var $author$project$AltMath$Tuple$Vector3$distance = F2(
+var $author$project$AltMath$Advanced$ADT$Vector3$distance = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -6928,7 +9309,14 @@ var $author$project$AltMath$Tuple$Vector3$distance = F2(
 		var x = ax - bx;
 		return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
 	});
-var $author$project$AltMath$Vector3$distance = F2(
+var $author$project$AltMath$Advanced$Record$Vector3$distance = F2(
+	function (a, b) {
+		var z = a.z - b.z;
+		var y = a.y - b.y;
+		var x = a.x - b.x;
+		return $elm$core$Basics$sqrt(((x * x) + (y * y)) + (z * z));
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$distance = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -6964,28 +9352,21 @@ var $author$project$Vector3$distance = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector3$distance, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector3$distance, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector3$distance, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector3$distance, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector3$distance, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector3$distance, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$distanceSquared = F2(
-	function (a, b) {
-		var z = a.z - b.z;
-		var y = a.y - b.y;
-		var x = a.x - b.x;
-		return ((x * x) + (y * y)) + (z * z);
-	});
-var $author$project$AltMath$Tuple$Vector3$distanceSquared = F2(
+var $author$project$AltMath$Advanced$ADT$Vector3$distanceSquared = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -6998,7 +9379,14 @@ var $author$project$AltMath$Tuple$Vector3$distanceSquared = F2(
 		var x = ax - bx;
 		return ((x * x) + (y * y)) + (z * z);
 	});
-var $author$project$AltMath$Vector3$distanceSquared = F2(
+var $author$project$AltMath$Advanced$Record$Vector3$distanceSquared = F2(
+	function (a, b) {
+		var z = a.z - b.z;
+		var y = a.y - b.y;
+		var x = a.x - b.x;
+		return ((x * x) + (y * y)) + (z * z);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$distanceSquared = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -7034,25 +9422,21 @@ var $author$project$Vector3$distanceSquared = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector3$distanceSquared, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector3$distanceSquared, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector3$distanceSquared, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector3$distanceSquared, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector3$distanceSquared, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector3$distanceSquared, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$dot = F2(
-	function (a, b) {
-		return ((a.x * b.x) + (a.y * b.y)) + (a.z * b.z);
-	});
-var $author$project$AltMath$Tuple$Vector3$dot = F2(
+var $author$project$AltMath$Advanced$ADT$Vector3$dot = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -7062,7 +9446,11 @@ var $author$project$AltMath$Tuple$Vector3$dot = F2(
 		var bz = _v1.c;
 		return ((ax * bx) + (ay * by)) + (az * bz);
 	});
-var $author$project$AltMath$Vector3$dot = F2(
+var $author$project$AltMath$Advanced$Record$Vector3$dot = F2(
+	function (a, b) {
+		return ((a.x * b.x) + (a.y * b.y)) + (a.z * b.z);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$dot = F2(
 	function (_v0, _v1) {
 		var ax = _v0.a;
 		var ay = _v0.b;
@@ -7095,32 +9483,32 @@ var $author$project$Vector3$dot = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector3$dot, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector3$dot, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector3$dot, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector3$dot, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector3$dot, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector3$dot, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$fromRecord = $elm$core$Basics$identity;
-var $author$project$AltMath$Tuple$Vector3$fromRecord = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector3$fromRecord = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	var z = _v0.z;
+	return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, x, y, z);
+};
+var $author$project$AltMath$Advanced$Record$Vector3$fromRecord = $elm$core$Basics$identity;
+var $author$project$AltMath$Advanced$Tuple$Vector3$fromRecord = function (_v0) {
 	var x = _v0.x;
 	var y = _v0.y;
 	var z = _v0.z;
 	return _Utils_Tuple3(x, y, z);
-};
-var $author$project$AltMath$Vector3$fromRecord = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	var z = _v0.z;
-	return A3($author$project$AltMath$Vector3$Vec3, x, y, z);
 };
 var $elm_explorations$linear_algebra$Math$Vector3$fromRecord = _MJS_v3fromRecord;
 var $author$project$Vector3$fromRecord = function (record) {
@@ -7139,33 +9527,33 @@ var $author$project$Vector3$fromRecord = function (record) {
 				'ADT',
 				function (_v1) {
 					return $author$project$Vector3$AdtVec3(
-						$author$project$AltMath$Vector3$fromRecord(record));
+						$author$project$AltMath$Advanced$ADT$Vector3$fromRecord(record));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v2) {
 					return $author$project$Vector3$RecordVec3(
-						$author$project$AltMath$Record$Vector3$fromRecord(record));
+						$author$project$AltMath$Advanced$Record$Vector3$fromRecord(record));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v3) {
 					return $author$project$Vector3$TupleVec3(
-						$author$project$AltMath$Tuple$Vector3$fromRecord(record));
+						$author$project$AltMath$Advanced$Tuple$Vector3$fromRecord(record));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$getX = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector3$getX = function (_v0) {
+	var x = _v0.a;
+	return x;
+};
+var $author$project$AltMath$Advanced$Record$Vector3$getX = function ($) {
 	return $.x;
 };
-var $author$project$AltMath$Tuple$Vector3$getX = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector3$getX = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
-	return x;
-};
-var $author$project$AltMath$Vector3$getX = function (_v0) {
-	var x = _v0.a;
 	return x;
 };
 var $elm_explorations$linear_algebra$Math$Vector3$getX = _MJS_v3getX;
@@ -7187,31 +9575,31 @@ var $author$project$Vector3$getX = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector3$getX(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector3$getX(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector3$getX(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector3$getX(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector3$getX(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector3$getX(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$getY = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector3$getY = function (_v0) {
+	var y = _v0.b;
+	return y;
+};
+var $author$project$AltMath$Advanced$Record$Vector3$getY = function ($) {
 	return $.y;
 };
-var $author$project$AltMath$Tuple$Vector3$getY = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector3$getY = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
-	return y;
-};
-var $author$project$AltMath$Vector3$getY = function (_v0) {
-	var y = _v0.b;
 	return y;
 };
 var $elm_explorations$linear_algebra$Math$Vector3$getY = _MJS_v3getY;
@@ -7233,30 +9621,30 @@ var $author$project$Vector3$getY = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector3$getY(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector3$getY(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector3$getY(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector3$getY(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector3$getY(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector3$getY(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$getZ = function ($) {
-	return $.z;
-};
-var $author$project$AltMath$Tuple$Vector3$getZ = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
+var $author$project$AltMath$Advanced$ADT$Vector3$getZ = function (_v0) {
 	var z = _v0.c;
 	return z;
 };
-var $author$project$AltMath$Vector3$getZ = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector3$getZ = function ($) {
+	return $.z;
+};
+var $author$project$AltMath$Advanced$Tuple$Vector3$getZ = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
 	var z = _v0.c;
 	return z;
 };
@@ -7279,17 +9667,17 @@ var $author$project$Vector3$getZ = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector3$getZ(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector3$getZ(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector3$getZ(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector3$getZ(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector3$getZ(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector3$getZ(tupleVec1);
 				})
 			]));
 };
@@ -7312,33 +9700,33 @@ var $author$project$Vector3$length = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector3$length(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector3$length(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector3$length(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector3$length(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector3$length(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector3$length(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$lengthSquared = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	var z = _v0.z;
-	return ((x * x) + (y * y)) + (z * z);
-};
-var $author$project$AltMath$Tuple$Vector3$lengthSquared = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector3$lengthSquared = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
 	return ((x * x) + (y * y)) + (z * z);
 };
-var $author$project$AltMath$Vector3$lengthSquared = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector3$lengthSquared = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	var z = _v0.z;
+	return ((x * x) + (y * y)) + (z * z);
+};
+var $author$project$AltMath$Advanced$Tuple$Vector3$lengthSquared = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
@@ -7363,34 +9751,34 @@ var $author$project$Vector3$lengthSquared = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector3$lengthSquared(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector3$lengthSquared(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector3$lengthSquared(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector3$lengthSquared(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector3$lengthSquared(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector3$lengthSquared(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$negate = function (v3) {
-	return A3($author$project$AltMath$Record$Vector3$Vec3, -v3.x, -v3.y, -v3.z);
+var $author$project$AltMath$Advanced$ADT$Vector3$negate = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, -x, -y, -z);
 };
-var $author$project$AltMath$Tuple$Vector3$negate = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector3$negate = function (v3) {
+	return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, -v3.x, -v3.y, -v3.z);
+};
+var $author$project$AltMath$Advanced$Tuple$Vector3$negate = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
 	return _Utils_Tuple3(-x, -y, -z);
-};
-var $author$project$AltMath$Vector3$negate = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	return A3($author$project$AltMath$Vector3$Vec3, -x, -y, -z);
 };
 var $elm_explorations$linear_algebra$Math$Vector3$negate = _MJS_v3negate;
 var $author$project$Vector3$negate = function (_v0) {
@@ -7413,39 +9801,21 @@ var $author$project$Vector3$negate = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						$author$project$AltMath$Vector3$negate(adtVec1));
+						$author$project$AltMath$Advanced$ADT$Vector3$negate(adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						$author$project$AltMath$Record$Vector3$negate(recVec1));
+						$author$project$AltMath$Advanced$Record$Vector3$negate(recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						$author$project$AltMath$Tuple$Vector3$negate(tupleVec1));
+						$author$project$AltMath$Advanced$Tuple$Vector3$negate(tupleVec1));
 				})
 			]));
-};
-var $author$project$AltMath$Record$Vector3$normalize = function (v3) {
-	var len = $author$project$AltMath$Record$Vector3$length(v3);
-	return A3($author$project$AltMath$Record$Vector3$Vec3, v3.x / len, v3.y / len, v3.z / len);
-};
-var $author$project$AltMath$Tuple$Vector3$normalize = function (v3) {
-	var x = v3.a;
-	var y = v3.b;
-	var z = v3.c;
-	var len = $author$project$AltMath$Tuple$Vector3$length(v3);
-	return _Utils_Tuple3(x / len, y / len, z / len);
-};
-var $author$project$AltMath$Vector3$normalize = function (v3) {
-	var x = v3.a;
-	var y = v3.b;
-	var z = v3.c;
-	var len = $author$project$AltMath$Vector3$length(v3);
-	return A3($author$project$AltMath$Vector3$Vec3, x / len, y / len, z / len);
 };
 var $elm_explorations$linear_algebra$Math$Vector3$normalize = _MJS_v3normalize;
 var $author$project$Vector3$normalize = function (_v0) {
@@ -7468,39 +9838,39 @@ var $author$project$Vector3$normalize = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						$author$project$AltMath$Vector3$normalize(adtVec1));
+						$author$project$AltMath$Advanced$ADT$Vector3$normalize(adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						$author$project$AltMath$Record$Vector3$normalize(recVec1));
+						$author$project$AltMath$Advanced$Record$Vector3$normalize(recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						$author$project$AltMath$Tuple$Vector3$normalize(tupleVec1));
+						$author$project$AltMath$Advanced$Tuple$Vector3$normalize(tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$scale = F2(
-	function (s, v3) {
-		return A3($author$project$AltMath$Record$Vector3$Vec3, s * v3.x, s * v3.y, s * v3.z);
+var $author$project$AltMath$Advanced$ADT$Vector3$scale = F2(
+	function (s, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, s * x, s * y, s * z);
 	});
-var $author$project$AltMath$Tuple$Vector3$scale = F2(
+var $author$project$AltMath$Advanced$Record$Vector3$scale = F2(
+	function (s, v3) {
+		return A3($author$project$AltMath$Advanced$Record$Vector3$Vec3, s * v3.x, s * v3.y, s * v3.z);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector3$scale = F2(
 	function (s, _v0) {
 		var x = _v0.a;
 		var y = _v0.b;
 		var z = _v0.c;
 		return _Utils_Tuple3(s * x, s * y, s * z);
-	});
-var $author$project$AltMath$Vector3$scale = F2(
-	function (s, _v0) {
-		var x = _v0.a;
-		var y = _v0.b;
-		var z = _v0.c;
-		return A3($author$project$AltMath$Vector3$Vec3, s * x, s * y, s * z);
 	});
 var $elm_explorations$linear_algebra$Math$Vector3$scale = _MJS_v3scale;
 var $author$project$Vector3$scale = function (_v0) {
@@ -7523,39 +9893,39 @@ var $author$project$Vector3$scale = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						A2($author$project$AltMath$Vector3$scale, 2, adtVec1));
+						A2($author$project$AltMath$Advanced$ADT$Vector3$scale, 2, adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						A2($author$project$AltMath$Record$Vector3$scale, 2, recVec1));
+						A2($author$project$AltMath$Advanced$Record$Vector3$scale, 2, recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						A2($author$project$AltMath$Tuple$Vector3$scale, 2, tupleVec1));
+						A2($author$project$AltMath$Advanced$Tuple$Vector3$scale, 2, tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$setX = F2(
+var $author$project$AltMath$Advanced$ADT$Vector3$setX = F2(
+	function (x, _v0) {
+		var y = _v0.b;
+		var z = _v0.c;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, x, y, z);
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$setX = F2(
 	function (x, _v0) {
 		var y = _v0.y;
 		var z = _v0.z;
 		return {x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector3$setX = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector3$setX = F2(
 	function (x, _v0) {
 		var y = _v0.b;
 		var z = _v0.c;
 		return _Utils_Tuple3(x, y, z);
-	});
-var $author$project$AltMath$Vector3$setX = F2(
-	function (x, _v0) {
-		var y = _v0.b;
-		var z = _v0.c;
-		return A3($author$project$AltMath$Vector3$Vec3, x, y, z);
 	});
 var $elm_explorations$linear_algebra$Math$Vector3$setX = _MJS_v3setX;
 var $author$project$Vector3$setX = F2(
@@ -7579,39 +9949,39 @@ var $author$project$Vector3$setX = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector3$AdtVec3(
-							A2($author$project$AltMath$Vector3$setX, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector3$setX, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector3$RecordVec3(
-							A2($author$project$AltMath$Record$Vector3$setX, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector3$setX, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector3$TupleVec3(
-							A2($author$project$AltMath$Tuple$Vector3$setX, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector3$setX, a, tupleVec1));
 					})
 				]));
 	});
-var $author$project$AltMath$Record$Vector3$setY = F2(
+var $author$project$AltMath$Advanced$ADT$Vector3$setY = F2(
+	function (y, _v0) {
+		var x = _v0.a;
+		var z = _v0.c;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, x, y, z);
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$setY = F2(
 	function (y, _v0) {
 		var x = _v0.x;
 		var z = _v0.z;
 		return {x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector3$setY = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector3$setY = F2(
 	function (y, _v0) {
 		var x = _v0.a;
 		var z = _v0.c;
 		return _Utils_Tuple3(x, y, z);
-	});
-var $author$project$AltMath$Vector3$setY = F2(
-	function (y, _v0) {
-		var x = _v0.a;
-		var z = _v0.c;
-		return A3($author$project$AltMath$Vector3$Vec3, x, y, z);
 	});
 var $elm_explorations$linear_algebra$Math$Vector3$setY = _MJS_v3setY;
 var $author$project$Vector3$setY = F2(
@@ -7635,39 +10005,39 @@ var $author$project$Vector3$setY = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector3$AdtVec3(
-							A2($author$project$AltMath$Vector3$setY, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector3$setY, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector3$RecordVec3(
-							A2($author$project$AltMath$Record$Vector3$setY, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector3$setY, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector3$TupleVec3(
-							A2($author$project$AltMath$Tuple$Vector3$setY, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector3$setY, a, tupleVec1));
 					})
 				]));
 	});
-var $author$project$AltMath$Record$Vector3$setZ = F2(
+var $author$project$AltMath$Advanced$ADT$Vector3$setZ = F2(
+	function (z, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		return A3($author$project$AltMath$Advanced$ADT$Vector3$Vec3, x, y, z);
+	});
+var $author$project$AltMath$Advanced$Record$Vector3$setZ = F2(
 	function (z, _v0) {
 		var x = _v0.x;
 		var y = _v0.y;
 		return {x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector3$setZ = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector3$setZ = F2(
 	function (z, _v0) {
 		var x = _v0.a;
 		var y = _v0.b;
 		return _Utils_Tuple3(x, y, z);
-	});
-var $author$project$AltMath$Vector3$setZ = F2(
-	function (z, _v0) {
-		var x = _v0.a;
-		var y = _v0.b;
-		return A3($author$project$AltMath$Vector3$Vec3, x, y, z);
 	});
 var $elm_explorations$linear_algebra$Math$Vector3$setZ = _MJS_v3setZ;
 var $author$project$Vector3$setZ = F2(
@@ -7691,19 +10061,19 @@ var $author$project$Vector3$setZ = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector3$AdtVec3(
-							A2($author$project$AltMath$Vector3$setZ, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector3$setZ, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector3$RecordVec3(
-							A2($author$project$AltMath$Record$Vector3$setZ, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector3$setZ, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector3$TupleVec3(
-							A2($author$project$AltMath$Tuple$Vector3$setZ, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector3$setZ, a, tupleVec1));
 					})
 				]));
 	});
@@ -7732,30 +10102,30 @@ var $author$project$Vector3$sub = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector3$AdtVec3(
-						A2($author$project$AltMath$Vector3$sub, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector3$sub, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector3$RecordVec3(
-						A2($author$project$AltMath$Record$Vector3$sub, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector3$sub, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector3$TupleVec3(
-						A2($author$project$AltMath$Tuple$Vector3$sub, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector3$sub, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$toRecord = $elm$core$Basics$identity;
-var $author$project$AltMath$Tuple$Vector3$toRecord = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector3$toRecord = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
 	return {x: x, y: y, z: z};
 };
-var $author$project$AltMath$Vector3$toRecord = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector3$toRecord = $elm$core$Basics$identity;
+var $author$project$AltMath$Advanced$Tuple$Vector3$toRecord = function (_v0) {
 	var x = _v0.a;
 	var y = _v0.b;
 	var z = _v0.c;
@@ -7780,27 +10150,20 @@ var $author$project$Vector3$toRecord = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector3$toRecord(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector3$toRecord(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector3$toRecord(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector3$toRecord(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector3$toRecord(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector3$toRecord(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector3$vec3 = $author$project$AltMath$Record$Vector3$Vec3;
-var $author$project$AltMath$Tuple$Vector3$vec3 = F3(
-	function (x, y, z) {
-		return _Utils_Tuple3(x, y, z);
-	});
-var $author$project$AltMath$Vector3$vec3 = $author$project$AltMath$Vector3$Vec3;
-var $elm_explorations$linear_algebra$Math$Vector3$vec3 = _MJS_v3;
 var $author$project$Vector3$vec3 = F3(
 	function (x, y, z) {
 		return A2(
@@ -7818,19 +10181,19 @@ var $author$project$Vector3$vec3 = F3(
 					'ADT',
 					function (_v1) {
 						return $author$project$Vector3$AdtVec3(
-							A3($author$project$AltMath$Vector3$vec3, x, y, z));
+							A3($author$project$AltMath$Advanced$ADT$Vector3$vec3, x, y, z));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v2) {
 						return $author$project$Vector3$RecordVec3(
-							A3($author$project$AltMath$Record$Vector3$vec3, x, y, z));
+							A3($author$project$AltMath$Advanced$Record$Vector3$vec3, x, y, z));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v3) {
 						return $author$project$Vector3$TupleVec3(
-							A3($author$project$AltMath$Tuple$Vector3$vec3, x, y, z));
+							A3($author$project$AltMath$Advanced$Tuple$Vector3$vec3, x, y, z));
 					})
 				]));
 	});
@@ -7867,14 +10230,14 @@ var $author$project$Vector3$all = function (_v0) {
 		$elm$core$String$toFloat(x1));
 	var record = {x: x1_, y: y1_, z: z1_};
 	var data = {
-		adtVec1: A3($author$project$AltMath$Vector3$vec3, x1_, y1_, z1_),
-		adtVec2: A3($author$project$AltMath$Vector3$vec3, x2_, y2_, z2_),
+		adtVec1: A3($author$project$AltMath$Advanced$ADT$Vector3$vec3, x1_, y1_, z1_),
+		adtVec2: A3($author$project$AltMath$Advanced$ADT$Vector3$vec3, x2_, y2_, z2_),
 		glVec1: A3($elm_explorations$linear_algebra$Math$Vector3$vec3, x1_, y1_, z1_),
 		glVec2: A3($elm_explorations$linear_algebra$Math$Vector3$vec3, x2_, y2_, z2_),
-		recVec1: A3($author$project$AltMath$Record$Vector3$vec3, x1_, y1_, z1_),
-		recVec2: A3($author$project$AltMath$Record$Vector3$vec3, x2_, y2_, z2_),
-		tupleVec1: A3($author$project$AltMath$Tuple$Vector3$vec3, x1_, y1_, z1_),
-		tupleVec2: A3($author$project$AltMath$Tuple$Vector3$vec3, x2_, y2_, z2_)
+		recVec1: A3($author$project$AltMath$Advanced$Record$Vector3$vec3, x1_, y1_, z1_),
+		recVec2: A3($author$project$AltMath$Advanced$Record$Vector3$vec3, x2_, y2_, z2_),
+		tupleVec1: A3($author$project$AltMath$Advanced$Tuple$Vector3$vec3, x1_, y1_, z1_),
+		tupleVec2: A3($author$project$AltMath$Advanced$Tuple$Vector3$vec3, x2_, y2_, z2_)
 	};
 	return _List_fromArray(
 		[
@@ -7913,15 +10276,31 @@ var $author$project$Vector4$RecordVec4 = function (a) {
 var $author$project$Vector4$TupleVec4 = function (a) {
 	return {$: 'TupleVec4', a: a};
 };
-var $author$project$AltMath$Record$Vector4$Vec4 = F4(
+var $author$project$AltMath$Advanced$ADT$Vector4$Vec4 = F4(
+	function (a, b, c, d) {
+		return {$: 'Vec4', a: a, b: b, c: c, d: d};
+	});
+var $author$project$AltMath$Advanced$ADT$Vector4$add = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var aw = _v0.d;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		var bw = _v1.d;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, ax + bx, ay + by, az + bz, aw + bw);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$Vec4 = F4(
 	function (x, y, z, w) {
 		return {w: w, x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Record$Vector4$add = F2(
+var $author$project$AltMath$Advanced$Record$Vector4$add = F2(
 	function (a, b) {
-		return A4($author$project$AltMath$Record$Vector4$Vec4, a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+		return A4($author$project$AltMath$Advanced$Record$Vector4$Vec4, a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
 	});
-var $author$project$AltMath$Tuple$Vector4$add = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$add = F2(
 	function (_v0, _v3) {
 		var _v1 = _v0.a;
 		var ax = _v1.a;
@@ -7938,22 +10317,6 @@ var $author$project$AltMath$Tuple$Vector4$add = F2(
 		return _Utils_Tuple2(
 			_Utils_Tuple2(ax + bx, ay + by),
 			_Utils_Tuple2(az + bz, aw + bw));
-	});
-var $author$project$AltMath$Vector4$Vec4 = F4(
-	function (a, b, c, d) {
-		return {$: 'Vec4', a: a, b: b, c: c, d: d};
-	});
-var $author$project$AltMath$Vector4$add = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var aw = _v0.d;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		var bw = _v1.d;
-		return A4($author$project$AltMath$Vector4$Vec4, ax + bx, ay + by, az + bz, aw + bw);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$add = _MJS_v4add;
 var $author$project$Vector4$add = function (_v0) {
@@ -7980,40 +10343,69 @@ var $author$project$Vector4$add = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector4$AdtVec4(
-						A2($author$project$AltMath$Vector4$add, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector4$add, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector4$RecordVec4(
-						A2($author$project$AltMath$Record$Vector4$add, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector4$add, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector4$TupleVec4(
-						A2($author$project$AltMath$Tuple$Vector4$add, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector4$add, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$length = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector4$length = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return $elm$core$Basics$sqrt((((x * x) + (y * y)) + (z * z)) + (w * w));
+};
+var $author$project$AltMath$Advanced$ADT$Vector4$sub = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var aw = _v0.d;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		var bw = _v1.d;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, ax - bx, ay - by, az - bz, aw - bw);
+	});
+var $author$project$AltMath$Advanced$ADT$Vector4$direction = F2(
+	function (a, b) {
+		var c = A2($author$project$AltMath$Advanced$ADT$Vector4$sub, a, b);
+		var x = c.a;
+		var y = c.b;
+		var z = c.c;
+		var w = c.d;
+		var len = $author$project$AltMath$Advanced$ADT$Vector4$length(c);
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x / len, y / len, z / len, w / len);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$length = function (_v0) {
 	var x = _v0.x;
 	var y = _v0.y;
 	var z = _v0.z;
 	var w = _v0.w;
 	return $elm$core$Basics$sqrt((((x * x) + (y * y)) + (z * z)) + (w * w));
 };
-var $author$project$AltMath$Record$Vector4$sub = F2(
+var $author$project$AltMath$Advanced$Record$Vector4$sub = F2(
 	function (a, b) {
-		return A4($author$project$AltMath$Record$Vector4$Vec4, a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
+		return A4($author$project$AltMath$Advanced$Record$Vector4$Vec4, a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
 	});
-var $author$project$AltMath$Record$Vector4$direction = F2(
+var $author$project$AltMath$Advanced$Record$Vector4$direction = F2(
 	function (a, b) {
-		var c = A2($author$project$AltMath$Record$Vector4$sub, a, b);
-		var len = $author$project$AltMath$Record$Vector4$length(c);
-		return A4($author$project$AltMath$Record$Vector4$Vec4, c.x / len, c.y / len, c.z / len, c.w / len);
+		var c = A2($author$project$AltMath$Advanced$Record$Vector4$sub, a, b);
+		var len = $author$project$AltMath$Advanced$Record$Vector4$length(c);
+		return A4($author$project$AltMath$Advanced$Record$Vector4$Vec4, c.x / len, c.y / len, c.z / len, c.w / len);
 	});
-var $author$project$AltMath$Tuple$Vector4$length = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector4$length = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
@@ -8022,7 +10414,7 @@ var $author$project$AltMath$Tuple$Vector4$length = function (_v0) {
 	var w = _v2.b;
 	return $elm$core$Basics$sqrt((((x * x) + (y * y)) + (z * z)) + (w * w));
 };
-var $author$project$AltMath$Tuple$Vector4$sub = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$sub = F2(
 	function (_v0, _v3) {
 		var _v1 = _v0.a;
 		var ax = _v1.a;
@@ -8040,48 +10432,19 @@ var $author$project$AltMath$Tuple$Vector4$sub = F2(
 			_Utils_Tuple2(ax - bx, ay - by),
 			_Utils_Tuple2(az - bz, aw - bw));
 	});
-var $author$project$AltMath$Tuple$Vector4$direction = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$direction = F2(
 	function (a, b) {
-		var c = A2($author$project$AltMath$Tuple$Vector4$sub, a, b);
+		var c = A2($author$project$AltMath$Advanced$Tuple$Vector4$sub, a, b);
 		var _v0 = c.a;
 		var x = _v0.a;
 		var y = _v0.b;
 		var _v1 = c.b;
 		var z = _v1.a;
 		var w = _v1.b;
-		var len = $author$project$AltMath$Tuple$Vector4$length(c);
+		var len = $author$project$AltMath$Advanced$Tuple$Vector4$length(c);
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x / len, y / len),
 			_Utils_Tuple2(z / len, w / len));
-	});
-var $author$project$AltMath$Vector4$length = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
-	return $elm$core$Basics$sqrt((((x * x) + (y * y)) + (z * z)) + (w * w));
-};
-var $author$project$AltMath$Vector4$sub = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var aw = _v0.d;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		var bw = _v1.d;
-		return A4($author$project$AltMath$Vector4$Vec4, ax - bx, ay - by, az - bz, aw - bw);
-	});
-var $author$project$AltMath$Vector4$direction = F2(
-	function (a, b) {
-		var c = A2($author$project$AltMath$Vector4$sub, a, b);
-		var x = c.a;
-		var y = c.b;
-		var z = c.c;
-		var w = c.d;
-		var len = $author$project$AltMath$Vector4$length(c);
-		return A4($author$project$AltMath$Vector4$Vec4, x / len, y / len, z / len, w / len);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$direction = _MJS_v4direction;
 var $author$project$Vector4$direction = function (_v0) {
@@ -8108,36 +10471,36 @@ var $author$project$Vector4$direction = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector4$AdtVec4(
-						A2($author$project$AltMath$Vector4$direction, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector4$direction, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector4$RecordVec4(
-						A2($author$project$AltMath$Record$Vector4$direction, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector4$direction, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector4$TupleVec4(
-						A2($author$project$AltMath$Tuple$Vector4$direction, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector4$direction, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$distance = F2(
+var $author$project$AltMath$Advanced$ADT$Vector4$distance = F2(
 	function (a, b) {
-		return $author$project$AltMath$Record$Vector4$length(
-			A2($author$project$AltMath$Record$Vector4$sub, a, b));
+		return $author$project$AltMath$Advanced$ADT$Vector4$length(
+			A2($author$project$AltMath$Advanced$ADT$Vector4$sub, a, b));
 	});
-var $author$project$AltMath$Tuple$Vector4$distance = F2(
+var $author$project$AltMath$Advanced$Record$Vector4$distance = F2(
 	function (a, b) {
-		return $author$project$AltMath$Tuple$Vector4$length(
-			A2($author$project$AltMath$Tuple$Vector4$sub, a, b));
+		return $author$project$AltMath$Advanced$Record$Vector4$length(
+			A2($author$project$AltMath$Advanced$Record$Vector4$sub, a, b));
 	});
-var $author$project$AltMath$Vector4$distance = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$distance = F2(
 	function (a, b) {
-		return $author$project$AltMath$Vector4$length(
-			A2($author$project$AltMath$Vector4$sub, a, b));
+		return $author$project$AltMath$Advanced$Tuple$Vector4$length(
+			A2($author$project$AltMath$Advanced$Tuple$Vector4$sub, a, b));
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$distance = _MJS_v4distance;
 var $author$project$Vector4$distance = function (_v0) {
@@ -8162,33 +10525,45 @@ var $author$project$Vector4$distance = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector4$distance, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector4$distance, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector4$distance, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector4$distance, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector4$distance, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector4$distance, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$lengthSquared = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector4$lengthSquared = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return (((x * x) + (y * y)) + (z * z)) + (w * w);
+};
+var $author$project$AltMath$Advanced$ADT$Vector4$distanceSquared = F2(
+	function (a, b) {
+		return $author$project$AltMath$Advanced$ADT$Vector4$lengthSquared(
+			A2($author$project$AltMath$Advanced$ADT$Vector4$sub, a, b));
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$lengthSquared = function (_v0) {
 	var x = _v0.x;
 	var y = _v0.y;
 	var z = _v0.z;
 	var w = _v0.w;
 	return (((x * x) + (y * y)) + (z * z)) + (w * w);
 };
-var $author$project$AltMath$Record$Vector4$distanceSquared = F2(
+var $author$project$AltMath$Advanced$Record$Vector4$distanceSquared = F2(
 	function (a, b) {
-		return $author$project$AltMath$Record$Vector4$lengthSquared(
-			A2($author$project$AltMath$Record$Vector4$sub, a, b));
+		return $author$project$AltMath$Advanced$Record$Vector4$lengthSquared(
+			A2($author$project$AltMath$Advanced$Record$Vector4$sub, a, b));
 	});
-var $author$project$AltMath$Tuple$Vector4$lengthSquared = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector4$lengthSquared = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
@@ -8197,22 +10572,10 @@ var $author$project$AltMath$Tuple$Vector4$lengthSquared = function (_v0) {
 	var w = _v2.b;
 	return (((x * x) + (y * y)) + (z * z)) + (w * w);
 };
-var $author$project$AltMath$Tuple$Vector4$distanceSquared = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$distanceSquared = F2(
 	function (a, b) {
-		return $author$project$AltMath$Tuple$Vector4$lengthSquared(
-			A2($author$project$AltMath$Tuple$Vector4$sub, a, b));
-	});
-var $author$project$AltMath$Vector4$lengthSquared = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
-	return (((x * x) + (y * y)) + (z * z)) + (w * w);
-};
-var $author$project$AltMath$Vector4$distanceSquared = F2(
-	function (a, b) {
-		return $author$project$AltMath$Vector4$lengthSquared(
-			A2($author$project$AltMath$Vector4$sub, a, b));
+		return $author$project$AltMath$Advanced$Tuple$Vector4$lengthSquared(
+			A2($author$project$AltMath$Advanced$Tuple$Vector4$sub, a, b));
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$distanceSquared = _MJS_v4distanceSquared;
 var $author$project$Vector4$distanceSquared = function (_v0) {
@@ -8237,25 +10600,37 @@ var $author$project$Vector4$distanceSquared = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector4$distanceSquared, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector4$distanceSquared, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector4$distanceSquared, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector4$distanceSquared, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector4$distanceSquared, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector4$distanceSquared, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$dot = F2(
+var $author$project$AltMath$Advanced$ADT$Vector4$dot = F2(
+	function (_v0, _v1) {
+		var ax = _v0.a;
+		var ay = _v0.b;
+		var az = _v0.c;
+		var aw = _v0.d;
+		var bx = _v1.a;
+		var by = _v1.b;
+		var bz = _v1.c;
+		var bw = _v1.d;
+		return (((ax * bx) + (ay * by)) + (az * bz)) + (aw * bw);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$dot = F2(
 	function (a, b) {
 		return (((a.x * b.x) + (a.y * b.y)) + (a.z * b.z)) + (a.w * b.w);
 	});
-var $author$project$AltMath$Tuple$Vector4$dot = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$dot = F2(
 	function (_v0, _v3) {
 		var _v1 = _v0.a;
 		var ax = _v1.a;
@@ -8269,18 +10644,6 @@ var $author$project$AltMath$Tuple$Vector4$dot = F2(
 		var _v5 = _v3.b;
 		var bz = _v5.a;
 		var bw = _v5.b;
-		return (((ax * bx) + (ay * by)) + (az * bz)) + (aw * bw);
-	});
-var $author$project$AltMath$Vector4$dot = F2(
-	function (_v0, _v1) {
-		var ax = _v0.a;
-		var ay = _v0.b;
-		var az = _v0.c;
-		var aw = _v0.d;
-		var bx = _v1.a;
-		var by = _v1.b;
-		var bz = _v1.c;
-		var bw = _v1.d;
 		return (((ax * bx) + (ay * by)) + (az * bz)) + (aw * bw);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$dot = _MJS_v4dot;
@@ -8306,22 +10669,29 @@ var $author$project$Vector4$dot = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return A2($author$project$AltMath$Vector4$dot, adtVec1, adtVec2);
+					return A2($author$project$AltMath$Advanced$ADT$Vector4$dot, adtVec1, adtVec2);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return A2($author$project$AltMath$Record$Vector4$dot, recVec1, recVec2);
+					return A2($author$project$AltMath$Advanced$Record$Vector4$dot, recVec1, recVec2);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return A2($author$project$AltMath$Tuple$Vector4$dot, tupleVec1, tupleVec2);
+					return A2($author$project$AltMath$Advanced$Tuple$Vector4$dot, tupleVec1, tupleVec2);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$fromRecord = $elm$core$Basics$identity;
-var $author$project$AltMath$Tuple$Vector4$fromRecord = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector4$fromRecord = function (_v0) {
+	var x = _v0.x;
+	var y = _v0.y;
+	var z = _v0.z;
+	var w = _v0.w;
+	return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x, y, z, w);
+};
+var $author$project$AltMath$Advanced$Record$Vector4$fromRecord = $elm$core$Basics$identity;
+var $author$project$AltMath$Advanced$Tuple$Vector4$fromRecord = function (_v0) {
 	var x = _v0.x;
 	var y = _v0.y;
 	var z = _v0.z;
@@ -8329,13 +10699,6 @@ var $author$project$AltMath$Tuple$Vector4$fromRecord = function (_v0) {
 	return _Utils_Tuple2(
 		_Utils_Tuple2(x, y),
 		_Utils_Tuple2(z, w));
-};
-var $author$project$AltMath$Vector4$fromRecord = function (_v0) {
-	var x = _v0.x;
-	var y = _v0.y;
-	var z = _v0.z;
-	var w = _v0.w;
-	return A4($author$project$AltMath$Vector4$Vec4, x, y, z, w);
 };
 var $elm_explorations$linear_algebra$Math$Vector4$fromRecord = _MJS_v4fromRecord;
 var $author$project$Vector4$fromRecord = function (record) {
@@ -8354,39 +10717,39 @@ var $author$project$Vector4$fromRecord = function (record) {
 				'ADT',
 				function (_v1) {
 					return $author$project$Vector4$AdtVec4(
-						$author$project$AltMath$Vector4$fromRecord(record));
+						$author$project$AltMath$Advanced$ADT$Vector4$fromRecord(record));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v2) {
 					return $author$project$Vector4$RecordVec4(
-						$author$project$AltMath$Record$Vector4$fromRecord(record));
+						$author$project$AltMath$Advanced$Record$Vector4$fromRecord(record));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v3) {
 					return $author$project$Vector4$TupleVec4(
-						$author$project$AltMath$Tuple$Vector4$fromRecord(record));
+						$author$project$AltMath$Advanced$Tuple$Vector4$fromRecord(record));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$getW = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector4$getW = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return w;
+};
+var $author$project$AltMath$Advanced$Record$Vector4$getW = function ($) {
 	return $.w;
 };
-var $author$project$AltMath$Tuple$Vector4$getW = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector4$getW = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
 	var _v2 = _v0.b;
 	var z = _v2.a;
 	var w = _v2.b;
-	return w;
-};
-var $author$project$AltMath$Vector4$getW = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
 	return w;
 };
 var $elm_explorations$linear_algebra$Math$Vector4$getW = _MJS_v4getW;
@@ -8408,37 +10771,37 @@ var $author$project$Vector4$getW = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$getW(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$getW(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$getW(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$getW(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$getW(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$getW(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$getX = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector4$getX = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return x;
+};
+var $author$project$AltMath$Advanced$Record$Vector4$getX = function ($) {
 	return $.x;
 };
-var $author$project$AltMath$Tuple$Vector4$getX = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector4$getX = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
 	var _v2 = _v0.b;
 	var z = _v2.a;
 	var w = _v2.b;
-	return x;
-};
-var $author$project$AltMath$Vector4$getX = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
 	return x;
 };
 var $elm_explorations$linear_algebra$Math$Vector4$getX = _MJS_v4getX;
@@ -8460,37 +10823,37 @@ var $author$project$Vector4$getX = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$getX(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$getX(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$getX(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$getX(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$getX(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$getX(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$getY = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector4$getY = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return y;
+};
+var $author$project$AltMath$Advanced$Record$Vector4$getY = function ($) {
 	return $.y;
 };
-var $author$project$AltMath$Tuple$Vector4$getY = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector4$getY = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
 	var _v2 = _v0.b;
 	var z = _v2.a;
 	var w = _v2.b;
-	return y;
-};
-var $author$project$AltMath$Vector4$getY = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
 	return y;
 };
 var $elm_explorations$linear_algebra$Math$Vector4$getY = _MJS_v4getY;
@@ -8512,37 +10875,37 @@ var $author$project$Vector4$getY = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$getY(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$getY(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$getY(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$getY(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$getY(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$getY(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$getZ = function ($) {
+var $author$project$AltMath$Advanced$ADT$Vector4$getZ = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return z;
+};
+var $author$project$AltMath$Advanced$Record$Vector4$getZ = function ($) {
 	return $.z;
 };
-var $author$project$AltMath$Tuple$Vector4$getZ = function (_v0) {
+var $author$project$AltMath$Advanced$Tuple$Vector4$getZ = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
 	var _v2 = _v0.b;
 	var z = _v2.a;
 	var w = _v2.b;
-	return z;
-};
-var $author$project$AltMath$Vector4$getZ = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
 	return z;
 };
 var $elm_explorations$linear_algebra$Math$Vector4$getZ = _MJS_v4getZ;
@@ -8564,17 +10927,17 @@ var $author$project$Vector4$getZ = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$getZ(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$getZ(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$getZ(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$getZ(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$getZ(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$getZ(tupleVec1);
 				})
 			]));
 };
@@ -8597,17 +10960,17 @@ var $author$project$Vector4$length = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$length(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$length(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$length(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$length(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$length(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$length(tupleVec1);
 				})
 			]));
 };
@@ -8630,24 +10993,31 @@ var $author$project$Vector4$lengthSquared = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$lengthSquared(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$lengthSquared(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$lengthSquared(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$lengthSquared(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$lengthSquared(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$lengthSquared(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$negate = function (a) {
-	return A4($author$project$AltMath$Record$Vector4$Vec4, -a.x, -a.y, -a.z, -a.w);
+var $author$project$AltMath$Advanced$ADT$Vector4$negate = function (_v0) {
+	var ax = _v0.a;
+	var ay = _v0.b;
+	var az = _v0.c;
+	var aw = _v0.d;
+	return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, -ax, -ay, -az, -aw);
 };
-var $author$project$AltMath$Tuple$Vector4$negate = function (_v0) {
+var $author$project$AltMath$Advanced$Record$Vector4$negate = function (a) {
+	return A4($author$project$AltMath$Advanced$Record$Vector4$Vec4, -a.x, -a.y, -a.z, -a.w);
+};
+var $author$project$AltMath$Advanced$Tuple$Vector4$negate = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
@@ -8657,13 +11027,6 @@ var $author$project$AltMath$Tuple$Vector4$negate = function (_v0) {
 	return _Utils_Tuple2(
 		_Utils_Tuple2(-x, -y),
 		_Utils_Tuple2(-z, -w));
-};
-var $author$project$AltMath$Vector4$negate = function (_v0) {
-	var ax = _v0.a;
-	var ay = _v0.b;
-	var az = _v0.c;
-	var aw = _v0.d;
-	return A4($author$project$AltMath$Vector4$Vec4, -ax, -ay, -az, -aw);
 };
 var $elm_explorations$linear_algebra$Math$Vector4$negate = _MJS_v4negate;
 var $author$project$Vector4$negate = function (_v0) {
@@ -8686,45 +11049,45 @@ var $author$project$Vector4$negate = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector4$AdtVec4(
-						$author$project$AltMath$Vector4$negate(adtVec1));
+						$author$project$AltMath$Advanced$ADT$Vector4$negate(adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector4$RecordVec4(
-						$author$project$AltMath$Record$Vector4$negate(recVec1));
+						$author$project$AltMath$Advanced$Record$Vector4$negate(recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector4$TupleVec4(
-						$author$project$AltMath$Tuple$Vector4$negate(tupleVec1));
+						$author$project$AltMath$Advanced$Tuple$Vector4$negate(tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$normalize = function (v4) {
-	var len = $author$project$AltMath$Record$Vector4$length(v4);
-	return A4($author$project$AltMath$Record$Vector4$Vec4, v4.x / len, v4.y / len, v4.z / len, v4.w / len);
+var $author$project$AltMath$Advanced$ADT$Vector4$normalize = function (v4) {
+	var x = v4.a;
+	var y = v4.b;
+	var z = v4.c;
+	var w = v4.d;
+	var len = $author$project$AltMath$Advanced$ADT$Vector4$length(v4);
+	return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x / len, y / len, z / len, w / len);
 };
-var $author$project$AltMath$Tuple$Vector4$normalize = function (v4) {
+var $author$project$AltMath$Advanced$Record$Vector4$normalize = function (v4) {
+	var len = $author$project$AltMath$Advanced$Record$Vector4$length(v4);
+	return A4($author$project$AltMath$Advanced$Record$Vector4$Vec4, v4.x / len, v4.y / len, v4.z / len, v4.w / len);
+};
+var $author$project$AltMath$Advanced$Tuple$Vector4$normalize = function (v4) {
 	var _v0 = v4.a;
 	var x = _v0.a;
 	var y = _v0.b;
 	var _v1 = v4.b;
 	var z = _v1.a;
 	var w = _v1.b;
-	var len = $author$project$AltMath$Tuple$Vector4$length(v4);
+	var len = $author$project$AltMath$Advanced$Tuple$Vector4$length(v4);
 	return _Utils_Tuple2(
 		_Utils_Tuple2(x / len, y / len),
 		_Utils_Tuple2(z / len, w / len));
-};
-var $author$project$AltMath$Vector4$normalize = function (v4) {
-	var x = v4.a;
-	var y = v4.b;
-	var z = v4.c;
-	var w = v4.d;
-	var len = $author$project$AltMath$Vector4$length(v4);
-	return A4($author$project$AltMath$Vector4$Vec4, x / len, y / len, z / len, w / len);
 };
 var $elm_explorations$linear_algebra$Math$Vector4$normalize = _MJS_v4normalize;
 var $author$project$Vector4$normalize = function (_v0) {
@@ -8747,27 +11110,35 @@ var $author$project$Vector4$normalize = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector4$AdtVec4(
-						$author$project$AltMath$Vector4$normalize(adtVec1));
+						$author$project$AltMath$Advanced$ADT$Vector4$normalize(adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector4$RecordVec4(
-						$author$project$AltMath$Record$Vector4$normalize(recVec1));
+						$author$project$AltMath$Advanced$Record$Vector4$normalize(recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector4$TupleVec4(
-						$author$project$AltMath$Tuple$Vector4$normalize(tupleVec1));
+						$author$project$AltMath$Advanced$Tuple$Vector4$normalize(tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$scale = F2(
-	function (s, v) {
-		return A4($author$project$AltMath$Record$Vector4$Vec4, s * v.x, s * v.y, s * v.z, s * v.w);
+var $author$project$AltMath$Advanced$ADT$Vector4$scale = F2(
+	function (s, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		var w = _v0.d;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, s * x, s * y, s * z, s * w);
 	});
-var $author$project$AltMath$Tuple$Vector4$scale = F2(
+var $author$project$AltMath$Advanced$Record$Vector4$scale = F2(
+	function (s, v) {
+		return A4($author$project$AltMath$Advanced$Record$Vector4$Vec4, s * v.x, s * v.y, s * v.z, s * v.w);
+	});
+var $author$project$AltMath$Advanced$Tuple$Vector4$scale = F2(
 	function (s, _v0) {
 		var _v1 = _v0.a;
 		var x = _v1.a;
@@ -8778,14 +11149,6 @@ var $author$project$AltMath$Tuple$Vector4$scale = F2(
 		return _Utils_Tuple2(
 			_Utils_Tuple2(s * x, s * y),
 			_Utils_Tuple2(s * z, s * w));
-	});
-var $author$project$AltMath$Vector4$scale = F2(
-	function (s, _v0) {
-		var x = _v0.a;
-		var y = _v0.b;
-		var z = _v0.c;
-		var w = _v0.d;
-		return A4($author$project$AltMath$Vector4$Vec4, s * x, s * y, s * z, s * w);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$scale = _MJS_v4scale;
 var $author$project$Vector4$scale = function (_v0) {
@@ -8808,30 +11171,37 @@ var $author$project$Vector4$scale = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector4$AdtVec4(
-						A2($author$project$AltMath$Vector4$scale, 2, adtVec1));
+						A2($author$project$AltMath$Advanced$ADT$Vector4$scale, 2, adtVec1));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector4$RecordVec4(
-						A2($author$project$AltMath$Record$Vector4$scale, 2, recVec1));
+						A2($author$project$AltMath$Advanced$Record$Vector4$scale, 2, recVec1));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector4$TupleVec4(
-						A2($author$project$AltMath$Tuple$Vector4$scale, 2, tupleVec1));
+						A2($author$project$AltMath$Advanced$Tuple$Vector4$scale, 2, tupleVec1));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$setW = F2(
+var $author$project$AltMath$Advanced$ADT$Vector4$setW = F2(
+	function (w, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var z = _v0.c;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x, y, z, w);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$setW = F2(
 	function (w, _v0) {
 		var x = _v0.x;
 		var y = _v0.y;
 		var z = _v0.z;
 		return {w: w, x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector4$setW = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$setW = F2(
 	function (w, _v0) {
 		var _v1 = _v0.a;
 		var x = _v1.a;
@@ -8841,13 +11211,6 @@ var $author$project$AltMath$Tuple$Vector4$setW = F2(
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x, y),
 			_Utils_Tuple2(z, w));
-	});
-var $author$project$AltMath$Vector4$setW = F2(
-	function (w, _v0) {
-		var x = _v0.a;
-		var y = _v0.b;
-		var z = _v0.c;
-		return A4($author$project$AltMath$Vector4$Vec4, x, y, z, w);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$setW = _MJS_v4setW;
 var $author$project$Vector4$setW = F2(
@@ -8871,30 +11234,37 @@ var $author$project$Vector4$setW = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector4$AdtVec4(
-							A2($author$project$AltMath$Vector4$setW, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector4$setW, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector4$RecordVec4(
-							A2($author$project$AltMath$Record$Vector4$setW, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector4$setW, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector4$TupleVec4(
-							A2($author$project$AltMath$Tuple$Vector4$setW, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector4$setW, a, tupleVec1));
 					})
 				]));
 	});
-var $author$project$AltMath$Record$Vector4$setX = F2(
+var $author$project$AltMath$Advanced$ADT$Vector4$setX = F2(
+	function (x, _v0) {
+		var y = _v0.b;
+		var z = _v0.c;
+		var w = _v0.d;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x, y, z, w);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$setX = F2(
 	function (x, _v0) {
 		var y = _v0.y;
 		var z = _v0.z;
 		var w = _v0.w;
 		return {w: w, x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector4$setX = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$setX = F2(
 	function (x, _v0) {
 		var _v1 = _v0.a;
 		var y = _v1.b;
@@ -8904,13 +11274,6 @@ var $author$project$AltMath$Tuple$Vector4$setX = F2(
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x, y),
 			_Utils_Tuple2(z, w));
-	});
-var $author$project$AltMath$Vector4$setX = F2(
-	function (x, _v0) {
-		var y = _v0.b;
-		var z = _v0.c;
-		var w = _v0.d;
-		return A4($author$project$AltMath$Vector4$Vec4, x, y, z, w);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$setX = _MJS_v4setX;
 var $author$project$Vector4$setX = F2(
@@ -8934,30 +11297,37 @@ var $author$project$Vector4$setX = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector4$AdtVec4(
-							A2($author$project$AltMath$Vector4$setX, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector4$setX, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector4$RecordVec4(
-							A2($author$project$AltMath$Record$Vector4$setX, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector4$setX, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector4$TupleVec4(
-							A2($author$project$AltMath$Tuple$Vector4$setX, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector4$setX, a, tupleVec1));
 					})
 				]));
 	});
-var $author$project$AltMath$Record$Vector4$setY = F2(
+var $author$project$AltMath$Advanced$ADT$Vector4$setY = F2(
+	function (y, _v0) {
+		var x = _v0.a;
+		var z = _v0.c;
+		var w = _v0.d;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x, y, z, w);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$setY = F2(
 	function (y, _v0) {
 		var x = _v0.x;
 		var z = _v0.z;
 		var w = _v0.w;
 		return {w: w, x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector4$setY = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$setY = F2(
 	function (y, _v0) {
 		var _v1 = _v0.a;
 		var x = _v1.a;
@@ -8967,13 +11337,6 @@ var $author$project$AltMath$Tuple$Vector4$setY = F2(
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x, y),
 			_Utils_Tuple2(z, w));
-	});
-var $author$project$AltMath$Vector4$setY = F2(
-	function (y, _v0) {
-		var x = _v0.a;
-		var z = _v0.c;
-		var w = _v0.d;
-		return A4($author$project$AltMath$Vector4$Vec4, x, y, z, w);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$setY = _MJS_v4setY;
 var $author$project$Vector4$setY = F2(
@@ -8997,30 +11360,37 @@ var $author$project$Vector4$setY = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector4$AdtVec4(
-							A2($author$project$AltMath$Vector4$setY, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector4$setY, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector4$RecordVec4(
-							A2($author$project$AltMath$Record$Vector4$setY, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector4$setY, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector4$TupleVec4(
-							A2($author$project$AltMath$Tuple$Vector4$setY, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector4$setY, a, tupleVec1));
 					})
 				]));
 	});
-var $author$project$AltMath$Record$Vector4$setZ = F2(
+var $author$project$AltMath$Advanced$ADT$Vector4$setZ = F2(
+	function (z, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		var w = _v0.d;
+		return A4($author$project$AltMath$Advanced$ADT$Vector4$Vec4, x, y, z, w);
+	});
+var $author$project$AltMath$Advanced$Record$Vector4$setZ = F2(
 	function (z, _v0) {
 		var x = _v0.x;
 		var y = _v0.y;
 		var w = _v0.w;
 		return {w: w, x: x, y: y, z: z};
 	});
-var $author$project$AltMath$Tuple$Vector4$setZ = F2(
+var $author$project$AltMath$Advanced$Tuple$Vector4$setZ = F2(
 	function (z, _v0) {
 		var _v1 = _v0.a;
 		var x = _v1.a;
@@ -9030,13 +11400,6 @@ var $author$project$AltMath$Tuple$Vector4$setZ = F2(
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x, y),
 			_Utils_Tuple2(z, w));
-	});
-var $author$project$AltMath$Vector4$setZ = F2(
-	function (z, _v0) {
-		var x = _v0.a;
-		var y = _v0.b;
-		var w = _v0.d;
-		return A4($author$project$AltMath$Vector4$Vec4, x, y, z, w);
 	});
 var $elm_explorations$linear_algebra$Math$Vector4$setZ = _MJS_v4setZ;
 var $author$project$Vector4$setZ = F2(
@@ -9060,19 +11423,19 @@ var $author$project$Vector4$setZ = F2(
 					'ADT',
 					function (_v2) {
 						return $author$project$Vector4$AdtVec4(
-							A2($author$project$AltMath$Vector4$setZ, a, adtVec1));
+							A2($author$project$AltMath$Advanced$ADT$Vector4$setZ, a, adtVec1));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v3) {
 						return $author$project$Vector4$RecordVec4(
-							A2($author$project$AltMath$Record$Vector4$setZ, a, recVec1));
+							A2($author$project$AltMath$Advanced$Record$Vector4$setZ, a, recVec1));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v4) {
 						return $author$project$Vector4$TupleVec4(
-							A2($author$project$AltMath$Tuple$Vector4$setZ, a, tupleVec1));
+							A2($author$project$AltMath$Advanced$Tuple$Vector4$setZ, a, tupleVec1));
 					})
 				]));
 	});
@@ -9101,37 +11464,37 @@ var $author$project$Vector4$sub = function (_v0) {
 				'ADT',
 				function (_v2) {
 					return $author$project$Vector4$AdtVec4(
-						A2($author$project$AltMath$Vector4$sub, adtVec1, adtVec2));
+						A2($author$project$AltMath$Advanced$ADT$Vector4$sub, adtVec1, adtVec2));
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
 					return $author$project$Vector4$RecordVec4(
-						A2($author$project$AltMath$Record$Vector4$sub, recVec1, recVec2));
+						A2($author$project$AltMath$Advanced$Record$Vector4$sub, recVec1, recVec2));
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
 					return $author$project$Vector4$TupleVec4(
-						A2($author$project$AltMath$Tuple$Vector4$sub, tupleVec1, tupleVec2));
+						A2($author$project$AltMath$Advanced$Tuple$Vector4$sub, tupleVec1, tupleVec2));
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$toRecord = $elm$core$Basics$identity;
-var $author$project$AltMath$Tuple$Vector4$toRecord = function (_v0) {
+var $author$project$AltMath$Advanced$ADT$Vector4$toRecord = function (_v0) {
+	var x = _v0.a;
+	var y = _v0.b;
+	var z = _v0.c;
+	var w = _v0.d;
+	return {w: w, x: x, y: y, z: z};
+};
+var $author$project$AltMath$Advanced$Record$Vector4$toRecord = $elm$core$Basics$identity;
+var $author$project$AltMath$Advanced$Tuple$Vector4$toRecord = function (_v0) {
 	var _v1 = _v0.a;
 	var x = _v1.a;
 	var y = _v1.b;
 	var _v2 = _v0.b;
 	var z = _v2.a;
 	var w = _v2.b;
-	return {w: w, x: x, y: y, z: z};
-};
-var $author$project$AltMath$Vector4$toRecord = function (_v0) {
-	var x = _v0.a;
-	var y = _v0.b;
-	var z = _v0.c;
-	var w = _v0.d;
 	return {w: w, x: x, y: y, z: z};
 };
 var $elm_explorations$linear_algebra$Math$Vector4$toRecord = _MJS_v4toRecord;
@@ -9153,28 +11516,28 @@ var $author$project$Vector4$toRecord = function (_v0) {
 				_Utils_Tuple2(
 				'ADT',
 				function (_v2) {
-					return $author$project$AltMath$Vector4$toRecord(adtVec1);
+					return $author$project$AltMath$Advanced$ADT$Vector4$toRecord(adtVec1);
 				}),
 				_Utils_Tuple2(
 				'Record',
 				function (_v3) {
-					return $author$project$AltMath$Record$Vector4$toRecord(recVec1);
+					return $author$project$AltMath$Advanced$Record$Vector4$toRecord(recVec1);
 				}),
 				_Utils_Tuple2(
 				'Tuple',
 				function (_v4) {
-					return $author$project$AltMath$Tuple$Vector4$toRecord(tupleVec1);
+					return $author$project$AltMath$Advanced$Tuple$Vector4$toRecord(tupleVec1);
 				})
 			]));
 };
-var $author$project$AltMath$Record$Vector4$vec4 = $author$project$AltMath$Record$Vector4$Vec4;
-var $author$project$AltMath$Tuple$Vector4$vec4 = F4(
+var $author$project$AltMath$Advanced$ADT$Vector4$vec4 = $author$project$AltMath$Advanced$ADT$Vector4$Vec4;
+var $author$project$AltMath$Advanced$Record$Vector4$vec4 = $author$project$AltMath$Advanced$Record$Vector4$Vec4;
+var $author$project$AltMath$Advanced$Tuple$Vector4$vec4 = F4(
 	function (x, y, z, w) {
 		return _Utils_Tuple2(
 			_Utils_Tuple2(x, y),
 			_Utils_Tuple2(z, w));
 	});
-var $author$project$AltMath$Vector4$vec4 = $author$project$AltMath$Vector4$Vec4;
 var $elm_explorations$linear_algebra$Math$Vector4$vec4 = _MJS_v4;
 var $author$project$Vector4$vec4 = F4(
 	function (x, y, z, w) {
@@ -9193,19 +11556,19 @@ var $author$project$Vector4$vec4 = F4(
 					'ADT',
 					function (_v1) {
 						return $author$project$Vector4$AdtVec4(
-							A4($author$project$AltMath$Vector4$vec4, x, y, z, w));
+							A4($author$project$AltMath$Advanced$ADT$Vector4$vec4, x, y, z, w));
 					}),
 					_Utils_Tuple2(
 					'Record',
 					function (_v2) {
 						return $author$project$Vector4$RecordVec4(
-							A4($author$project$AltMath$Record$Vector4$vec4, x, y, z, w));
+							A4($author$project$AltMath$Advanced$Record$Vector4$vec4, x, y, z, w));
 					}),
 					_Utils_Tuple2(
 					'Tuple',
 					function (_v3) {
 						return $author$project$Vector4$TupleVec4(
-							A4($author$project$AltMath$Tuple$Vector4$vec4, x, y, z, w));
+							A4($author$project$AltMath$Advanced$Tuple$Vector4$vec4, x, y, z, w));
 					})
 				]));
 	});
@@ -9252,14 +11615,14 @@ var $author$project$Vector4$all = function (_v0) {
 		$elm$core$String$toFloat(w1));
 	var record = {w: w1_, x: x1_, y: y1_, z: z1_};
 	var data = {
-		adtVec1: A4($author$project$AltMath$Vector4$vec4, x1_, y1_, z1_, w1_),
-		adtVec2: A4($author$project$AltMath$Vector4$vec4, x2_, y2_, z2_, w2_),
+		adtVec1: A4($author$project$AltMath$Advanced$ADT$Vector4$vec4, x1_, y1_, z1_, w1_),
+		adtVec2: A4($author$project$AltMath$Advanced$ADT$Vector4$vec4, x2_, y2_, z2_, w2_),
 		glVec1: A4($elm_explorations$linear_algebra$Math$Vector4$vec4, x1_, y1_, z1_, w1_),
 		glVec2: A4($elm_explorations$linear_algebra$Math$Vector4$vec4, x2_, y2_, z2_, w2_),
-		recVec1: A4($author$project$AltMath$Record$Vector4$vec4, x1_, y1_, z1_, w1_),
-		recVec2: A4($author$project$AltMath$Record$Vector4$vec4, x2_, y2_, z2_, w2_),
-		tupleVec1: A4($author$project$AltMath$Tuple$Vector4$vec4, x1_, y1_, z1_, w1_),
-		tupleVec2: A4($author$project$AltMath$Tuple$Vector4$vec4, x2_, y2_, z2_, w2_)
+		recVec1: A4($author$project$AltMath$Advanced$Record$Vector4$vec4, x1_, y1_, z1_, w1_),
+		recVec2: A4($author$project$AltMath$Advanced$Record$Vector4$vec4, x2_, y2_, z2_, w2_),
+		tupleVec1: A4($author$project$AltMath$Advanced$Tuple$Vector4$vec4, x1_, y1_, z1_, w1_),
+		tupleVec2: A4($author$project$AltMath$Advanced$Tuple$Vector4$vec4, x2_, y2_, z2_, w2_)
 	};
 	return _List_fromArray(
 		[
@@ -9523,7 +11886,6 @@ var $elm$core$Basics$apL = F2(
 	function (f, x) {
 		return f(x);
 	});
-var $elm$core$Basics$eq = _Utils_equal;
 var $elm$core$Basics$floor = _Basics_floor;
 var $elm$core$Elm$JsArray$length = _JsArray_length;
 var $elm$core$Basics$max = F2(
@@ -9906,12 +12268,661 @@ var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
 var $author$project$Main$initModel = {
 	done: $elm$core$Dict$empty,
 	inputs: {
+		mat4: {
+			m1: {m11: '1', m12: '1', m13: '1', m14: '1', m21: '14', m22: '1', m23: '1', m24: '1', m31: '1', m32: '1', m33: '1', m34: '1', m41: '1', m42: '1', m43: '1', m44: '1'},
+			m2: {m11: '1', m12: '1', m13: '1', m14: '1', m21: '1', m22: '1', m23: '1', m24: '1', m31: '1', m32: '1', m33: '1', m34: '1', m41: '7', m42: '1', m43: '1', m44: '1'}
+		},
 		vec2: {x1: '1', x2: '2', y1: '10', y2: '20'},
 		vec3: {x1: '1', x2: '2', y1: '10', y2: '20', z1: '3', z2: '4'},
 		vec4: {w1: '30', w2: '40', x1: '1', x2: '2', y1: '10', y2: '20', z1: '3', z2: '4'}
 	},
 	running: false
 };
+var $author$project$Main$Input = function (a) {
+	return {$: 'Input', a: a};
+};
+var $elm$html$Html$br = _VirtualDom_node('br');
+var $elm$core$Basics$composeR = F3(
+	function (f, g, x) {
+		return g(
+			f(x));
+	});
+var $author$project$Main$cursor = F2(
+	function (spec2, spec1) {
+		return {
+			get: A2($elm$core$Basics$composeR, spec2.get, spec1.get),
+			set: F2(
+				function (comp, world) {
+					return A2(
+						spec2.set,
+						A2(
+							spec1.set,
+							comp,
+							spec2.get(world)),
+						world);
+				})
+		};
+	});
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$html$Html$p = _VirtualDom_node('p');
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
+var $author$project$Main$dataInput = F3(
+	function (attr, name, v) {
+		return A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('tile is-11 field has-addons')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$p,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('control ')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('button is-static is-small')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(name)
+								]))
+						])),
+					A2(
+					$elm$html$Html$p,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('control is-expanded')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$input,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('input is-small'),
+									$elm$html$Html$Attributes$value(v),
+									attr
+								]),
+							_List_Nil)
+						]))
+				]));
+	});
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $elm$html$Html$Attributes$boolProperty = F2(
+	function (key, bool) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$bool(bool));
+	});
+var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
+var $elm$html$Html$Events$alwaysStop = function (x) {
+	return _Utils_Tuple2(x, true);
+};
+var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
+	return {$: 'MayStopPropagation', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$stopPropagationOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
+	});
+var $elm$json$Json$Decode$field = _Json_decodeField;
+var $elm$json$Json$Decode$at = F2(
+	function (fields, decoder) {
+		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
+	});
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $elm$html$Html$Events$targetValue = A2(
+	$elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'value']),
+	$elm$json$Json$Decode$string);
+var $elm$html$Html$Events$onInput = function (tagger) {
+	return A2(
+		$elm$html$Html$Events$stopPropagationOn,
+		'input',
+		A2(
+			$elm$json$Json$Decode$map,
+			$elm$html$Html$Events$alwaysStop,
+			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
+};
+var $author$project$Main$specMat4 = {
+	get: function ($) {
+		return $.mat4;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{mat4: comps});
+		})
+};
+var $author$project$Main$specM1 = A2(
+	$author$project$Main$cursor,
+	$author$project$Main$specMat4,
+	{
+		get: function ($) {
+			return $.m1;
+		},
+		set: F2(
+			function (comps, world) {
+				return _Utils_update(
+					world,
+					{m1: comps});
+			})
+	});
+var $author$project$Main$specM11 = {
+	get: function ($) {
+		return $.m11;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m11: comps});
+		})
+};
+var $author$project$Main$specM12 = {
+	get: function ($) {
+		return $.m12;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m12: comps});
+		})
+};
+var $author$project$Main$specM13 = {
+	get: function ($) {
+		return $.m13;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m13: comps});
+		})
+};
+var $author$project$Main$specM14 = {
+	get: function ($) {
+		return $.m14;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m14: comps});
+		})
+};
+var $author$project$Main$specM2 = A2(
+	$author$project$Main$cursor,
+	$author$project$Main$specMat4,
+	{
+		get: function ($) {
+			return $.m2;
+		},
+		set: F2(
+			function (comps, world) {
+				return _Utils_update(
+					world,
+					{m2: comps});
+			})
+	});
+var $author$project$Main$specM21 = {
+	get: function ($) {
+		return $.m21;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m21: comps});
+		})
+};
+var $author$project$Main$specM22 = {
+	get: function ($) {
+		return $.m22;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m22: comps});
+		})
+};
+var $author$project$Main$specM23 = {
+	get: function ($) {
+		return $.m23;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m23: comps});
+		})
+};
+var $author$project$Main$specM24 = {
+	get: function ($) {
+		return $.m24;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m24: comps});
+		})
+};
+var $author$project$Main$specM31 = {
+	get: function ($) {
+		return $.m31;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m31: comps});
+		})
+};
+var $author$project$Main$specM32 = {
+	get: function ($) {
+		return $.m32;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m32: comps});
+		})
+};
+var $author$project$Main$specM33 = {
+	get: function ($) {
+		return $.m33;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m33: comps});
+		})
+};
+var $author$project$Main$specM34 = {
+	get: function ($) {
+		return $.m34;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m34: comps});
+		})
+};
+var $author$project$Main$specM41 = {
+	get: function ($) {
+		return $.m41;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m41: comps});
+		})
+};
+var $author$project$Main$specM42 = {
+	get: function ($) {
+		return $.m42;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m42: comps});
+		})
+};
+var $author$project$Main$specM43 = {
+	get: function ($) {
+		return $.m43;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m43: comps});
+		})
+};
+var $author$project$Main$specM44 = {
+	get: function ($) {
+		return $.m44;
+	},
+	set: F2(
+		function (comps, world) {
+			return _Utils_update(
+				world,
+				{m44: comps});
+		})
+};
+var $author$project$Main$mat4Inputs = F2(
+	function (block, _v0) {
+		var m1 = _v0.m1;
+		var m2 = _v0.m2;
+		var attr = function (set) {
+			return block ? $elm$html$Html$Attributes$disabled(true) : $elm$html$Html$Events$onInput(
+				A2($elm$core$Basics$composeR, set, $author$project$Main$Input));
+		};
+		return A2(
+			$elm$html$Html$div,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('tile box is-vertical')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('tile')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM11).set),
+											'm11',
+											m1.m11),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM21).set),
+											'm21',
+											m1.m21),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM31).set),
+											'm31',
+											m1.m31),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM41).set),
+											'm41',
+											m1.m41)
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM12).set),
+											'm12',
+											m1.m12),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM22).set),
+											'm22',
+											m1.m22),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM32).set),
+											'm32',
+											m1.m32),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM42).set),
+											'm42',
+											m1.m42)
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM13).set),
+											'm13',
+											m1.m13),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM23).set),
+											'm23',
+											m1.m23),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM33).set),
+											'm33',
+											m1.m33),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM43).set),
+											'm43',
+											m1.m43)
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM14).set),
+											'm14',
+											m1.m14),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM24).set),
+											'm24',
+											m1.m24),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM34).set),
+											'm34',
+											m1.m34),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM1, $author$project$Main$specM44).set),
+											'm44',
+											m1.m44)
+										]))
+								])),
+							A2($elm$html$Html$br, _List_Nil, _List_Nil),
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('tile')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM11).set),
+											'm11',
+											m2.m11),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM21).set),
+											'm21',
+											m2.m21),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM31).set),
+											'm31',
+											m2.m31),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM41).set),
+											'm41',
+											m2.m41)
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM12).set),
+											'm12',
+											m2.m12),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM22).set),
+											'm22',
+											m2.m22),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM32).set),
+											'm32',
+											m2.m32),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM42).set),
+											'm42',
+											m2.m42)
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM13).set),
+											'm13',
+											m2.m13),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM23).set),
+											'm23',
+											m2.m23),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM33).set),
+											'm33',
+											m2.m33),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM43).set),
+											'm43',
+											m2.m43)
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('tile is-child')
+										]),
+									_List_fromArray(
+										[
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM14).set),
+											'm14',
+											m2.m14),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM24).set),
+											'm24',
+											m2.m24),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM34).set),
+											'm34',
+											m2.m34),
+											A3(
+											$author$project$Main$dataInput,
+											attr(
+												A2($author$project$Main$cursor, $author$project$Main$specM2, $author$project$Main$specM44).set),
+											'm44',
+											m2.m44)
+										]))
+								]))
+						]))
+				]));
+	});
 var $elm$virtual_dom$VirtualDom$node = function (tag) {
 	return _VirtualDom_node(
 		_VirtualDom_noScript(tag));
@@ -10019,11 +13030,6 @@ var $author$project$Main$Step = F2(
 	});
 var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$core$String$fromFloat = _String_fromNumber;
-var $elm$core$Basics$composeR = F3(
-	function (f, g, x) {
-		return g(
-			f(x));
-	});
 var $BrianHicks$elm_trend$Trend$Math$NeedMoreValues = function (a) {
 	return {$: 'NeedMoreValues', a: a};
 };
@@ -10127,7 +13133,6 @@ var $author$project$CustomRunner$Humanize$percent = A2(
 					})))));
 var $author$project$Main$goodnessOfFit = A2($elm$core$Basics$composeR, $BrianHicks$elm_trend$Trend$Linear$goodnessOfFit, $author$project$CustomRunner$Humanize$percent);
 var $elm$html$Html$Attributes$max = $elm$html$Html$Attributes$stringProperty('max');
-var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$core$Basics$clamp = F3(
 	function (low, high, number) {
 		return (_Utils_cmp(number, low) < 0) ? low : ((_Utils_cmp(number, high) > 0) ? high : number);
@@ -10398,9 +13403,6 @@ var $author$project$Main$runsPerSecond = A2(
 		},
 		A2($elm$core$Basics$composeR, $elm$core$Basics$floor, $author$project$CustomRunner$Humanize$int)));
 var $elm$html$Html$span = _VirtualDom_node('span');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
-var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Main$contents = function (status) {
 	switch (status.$) {
 		case 'Success':
@@ -10508,20 +13510,10 @@ var $author$project$Main$contents = function (status) {
 				_List_Nil);
 	}
 };
-var $elm$json$Json$Encode$bool = _Json_wrap;
-var $elm$html$Html$Attributes$boolProperty = F2(
-	function (key, bool) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$bool(bool));
-	});
-var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var $elm$html$Html$Events$on = F2(
 	function (event, decoder) {
 		return A2(
@@ -10677,6 +13669,95 @@ var $author$project$Main$reportTop = F4(
 						l))
 				]));
 	});
+var $elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var $elm$html$Html$Attributes$attribute = $elm$virtual_dom$VirtualDom$attribute;
+var $author$project$GitHubCorner$d = $elm$html$Html$Attributes$attribute('d');
+var $author$project$GitHubCorner$fill = $elm$html$Html$Attributes$attribute('fill');
+var $elm$html$Html$Attributes$height = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'height',
+		$elm$core$String$fromInt(n));
+};
+var $elm$virtual_dom$VirtualDom$nodeNS = function (tag) {
+	return _VirtualDom_nodeNS(
+		_VirtualDom_noScript(tag));
+};
+var $author$project$GitHubCorner$path = A2($elm$virtual_dom$VirtualDom$nodeNS, 'http://www.w3.org/2000/svg', 'path');
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $author$project$GitHubCorner$svg = A2($elm$virtual_dom$VirtualDom$nodeNS, 'http://www.w3.org/2000/svg', 'svg');
+var $author$project$GitHubCorner$viewBox = $elm$html$Html$Attributes$attribute('viewBox');
+var $elm$html$Html$Attributes$width = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'width',
+		$elm$core$String$fromInt(n));
+};
+var $author$project$GitHubCorner$topRight = function (url) {
+	return A2(
+		$elm$html$Html$a,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$href(url),
+				$elm$html$Html$Attributes$class('github-corner')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$author$project$GitHubCorner$svg,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$width(80),
+						$elm$html$Html$Attributes$height(80),
+						$author$project$GitHubCorner$viewBox('0 0 250 250'),
+						A2($elm$html$Html$Attributes$attribute, 'style', 'fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$author$project$GitHubCorner$path,
+						_List_fromArray(
+							[
+								$author$project$GitHubCorner$d('M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z')
+							]),
+						_List_Nil),
+						A2(
+						$author$project$GitHubCorner$path,
+						_List_fromArray(
+							[
+								$author$project$GitHubCorner$fill('currentColor'),
+								A2($elm$html$Html$Attributes$attribute, 'class', 'octo-arm'),
+								A2($elm$html$Html$Attributes$style, 'transform-origin', '130px 106px'),
+								$author$project$GitHubCorner$d('M128.3,109 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2')
+							]),
+						_List_Nil),
+						A2(
+						$author$project$GitHubCorner$path,
+						_List_fromArray(
+							[
+								$author$project$GitHubCorner$fill('currentColor'),
+								A2($elm$html$Html$Attributes$attribute, 'class', 'octo-body'),
+								$author$project$GitHubCorner$d('M115,115 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z')
+							]),
+						_List_Nil)
+					])),
+				A3(
+				$elm$html$Html$node,
+				'style',
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}')
+					]))
+			]));
+};
 var $elm$core$Process$sleep = _Process_sleep;
 var $author$project$Main$breakForRender = function (task) {
 	return A2(
@@ -12042,109 +15123,6 @@ var $author$project$Main$update = F2(
 				$elm$core$Platform$Cmd$none);
 		}
 	});
-var $author$project$Main$Input = function (a) {
-	return {$: 'Input', a: a};
-};
-var $author$project$Main$cursor = F2(
-	function (spec2, spec1) {
-		return {
-			get: A2($elm$core$Basics$composeR, spec2.get, spec1.get),
-			set: F2(
-				function (comp, world) {
-					return A2(
-						spec2.set,
-						A2(
-							spec1.set,
-							comp,
-							spec2.get(world)),
-						world);
-				})
-		};
-	});
-var $elm$html$Html$a = _VirtualDom_node('a');
-var $elm$html$Html$input = _VirtualDom_node('input');
-var $author$project$Main$dataInput = F3(
-	function (attr, name, v) {
-		return A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$class('tile is-11 field has-addons')
-				]),
-			_List_fromArray(
-				[
-					A2(
-					$elm$html$Html$p,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$class('control ')
-						]),
-					_List_fromArray(
-						[
-							A2(
-							$elm$html$Html$a,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$class('button is-static is-small')
-								]),
-							_List_fromArray(
-								[
-									$elm$html$Html$text(name)
-								]))
-						])),
-					A2(
-					$elm$html$Html$p,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$class('control is-expanded')
-						]),
-					_List_fromArray(
-						[
-							A2(
-							$elm$html$Html$input,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$class('input is-small'),
-									$elm$html$Html$Attributes$value(v),
-									attr
-								]),
-							_List_Nil)
-						]))
-				]));
-	});
-var $elm$html$Html$Events$alwaysStop = function (x) {
-	return _Utils_Tuple2(x, true);
-};
-var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
-	return {$: 'MayStopPropagation', a: a};
-};
-var $elm$html$Html$Events$stopPropagationOn = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
-	});
-var $elm$json$Json$Decode$field = _Json_decodeField;
-var $elm$json$Json$Decode$at = F2(
-	function (fields, decoder) {
-		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
-	});
-var $elm$json$Json$Decode$string = _Json_decodeString;
-var $elm$html$Html$Events$targetValue = A2(
-	$elm$json$Json$Decode$at,
-	_List_fromArray(
-		['target', 'value']),
-	$elm$json$Json$Decode$string);
-var $elm$html$Html$Events$onInput = function (tagger) {
-	return A2(
-		$elm$html$Html$Events$stopPropagationOn,
-		'input',
-		A2(
-			$elm$json$Json$Decode$map,
-			$elm$html$Html$Events$alwaysStop,
-			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
-};
 var $author$project$Main$specVec2 = {
 	get: function ($) {
 		return $.vec2;
@@ -12586,8 +15564,15 @@ var $author$project$Main$main = $elm$browser$Browser$document(
 								A2($author$project$Main$vec4Inputs, model.running, model.inputs.vec4),
 								model,
 								'Vector4',
-								$author$project$Vector4$all(model.inputs.vec4))
-							]))
+								$author$project$Vector4$all(model.inputs.vec4)),
+								A4(
+								$author$project$Main$reportTop,
+								A2($author$project$Main$mat4Inputs, model.running, model.inputs.mat4),
+								model,
+								'Matrix4',
+								$author$project$Matrix4$all(model.inputs.mat4))
+							])),
+						$author$project$GitHubCorner$topRight('https://github.com/justgook/alt-linear-algebra')
 					]),
 				title: 'Math Benchmark'
 			};
