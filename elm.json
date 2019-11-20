@@ -1,6 +1,6 @@
 {
   "type": "package",
-  "name": "justgook/elm-alt-math",
+  "name": "justgook/alt-linear-algebra",
   "summary": "A linear algebra library for fast vector and matrix math",
   "license": "BSD-3-Clause",
   "version": "1.0.0",
