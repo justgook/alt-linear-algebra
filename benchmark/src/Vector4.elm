@@ -1,8 +1,8 @@
 module Vector4 exposing (all)
 
-import AltMath.Advanced.ADT.Vector4 as AdtVec4
-import AltMath.Advanced.Record.Vector4 as RecordVec4
-import AltMath.Advanced.Tuple.Vector4 as TupleVec4
+import AltMath.Alternative.ADT.Vector4 as AdtVec4
+import AltMath.Alternative.Record.Vector4 as RecordVec4
+import AltMath.Alternative.Tuple.Vector4 as TupleVec4
 import Benchmark exposing (..)
 import Math.Vector4 as GLVec4
 

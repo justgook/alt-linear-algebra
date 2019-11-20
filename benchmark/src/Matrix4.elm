@@ -1,11 +1,11 @@
 module Matrix4 exposing (all)
 
-import AltMath.Advanced.ADT.Matrix4 as AdtMat4
-import AltMath.Advanced.ADT.Vector3 as AdtVec3
-import AltMath.Advanced.Record.Matrix4 as RecordMat4
-import AltMath.Advanced.Record.Vector3 as RecordVec3
-import AltMath.Advanced.Tuple.Matrix4 as TupleMat4
-import AltMath.Advanced.Tuple.Vector3 as TupleVec3
+import AltMath.Alternative.ADT.Matrix4 as AdtMat4
+import AltMath.Alternative.ADT.Vector3 as AdtVec3
+import AltMath.Alternative.Record.Matrix4 as RecordMat4
+import AltMath.Alternative.Record.Vector3 as RecordVec3
+import AltMath.Alternative.Tuple.Matrix4 as TupleMat4
+import AltMath.Alternative.Tuple.Vector3 as TupleVec3
 import Benchmark exposing (..)
 import Math.Matrix4 as GLMat4
 import Math.Vector3 as GLVec3

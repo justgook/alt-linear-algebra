@@ -20,6 +20,7 @@ elm-stuff/
 documentation.json
 /index.html
 benchmark/gh-pages/*
+benchmark/index.html
 !benchmark/gh-pages/404.html
 !benchmark/gh-pages/index.html
 !benchmark/gh-pages/script.js

@@ -1,4 +1,4 @@
-module AltMath.Advanced.Record.Vector4 exposing
+module AltMath.Alternative.Record.Vector4 exposing
     ( Vec4, vec4
     , getX, getY, getZ, getW, setX, setY, setZ, setW
     , add, sub, negate, scale, dot, normalize, direction

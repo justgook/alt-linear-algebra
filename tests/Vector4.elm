@@ -1,8 +1,8 @@
 module Vector4 exposing (suite)
 
-import AltMath.Advanced.ADT.Vector4 as ADT
-import AltMath.Advanced.Record.Vector4 as Record
-import AltMath.Advanced.Tuple.Vector4 as Tuple
+import AltMath.Alternative.ADT.Vector4 as ADT
+import AltMath.Alternative.Record.Vector4 as Record
+import AltMath.Alternative.Tuple.Vector4 as Tuple
 import AltMath.Const exposing (epsilon)
 import Expect exposing (Expectation, FloatingPointTolerance(..))
 import Fuzz

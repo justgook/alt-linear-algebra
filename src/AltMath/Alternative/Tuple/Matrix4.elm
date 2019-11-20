@@ -1,4 +1,4 @@
-module AltMath.Advanced.Tuple.Matrix4 exposing
+module AltMath.Alternative.Tuple.Matrix4 exposing
     ( Mat4, identity
     , inverse, inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
     , makeFrustum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
@@ -43,7 +43,7 @@ existing matrix.
 
 -}
 
-import AltMath.Advanced.Tuple.Vector3 as Vec3 exposing (Vec3)
+import AltMath.Alternative.Tuple.Vector3 as Vec3 exposing (Vec3)
 
 
 {-| 4x4 matrix type

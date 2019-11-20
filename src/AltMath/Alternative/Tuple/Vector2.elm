@@ -1,4 +1,4 @@
-module AltMath.Advanced.Tuple.Vector2 exposing
+module AltMath.Alternative.Tuple.Vector2 exposing
     ( Vec2, vec2
     , getX, getY, setX, setY
     , add, sub, negate, scale, dot, normalize, direction, mul
