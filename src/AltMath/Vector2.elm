@@ -4,6 +4,7 @@ module AltMath.Vector2 exposing
     , add, sub, negate, scale, dot, normalize, direction, mul
     , length, lengthSquared, distance, distanceSquared
     , toRecord, fromRecord
+    , max, projection
     )
 
 {-|
@@ -33,143 +34,175 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
-import AltMath.Alternative.Record.Vector2 as Vector2
-
 
 {-| Two dimensional vector type
 -}
 type alias Vec2 =
-    Vector2.Vec2
+    { x : Float, y : Float }
 
 
 {-| Creates a new 2-element vector with the given values.
 -}
 vec2 : Float -> Float -> Vec2
-vec2 =
-    Vector2.vec2
+vec2 x y =
+    { x = x, y = y }
 
 
 {-| Extract the x component of a vector.
 -}
 getX : Vec2 -> Float
 getX =
-    Vector2.getX
+    .x
 
 
 {-| Extract the y component of a vector.
 -}
 getY : Vec2 -> Float
 getY =
-    Vector2.getY
+    .y
 
 
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec2 -> Vec2
-setX =
-    Vector2.setX
+setX x { y } =
+    { x = x, y = y }
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec2 -> Vec2
-setY =
-    Vector2.setY
+setY y { x } =
+    { x = x, y = y }
 
 
 {-| Convert a vector to a record.
 -}
 toRecord : Vec2 -> { x : Float, y : Float }
 toRecord =
-    Vector2.toRecord
+    identity
 
 
 {-| Convert a record to a vector.
 -}
 fromRecord : { x : Float, y : Float } -> Vec2
 fromRecord =
-    Vector2.fromRecord
+    identity
 
 
 {-| Vector addition: a + b
 -}
 add : Vec2 -> Vec2 -> Vec2
-add =
-    Vector2.add
+add a b =
+    { x = a.x + b.x, y = a.y + b.y }
 
 
 {-| Vector subtraction: a - b
 -}
 sub : Vec2 -> Vec2 -> Vec2
-sub =
-    Vector2.sub
+sub a b =
+    { x = a.x - b.x, y = a.y - b.y }
 
 
 {-| Vector negation: -a
 -}
 negate : Vec2 -> Vec2
-negate =
-    Vector2.negate
+negate a =
+    { x = -a.x, y = -a.y }
 
 
 {-| The normalized direction from b to a: (a - b) / |a - b|
 -}
 direction : Vec2 -> Vec2 -> Vec2
-direction =
-    Vector2.direction
+direction a b =
+    let
+        c =
+            { x = a.x - b.x, y = a.y - b.y }
+
+        len =
+            sqrt (c.x * c.x + c.y * c.y)
+    in
+    { x = c.x / len, y = c.y / len }
 
 
 {-| The length of the given vector: |a|
 -}
 length : Vec2 -> Float
-length =
-    Vector2.length
+length { x, y } =
+    sqrt (x * x + y * y)
 
 
 {-| The square of the length of the given vector: |a| \* |a|
 -}
 lengthSquared : Vec2 -> Float
-lengthSquared =
-    Vector2.lengthSquared
+lengthSquared { x, y } =
+    x * x + y * y
 
 
 {-| The distance between two vectors.
 -}
 distance : Vec2 -> Vec2 -> Float
-distance =
-    Vector2.distance
+distance a b =
+    let
+        c =
+            { x = a.x - b.x, y = a.y - b.y }
+    in
+    sqrt (c.x * c.x + c.y * c.y)
 
 
 {-| The square of the distance between two vectors.
 -}
 distanceSquared : Vec2 -> Vec2 -> Float
-distanceSquared =
-    Vector2.distanceSquared
+distanceSquared a b =
+    let
+        c =
+            { x = a.x - b.x, y = a.y - b.y }
+    in
+    c.x * c.x + c.y * c.y
+
+
+{-| Get longest vector of two
+-}
+max a b =
+    if lengthSquared a > lengthSquared b then
+        a
+
+    else
+        b
+
+
+projection : Vec2 -> Vec2 -> Vec2
+projection a b =
+    scale (dot a b / lengthSquared b) b
 
 
 {-| A unit vector with the same direction as the given vector: a / |a|
 -}
 normalize : Vec2 -> Vec2
-normalize =
-    Vector2.normalize
+normalize v2 =
+    let
+        len =
+            length v2
+    in
+    { x = v2.x / len, y = v2.y / len }
 
 
 {-| Multiply the vector by a scalar: s \* v
 -}
 scale : Float -> Vec2 -> Vec2
-scale =
-    Vector2.scale
+scale s v2 =
+    { x = s * v2.x, y = s * v2.y }
 
 
 {-| The dot product of a and b
 -}
 dot : Vec2 -> Vec2 -> Float
-dot =
-    Vector2.dot
+dot a b =
+    a.x * b.x + a.y * b.y
 
 
-{-| Multiply the vector by a vector: a \* b
+{-| Multiply the vector values by other vector values: a \* b
 -}
 mul : Vec2 -> Vec2 -> Vec2
-mul =
-    Vector2.mul
+mul a b =
+    { x = a.x * b.x, y = a.y * b.y }

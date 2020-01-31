@@ -3,11 +3,11 @@ module Vector2 exposing (..)
 import AltMath.Alternative.ADT.Vector2 as ADT
 import AltMath.Alternative.Record.Vector2 as Record
 import AltMath.Alternative.Tuple.Vector2 as Tuple
-import AltMath.Const exposing (epsilon)
 import Expect exposing (Expectation, FloatingPointTolerance(..))
 import Fuzz
 import Math.Vector2 as Math
 import Test exposing (..)
+import Util exposing (compareFloat, epsilon)
 
 
 suite : Test
@@ -43,9 +43,9 @@ fuzzWrap name fn0 fn1 fn2 fn3 =
     fuzz record name <|
         \r1 ->
             Expect.all
-                [ Expect.within (Absolute epsilon) (fn1 (ADT.fromRecord r1))
-                , Expect.within (Absolute epsilon) (fn2 (Record.fromRecord r1))
-                , Expect.within (Absolute epsilon) (fn3 (Tuple.fromRecord r1))
+                [ compareFloat (fn1 (ADT.fromRecord r1))
+                , compareFloat (fn2 (Record.fromRecord r1))
+                , compareFloat (fn3 (Tuple.fromRecord r1))
                 ]
                 (fn0 (Math.fromRecord r1))
 
@@ -57,20 +57,20 @@ fuzzWrapVec name fn0 fn1 fn2 fn3 =
             Expect.all
                 [ \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn1 (ADT.fromRecord r1) |> ADT.toRecord)
                 , \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn2 (Record.fromRecord r1) |> Record.toRecord)
                 , \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn3 (Tuple.fromRecord r1) |> Tuple.toRecord)
                 ]
@@ -82,9 +82,9 @@ fuzzWrap2 name fn0 fn1 fn2 fn3 =
     fuzz2 record record name <|
         \r1 r2 ->
             Expect.all
-                [ Expect.within (Absolute epsilon) (fn1 (ADT.fromRecord r1) (ADT.fromRecord r2))
-                , Expect.within (Absolute epsilon) (fn2 (Record.fromRecord r1) (Record.fromRecord r2))
-                , Expect.within (Absolute epsilon) (fn3 (Tuple.fromRecord r1) (Tuple.fromRecord r2))
+                [ compareFloat (fn1 (ADT.fromRecord r1) (ADT.fromRecord r2))
+                , compareFloat (fn2 (Record.fromRecord r1) (Record.fromRecord r2))
+                , compareFloat (fn3 (Tuple.fromRecord r1) (Tuple.fromRecord r2))
                 ]
                 (fn0 (Math.fromRecord r1) (Math.fromRecord r2))
 
@@ -96,20 +96,20 @@ fuzzWrap2Vec name fn0 fn1 fn2 fn3 =
             Expect.all
                 [ \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn1 (ADT.fromRecord r1) (ADT.fromRecord r2) |> ADT.toRecord)
                 , \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn2 (Record.fromRecord r1) (Record.fromRecord r2) |> Record.toRecord)
                 , \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn3 (Tuple.fromRecord r1) (Tuple.fromRecord r2) |> Tuple.toRecord)
                 ]
@@ -123,20 +123,20 @@ fuzzWrapFloatVec name fn0 fn1 fn2 fn3 =
             Expect.all
                 [ \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn1 fl (ADT.fromRecord r1) |> ADT.toRecord)
                 , \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn2 fl (Record.fromRecord r1) |> Record.toRecord)
                 , \{ x, y } ->
                     Expect.all
-                        [ .x >> Expect.within (Absolute epsilon) x
-                        , .y >> Expect.within (Absolute epsilon) y
+                        [ .x >> compareFloat x
+                        , .y >> compareFloat y
                         ]
                         (fn3 fl (Tuple.fromRecord r1) |> Tuple.toRecord)
                 ]

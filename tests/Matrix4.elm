@@ -206,45 +206,53 @@ suite =
 compare : Matrix4Record -> Matrix4Record -> Expectation
 compare mat1 mat2 =
     Expect.all
-        [ .m11 >> Expect.within (Absolute 0.000001) mat1.m11
-        , .m21 >> Expect.within (Absolute 0.000001) mat1.m21
-        , .m31 >> Expect.within (Absolute 0.000001) mat1.m31
-        , .m41 >> Expect.within (Absolute 0.000001) mat1.m41
-        , .m12 >> Expect.within (Absolute 0.000001) mat1.m12
-        , .m22 >> Expect.within (Absolute 0.000001) mat1.m22
-        , .m32 >> Expect.within (Absolute 0.000001) mat1.m32
-        , .m42 >> Expect.within (Absolute 0.000001) mat1.m42
-        , .m13 >> Expect.within (Absolute 0.000001) mat1.m13
-        , .m23 >> Expect.within (Absolute 0.000001) mat1.m23
-        , .m33 >> Expect.within (Absolute 0.000001) mat1.m33
-        , .m43 >> Expect.within (Absolute 0.000001) mat1.m43
-        , .m14 >> Expect.within (Absolute 0.000001) mat1.m14
-        , .m24 >> Expect.within (Absolute 0.000001) mat1.m24
-        , .m34 >> Expect.within (Absolute 0.000001) mat1.m34
-        , .m44 >> Expect.within (Absolute 0.000001) mat1.m44
+        [ .m11 >> comparePrecision 0.000001 mat1.m11
+        , .m21 >> comparePrecision 0.000001 mat1.m21
+        , .m31 >> comparePrecision 0.000001 mat1.m31
+        , .m41 >> comparePrecision 0.000001 mat1.m41
+        , .m12 >> comparePrecision 0.000001 mat1.m12
+        , .m22 >> comparePrecision 0.000001 mat1.m22
+        , .m32 >> comparePrecision 0.000001 mat1.m32
+        , .m42 >> comparePrecision 0.000001 mat1.m42
+        , .m13 >> comparePrecision 0.000001 mat1.m13
+        , .m23 >> comparePrecision 0.000001 mat1.m23
+        , .m33 >> comparePrecision 0.000001 mat1.m33
+        , .m43 >> comparePrecision 0.000001 mat1.m43
+        , .m14 >> comparePrecision 0.000001 mat1.m14
+        , .m24 >> comparePrecision 0.000001 mat1.m24
+        , .m34 >> comparePrecision 0.000001 mat1.m34
+        , .m44 >> comparePrecision 0.000001 mat1.m44
         ]
         mat2
+
+
+comparePrecision precision a b =
+    if isNaN a && isNaN b then
+        Expect.pass
+
+    else
+        Expect.within (Absolute precision) a b
 
 
 compareCustom : Float -> Matrix4Record -> Matrix4Record -> Expectation
 compareCustom precision mat1 mat2 =
     Expect.all
-        [ .m11 >> Expect.within (Absolute precision) mat1.m11
-        , .m21 >> Expect.within (Absolute precision) mat1.m21
-        , .m31 >> Expect.within (Absolute precision) mat1.m31
-        , .m41 >> Expect.within (Absolute precision) mat1.m41
-        , .m12 >> Expect.within (Absolute precision) mat1.m12
-        , .m22 >> Expect.within (Absolute precision) mat1.m22
-        , .m32 >> Expect.within (Absolute precision) mat1.m32
-        , .m42 >> Expect.within (Absolute precision) mat1.m42
-        , .m13 >> Expect.within (Absolute precision) mat1.m13
-        , .m23 >> Expect.within (Absolute precision) mat1.m23
-        , .m33 >> Expect.within (Absolute precision) mat1.m33
-        , .m43 >> Expect.within (Absolute precision) mat1.m43
-        , .m14 >> Expect.within (Absolute precision) mat1.m14
-        , .m24 >> Expect.within (Absolute precision) mat1.m24
-        , .m34 >> Expect.within (Absolute precision) mat1.m34
-        , .m44 >> Expect.within (Absolute precision) mat1.m44
+        [ .m11 >> comparePrecision precision mat1.m11
+        , .m21 >> comparePrecision precision mat1.m21
+        , .m31 >> comparePrecision precision mat1.m31
+        , .m41 >> comparePrecision precision mat1.m41
+        , .m12 >> comparePrecision precision mat1.m12
+        , .m22 >> comparePrecision precision mat1.m22
+        , .m32 >> comparePrecision precision mat1.m32
+        , .m42 >> comparePrecision precision mat1.m42
+        , .m13 >> comparePrecision precision mat1.m13
+        , .m23 >> comparePrecision precision mat1.m23
+        , .m33 >> comparePrecision precision mat1.m33
+        , .m43 >> comparePrecision precision mat1.m43
+        , .m14 >> comparePrecision precision mat1.m14
+        , .m24 >> comparePrecision precision mat1.m24
+        , .m34 >> comparePrecision precision mat1.m34
+        , .m44 >> comparePrecision precision mat1.m44
         ]
         mat2
 
@@ -263,9 +271,9 @@ compareVec3 vec1 vec2 =
 --
 --compareVec3Custom precision vec1 vec2 =
 --    Expect.all
---        [ .x >> Expect.within (Absolute precision) vec1.x
---        , .y >> Expect.within (Absolute precision) vec1.y
---        , .z >> Expect.within (Absolute precision) vec1.z
+--        [ .x >> comparePrecision precision vec1.x
+--        , .y >> comparePrecision precision vec1.y
+--        , .z >> comparePrecision precision vec1.z
 --        ]
 --        vec2
 
