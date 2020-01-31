@@ -3,8 +3,8 @@ module AltMath.Vector2 exposing
     , getX, getY, setX, setY
     , add, sub, negate, scale, dot, normalize, direction, mul
     , length, lengthSquared, distance, distanceSquared
-    , toRecord, fromRecord
     , max, projection
+    , toRecord, fromRecord
     )
 
 {-|
@@ -26,6 +26,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 @docs add, sub, negate, scale, dot, normalize, direction, mul
 @docs length, lengthSquared, distance, distanceSquared
+@docs max, projection
 
 
 # Conversions
@@ -163,6 +164,7 @@ distanceSquared a b =
 
 {-| Get longest vector of two
 -}
+max : Vec2 -> Vec2 -> Vec2
 max a b =
     if lengthSquared a > lengthSquared b then
         a
@@ -171,6 +173,8 @@ max a b =
         b
 
 
+{-| Projecting one vector onto another
+-}
 projection : Vec2 -> Vec2 -> Vec2
 projection a b =
     scale (dot a b / lengthSquared b) b
