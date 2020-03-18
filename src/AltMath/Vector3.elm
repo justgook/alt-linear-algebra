@@ -11,7 +11,7 @@ module AltMath.Vector3 exposing
 
 # Create
 
-@docs Vec3, vec3, i, j, k
+@docs Vec3, vec3, zero, i, j, k
 
 
 # Get and Set
@@ -45,6 +45,13 @@ type alias Vec3 =
 vec3 : Float -> Float -> Float -> Vec3
 vec3 =
     Vec3
+
+
+{-| Creates a new 3-element vector whose components are zero.
+-}
+zero : Vec3
+zero =
+    { x = 0, y = 0, z = 0 } 
 
 
 {-| The unit vector &icirc; which points in the x direction: `vec3 1 0 0`

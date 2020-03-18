@@ -11,7 +11,7 @@ module AltMath.Vector4 exposing
 
 # Create
 
-@docs Vec4, vec4
+@docs Vec4, vec4, zero
 
 
 # Get and Set
@@ -45,6 +45,13 @@ type alias Vec4 =
 vec4 : Float -> Float -> Float -> Float -> Vec4
 vec4 =
     Vec4
+
+
+{-| Creates a new 4-element vector whose components zero.
+-}
+zero : Vec4
+zero =
+    { x = 0, y = 0, z = 0, w = 0 } 
 
 
 {-| Extract the x component of a vector.
