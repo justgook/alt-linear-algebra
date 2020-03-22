@@ -12,7 +12,7 @@ module AltMath.Vector2 exposing
 
 # Create
 
-@docs Vec2, vec2
+@docs Vec2, vec2, zero
 
 
 # Get and Set
@@ -47,6 +47,13 @@ type alias Vec2 =
 vec2 : Float -> Float -> Vec2
 vec2 x y =
     { x = x, y = y }
+
+
+{-| Creates a new 2-element vector whose components are both zero.
+-}
+zero : Vec2
+zero =
+    { x = 0, y = 0 } 
 
 
 {-| Extract the x component of a vector.
